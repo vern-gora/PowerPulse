@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
 import React, { lazy } from 'react';
 import { Rings } from 'react-loader-spinner';
 import { Suspense } from 'react';
