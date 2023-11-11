@@ -1,0 +1,53 @@
+.container {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    background-color: rgba(230, 83, 60, 1);
+    display: flex;
+    align-items: center;
+}
+
+.errorContainer {
+    background-color: rgba(230, 83, 60, 1);
+    padding-left: 96px;
+    width: 669px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+}
+
+.title {
+    font-size: 160px;
+    font-weight: 500;
+    line-height: 150px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    color: rgba(239, 237, 232, 1);
+    margin: 0;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: rgba(239, 237, 232, 1);
+    width: 486px;
+}
+
+.btn {
+    color: rgba(239, 237, 232, 1);
+    padding: 16px, 60px, 16px, 60px;
+    background-color: inherit;
+    border: 1px solid rgba(239, 237, 232, 0.3);
+    border-radius: 12px;
+    width: 204px;
+    height: 56px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+}
