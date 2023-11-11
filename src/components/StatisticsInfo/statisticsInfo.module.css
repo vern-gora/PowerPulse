@@ -1,0 +1,121 @@
+.wrapper{
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 375px;
+}
+.videos_wrapper{
+    display: flex;
+    align-items: center;
+    width: 146px;
+    height: 66px;
+    background-color: #303030;
+    border-radius: 12px;
+    margin-bottom: 70px;
+}
+.calories_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 119px;
+    height: 76px;
+    background-color: #EF8964;
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+p{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: rgba(239, 237, 232, 0.65);
+}
+.play {
+    fill: #EFEDE8;
+    background-color: #EF8964;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 18px;
+    margin-right: 8px;
+}
+.human_icon{
+    fill: #EFEDE8;
+    background-color: #EFA082;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    top: 18px;
+    left: 22px;
+    padding: 5px;
+    margin-left: 22px;
+}
+.wrap_text{
+    display: flex;
+    flex-direction: column;
+}
+.num{
+    color: #EFEDE8;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+.num_cal{
+    color: #EFEDE8;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -1px;
+    text-align: left;
+    margin-top: 4px;
+    margin-right: 8px;
+}
+.cal{
+    font-weight: 700;
+}
+.wrap_text2{
+    margin-left: 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+@media screen and (min-width: 768px){
+    .wrapper{
+        width: 100%;
+        max-width: 420px;
+        bottom: 48px;
+        right: 0;
+    }
+    .videos_wrapper{
+        width: 206px;
+        height: 96px;
+        margin-bottom: 56px;
+        margin-right: auto;
+    }
+    .calories_wrapper{
+        width: 180px;
+        height: 110px;
+        margin-right: 32px;
+    }
+}
+@media screen and (min-width: 1440px){
+    .wrapper{
+        width: 100%;
+        max-width: 690px;
+        bottom: 171px;
+        right: 0;
+    }
+    .videos_wrapper{
+        margin-bottom: 39px;
+        margin-right: auto;
+    }
+}

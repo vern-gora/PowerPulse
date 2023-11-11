@@ -2,6 +2,7 @@ import React from 'react';
 import css from './welcomePage.module.css';
 import line from '../../images/svg/Line.svg';
 import { NavLink } from 'react-router-dom';
+import StatisticInfo from 'components/StatisticsInfo/StatisticsInfo';
 
 const WelcomePage = () => {
 
@@ -17,6 +18,7 @@ const WelcomePage = () => {
             <NavLink to='/signin' className={css.btn}>Sign In</NavLink>
         </nav>
       </div>
+      <StatisticInfo/>
     </div>
   )
 }
