@@ -17,64 +17,58 @@ function App() {
 
   return (
       <>
-        <Routes>
-          <Route
-            path='/'
-            element={
-              <Suspense
-                fallback={
-                  <Rings
-                    height='100'
-                    width='100'
-                    color='#e6533c'
-                    ariaLabel='rings-loading'
-                    wrapperStyle={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      width: '100%',
-                      height: '100vh',
-                    }}
-                    wrapperClass=''
-                    visible={true}
-                    firstLineColor=''
-                    middleLineColor=''
-                    lastLineColor=''
-                  />
-                }
-              >
-              </Suspense>
-            }
-          >
-            <Route index element={WelcomePage} />
+        <Suspense
+          fallback={
+            <Rings
+              height='100'
+              width='100'
+              color='#e6533c'
+              ariaLabel='rings-loading'
+              wrapperStyle={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                height: '100vh',
+              }}
+              wrapperClass=''
+              visible={true}
+              firstLineColor=''
+              middleLineColor=''
+              lastLineColor=''
+            />
+          }
+        >
+          <Routes>
+            <Route index element={<WelcomePage />} />
             <Route
               path='/signup'
-              element={SignUpPage}
+              element={<SignUpPage />}
             />
             <Route
               path='/signin'
-              element={SignInPage}
+              element={<SignInPage />}
             />
             <Route
               path='/profile'
-              element={ProfilePage}
+              element={<ProfilePage />}
             />
             <Route
               path='/diary'
-              element={DiaryPage}
+              element={<DiaryPage />}
             />
             <Route
               path='/products'
-              element={ProductsPage}
+              element={<ProductsPage />}
             />
             <Route
               path='/exercises'
-              element={ExercisesPage}
+              element={<ExercisesPage />}
             />
-          </Route>
-          <Route path='/error' element={<ErrorPage />} />
-          <Route path='*' element={<Navigate to='/error' />} />
-        </Routes>
+            <Route path='/error' element={<ErrorPage />} />
+            <Route path='*' element={<Navigate to='/error' />} />
+          </Routes>
+        </Suspense>
       </>)
 }
 
