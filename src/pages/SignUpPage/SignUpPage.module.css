@@ -11,7 +11,7 @@
 .formContainer {
     width: 502px;
     height: 336px;
-    margin-bottom: 58px;
+    margin-bottom: 75px;
 }
 
 .title {
@@ -21,6 +21,7 @@
     letter-spacing: 0em;
     text-align: left;
     color: rgba(239, 237, 232, 1);
+    margin-bottom: 10px;
 }
 
 .titleDescription {
@@ -30,6 +31,7 @@
     line-height: 24px;
     letter-spacing: 0px;
     text-align: left;
+    margin-bottom: 28px;
 }
 
 .input {
@@ -38,7 +40,9 @@
     width: 364px;
     height: 52px;
     border-radius: 12px;
-    padding-left: 14px
+    padding-left: 14px;
+    margin-top: 0;
+    margin-bottom: 16px;
 }
 
 .input::placeholder {
@@ -71,6 +75,7 @@
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
+    margin-bottom: 6px;
 }
 
 .description {
@@ -80,4 +85,14 @@
     line-height: 18px;
     letter-spacing: 0px;
     text-align: left;
+}
+
+.img {
+    min-height: 100%;
+    margin-left: auto;
+}
+
+.link {
+    color: rgba(239, 237, 232, 1);
+    text-decoration: underline;
 }

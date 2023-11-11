@@ -1,5 +1,7 @@
 import React from 'react';
 import style from './SignInPage.module.css';
+import bimg from '../../images/desktop_images/hero-desktop.jpg';
+import { NavLink } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 // import { loginUser } from 'redux/auth/api';
 
@@ -55,11 +57,14 @@ const SignInPage = () => {
           </form>
         </div>
         <button className={style.btn}>Sign In</button>
-        <p className={style.description}>Don’t have an account? Sign Up</p>
+        <p className={style.description}>Don’t have an account?&nbsp;
+          <NavLink to={'/signup'} className={style.link}>Sign Up</NavLink>
+        </p>
           {/* <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
             Login
           </Button> */}
       </div>
+      <img src={bimg} alt="Logo" className={style.img}/>;
     </div>
   )
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 import style from './SignUpPage.module.css';
+import bimg from '../../images/desktop_images/hero-desktop.jpg';
+import { NavLink } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 // import { registerUser } from 'redux/auth/api';
 // import { Button, TextField } from '@mui/material';
@@ -26,46 +28,6 @@ const SignUpPage = () => {
 //   }
 
   return (
-    // <div className={style.container}>
-    //   <form onSubmit={handleSubmit} className={style.form}>
-    //     <label>
-    //       <TextField
-    //         margin="normal"
-    //         required
-    //         type="text"
-    //         label="Name"
-    //         name="userName"
-    //         placeholder="Enter your name..."
-    //       />
-    //     </label>
-    //     <label>
-    //       <TextField
-    //         margin="normal"
-    //         required
-    //         type="email"
-    //         label="Email"
-    //         name="userEmail"
-    //         placeholder="Enter your email..."
-    //       />
-    //     </label>
-    //     <label>
-    //       <TextField
-    //         margin="normal"
-    //         required
-    //         type="password"
-    //         label="Password"
-    //         name="userPassword"
-    //         placeholder="Enter your password..."
-    //         minLength={7}
-    //       />
-    //     </label>
-    //     <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-    //       Register
-    //     </Button>
-    //   </form>
-    // </div>
-
-
     <div className={style.container}>
       <div className={style.loginContainer}>
         <div className={style.formContainer}>
@@ -109,11 +71,14 @@ const SignUpPage = () => {
           </form>
         </div>
         <button className={style.btn}>Sign Up</button>
-        <p className={style.description}>Already have an account? Sign In</p>
+        <p className={style.description}>Already have an account?&nbsp;
+          <NavLink to={'/signin'} className={style.link}>Sign In</NavLink>
+        </p>
           {/* <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
             Login
           </Button> */}
       </div>
+      <img src={bimg} alt="Logo" className={style.img}/>;
     </div>
   )
 }
