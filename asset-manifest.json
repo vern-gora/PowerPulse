@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PowerPulse/static/css/main.230af6e6.css",
-    "main.js": "/PowerPulse/static/js/main.67fbb1da.js",
+    "main.js": "/PowerPulse/static/js/main.752a7748.js",
     "static/js/123.58c28f7a.chunk.js": "/PowerPulse/static/js/123.58c28f7a.chunk.js",
     "static/js/622.a2be7431.chunk.js": "/PowerPulse/static/js/622.a2be7431.chunk.js",
     "static/js/75.7a43dbac.chunk.js": "/PowerPulse/static/js/75.7a43dbac.chunk.js",
@@ -15,10 +15,10 @@
     "static/media/Roboto-Bold.ttf": "/PowerPulse/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "index.html": "/PowerPulse/index.html",
     "main.230af6e6.css.map": "/PowerPulse/static/css/main.230af6e6.css.map",
-    "main.67fbb1da.js.map": "/PowerPulse/static/js/main.67fbb1da.js.map"
+    "main.752a7748.js.map": "/PowerPulse/static/js/main.752a7748.js.map"
   },
   "entrypoints": [
     "static/css/main.230af6e6.css",
-    "static/js/main.67fbb1da.js"
+    "static/js/main.752a7748.js"
   ]
 }
