@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './ErrorPage.module.css'
-import bimg from '../../images/desktop_images/hero-desktop.jpg';
+import bimg from '../../images/desktop_images/hero-desktop.png';
 import { NavLink } from 'react-router-dom';
 
 const ErrorPage = () => {

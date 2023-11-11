@@ -1,23 +1,23 @@
 import React from 'react';
 import style from './SignUpPage.module.css';
-import bimg from '../../images/desktop_images/hero-desktop.jpg';
+import bimg from '../../images/desktop_images/hero-desktop.png';
 import { NavLink } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 // import { registerUser } from 'redux/auth/api';
 // import { Button, TextField } from '@mui/material';
 
 const SignUpPage = () => {
-  
+
 //   const dispatch = useDispatch();
 
 //   const handleSubmit = (event) => {
-    
+
 //     event.preventDefault();
 
 //     const name = event.currentTarget.elements.userName.value;
 //     const email = event.currentTarget.elements.userEmail.value;
 //     const password = event.currentTarget.elements.userPassword.value;
-    
+
 //     const formData = {
 //       name,
 //       email,

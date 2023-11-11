@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './welcomePage.module.css';
-import bimg from '../../images/desktop_images/hero-desktop.jpg';
+import bimg from '../../images/desktop_images/hero-desktop.png';
 import line from '../../images/svg/Line.svg';
 import { useNavigate } from 'react-router-dom';
 
