@@ -1,0 +1,38 @@
+.diaryPage {
+    background-color: black;
+    color: #efede8;
+    height: 200%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px 80px;
+  }
+  .header {
+    width: 56px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  .reminder {
+    width: auto;
+    height: 54px;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 50px;
+    color: #efede8a1;
+  }
+  .reminderText::before {
+    content: '';
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    background-color: palevioletred;
+    margin-right: 8px;
+  }
+  
