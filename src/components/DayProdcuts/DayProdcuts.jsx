@@ -31,7 +31,8 @@ return response.data
     <div className={css.productsContainer}>
       <div className={css.productsTopBar}>
         <p className={css.productsTitle}>Products</p>
-        <Link to="/products">Add product</Link>
+        <Link to="/products" className={css.Link}>Add product
+        </Link>
       </div>
       <div className={css.productsBottomBar}>
         {
