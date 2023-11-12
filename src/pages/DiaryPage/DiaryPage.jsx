@@ -1,6 +1,12 @@
 import { DayProducts } from 'components/DayProdcuts/DayProdcuts';
 import { DaySwitch } from 'components/DaySwitch/DaySwitch';
 import css from './DiaryPage.module.css';
+/*{
+    "name":"Someone",
+    "email":"someemail@email.com",
+    "password":"123456789"
+
+}*/ 
 const DiaryPage = () => {
   return (
     <section className={css.diaryPage}>
