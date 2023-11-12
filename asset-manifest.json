@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/PowerPulse/static/css/main.018b4970.css",
-    "main.js": "/PowerPulse/static/js/main.575c1e95.js",
+    "main.js": "/PowerPulse/static/js/main.de8e47f5.js",
     "static/css/489.c00e8233.chunk.css": "/PowerPulse/static/css/489.c00e8233.chunk.css",
     "static/js/489.9d3a2e6f.chunk.js": "/PowerPulse/static/js/489.9d3a2e6f.chunk.js",
-    "static/css/471.606e90a9.chunk.css": "/PowerPulse/static/css/471.606e90a9.chunk.css",
-    "static/js/471.b9d528ec.chunk.js": "/PowerPulse/static/js/471.b9d528ec.chunk.js",
+    "static/css/471.58c2abc7.chunk.css": "/PowerPulse/static/css/471.58c2abc7.chunk.css",
+    "static/js/471.3e968e7c.chunk.js": "/PowerPulse/static/js/471.3e968e7c.chunk.js",
     "static/css/516.f0940106.chunk.css": "/PowerPulse/static/css/516.f0940106.chunk.css",
     "static/js/516.2cba5145.chunk.js": "/PowerPulse/static/js/516.2cba5145.chunk.js",
     "static/css/4.be4ecba6.chunk.css": "/PowerPulse/static/css/4.be4ecba6.chunk.css",
@@ -29,11 +29,11 @@
     "index.html": "/PowerPulse/index.html",
     "static/media/Line.svg": "/PowerPulse/static/media/Line.56c98a07893009bfdfbb2f9613a038d4.svg",
     "main.018b4970.css.map": "/PowerPulse/static/css/main.018b4970.css.map",
-    "main.575c1e95.js.map": "/PowerPulse/static/js/main.575c1e95.js.map",
+    "main.de8e47f5.js.map": "/PowerPulse/static/js/main.de8e47f5.js.map",
     "489.c00e8233.chunk.css.map": "/PowerPulse/static/css/489.c00e8233.chunk.css.map",
     "489.9d3a2e6f.chunk.js.map": "/PowerPulse/static/js/489.9d3a2e6f.chunk.js.map",
-    "471.606e90a9.chunk.css.map": "/PowerPulse/static/css/471.606e90a9.chunk.css.map",
-    "471.b9d528ec.chunk.js.map": "/PowerPulse/static/js/471.b9d528ec.chunk.js.map",
+    "471.58c2abc7.chunk.css.map": "/PowerPulse/static/css/471.58c2abc7.chunk.css.map",
+    "471.3e968e7c.chunk.js.map": "/PowerPulse/static/js/471.3e968e7c.chunk.js.map",
     "516.f0940106.chunk.css.map": "/PowerPulse/static/css/516.f0940106.chunk.css.map",
     "516.2cba5145.chunk.js.map": "/PowerPulse/static/js/516.2cba5145.chunk.js.map",
     "4.be4ecba6.chunk.css.map": "/PowerPulse/static/css/4.be4ecba6.chunk.css.map",
@@ -44,6 +44,6 @@
   },
   "entrypoints": [
     "static/css/main.018b4970.css",
-    "static/js/main.575c1e95.js"
+    "static/js/main.de8e47f5.js"
   ]
 }
