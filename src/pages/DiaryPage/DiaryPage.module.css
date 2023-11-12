@@ -1,10 +1,11 @@
 .diaryPage {
     background-color: black;
+    background-size:contain;
     color: #efede8;
-    height: 200%;
     display: flex;
     flex-direction: column;
     padding: 40px 20px 80px;
+    margin: 0 auto;
   }
   .header {
     width: 56px;
@@ -23,7 +24,7 @@
     height: 54px;
     font-size: 14px;
     line-height: 18px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     color: #efede8a1;
   }
   .reminderText::before {
@@ -35,4 +36,35 @@
     background-color: palevioletred;
     margin-right: 8px;
   }
-  
+  @media screen and (min-width: 375px) {
+    .diaryPage{
+      width: 335px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .diaryPage{
+      width: 728px;
+    }
+    .reminder{
+      width: 593px;
+      bottom: 0;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .diaryPage{
+      width: calc(1440px - 96px*2);
+      padding: 52px 96px 68px 96px;
+    }
+    .reminder{
+      position: relative;
+      top: 300px;
+      left: 954px;
+      width: 390px;
+      margin-bottom: 0px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .topBar{
+      margin-bottom: 32px;
+    }
+  }
