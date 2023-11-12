@@ -17,7 +17,7 @@ const ExercisesPage = lazy(() => import('pages/ExercisesPage/ExercisesPage'));
 const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 
 function App() {
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.info.auth.isLoggedIn);
 
   return (
     <>
