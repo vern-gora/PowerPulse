@@ -10,6 +10,7 @@
     ),
     linear-gradient(0deg, rgba(239, 237, 232, 0.046), rgba(239, 237, 232, 0.05));
   padding: 16px;
+  padding-right: 0px;
   height: 250px;
   overflow: auto;
 }
@@ -25,11 +26,13 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+  padding-right: 16px;
 }
 .productsBottomBar {
-  width: 100%;
+  width: 100% - 16px;
   display: flex;
   align-items: center;
+  padding-left: 16px;
 }
 .productsTitle {
   font-size: 14px;
