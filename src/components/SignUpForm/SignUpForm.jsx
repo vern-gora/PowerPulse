@@ -12,41 +12,32 @@ const SignUpForm = () => {
                 <p className={style.titleDescription}>Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.</p>
                 <form className={style.form}>
                     <label className={style.label}>
-                        <input type="text" required placeholder="Name" name="userName" className={style.input} />
-                        {/* <TextField
-                        margin="normal"
+                    <input 
+                        type="text" 
+                        name='userName' 
+                        placeholder='Name' 
                         required
-                        type="email"
-                        label="Email"
-                        name="userEmail"
-                        placeholder="Enter your email..."
-                        /> */   
-                        }
+                        className={style.input}
+                    />
                     </label>
                     <label className={style.label}>
-                        <input type="email" required placeholder="Email" name="userEmail" className={style.input} />
-                        {/* <TextField
-                        margin="normal"
+                    <input 
+                        type="email" 
+                        name='userEmail' 
+                        placeholder='Email' 
                         required
-                        type="email"
-                        label="Email"
-                        name="userEmail"
-                        placeholder="Enter your email..."
-                        /> */
-                        }
+                        className={style.input}
+                    />
                     </label>
                     <label className={style.label}>
-                        <input type="password" required placeholder="Password" name="userPassword" minLength={7} className={style.input} />
-                        {/* <TextField
-                        margin="normal"
+                    <input 
+                        type="password" 
+                        name='userPassword' 
+                        placeholder='Password'
+                        minLength={7} 
                         required
-                        type="password"
-                        label="Password"
-                        name="userPassword"
-                        placeholder="Enter your password..."
-                        minLength={7}
-                        /> */
-                        }
+                        className={style.input}
+                    />
                     </label>
                 </form>
                 <button className={style.btn}>Sign Up</button>
