@@ -71,12 +71,15 @@
     margin-bottom: 28px;
 }
 .input {
+    padding: 0;
+    margin: 0;
     background-color: inherit;
     border: 1px solid rgba(239, 237, 232, 0.3);
-    width: 100%;
+    width: 93%;
     max-width: 335px;
     height: 46px;
     border-radius: 12px;
+    padding-left: 14px;
 }
 .input::placeholder {
     font-size: 14px;
@@ -85,7 +88,6 @@
     letter-spacing: 0em;
     text-align: left;
     color: rgba(239, 237, 232, 0.6);
-    padding-left: 14px;
 }
 @media screen and (min-width: 768px){
     .wrapper{
