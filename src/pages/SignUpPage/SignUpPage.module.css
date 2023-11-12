@@ -20,7 +20,6 @@
     .container{
         background-image: url('../../images/tablet_images/hero-tablet.png');
         padding: 0;
-        padding-left: 32px;
     }
     @media (min-resolution: 192dpi) {
         .container {
