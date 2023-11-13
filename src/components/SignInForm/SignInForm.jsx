@@ -17,8 +17,6 @@ const SignInForm = () => {
             email,
             password,
         };
-        
-        console.log(formData)
 
         dispatch(logIn(formData));
     }
