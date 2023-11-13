@@ -1,4 +1,16 @@
-.header {
-  font-size: 32px;
-  color: red;
+.header_logo {
+  flex-shrink: 0;
+}
+
+.icon_logo {
+  max-width: 36px;
+  max-height: 13px;
+  fill: #e6533c;
+}
+
+.icon_text {
+  width: 82px;
+  height: 12px;
+  flex-shrink: 0;
+  fill: #efede8;
 }
