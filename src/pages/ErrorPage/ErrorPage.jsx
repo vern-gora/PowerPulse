@@ -1,6 +1,5 @@
 import React from 'react'
 import style from './ErrorPage.module.css'
-import bimg from '../../images/desktop_images/hero-desktop.png';
 import { NavLink } from 'react-router-dom';
 
 const ErrorPage = () => {
@@ -13,7 +12,6 @@ const ErrorPage = () => {
           <NavLink to={'/'}>Go Home</NavLink>
         </button>
       </div>
-      <img src={bimg} alt="Logo" className={style.img}/>;
     </div>
   )
 }
