@@ -1,26 +1,27 @@
 import { DayProducts } from 'components/DayProdcuts/DayProdcuts';
 import { DaySwitch } from 'components/DaySwitch/DaySwitch';
 import css from './DiaryPage.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, /*useSelector*/ } from 'react-redux';
 import { fetchFood } from 'redux/diary/operations';
 import { useEffect } from 'react';
-import {
+/*import {
   selectConsumedFood,
   selectCurrentData,
   selectIsLoading,
   selectError,
-} from 'redux/diary/selectors';
+} from 'redux/diary/selectors';*/
+
+
 /*{
     "name":"Someone",
     "email":"someemail@email.com",
     "password":"123456789"
-
 }*/
 const DiaryPage = () => {
-  const consumedFood = useSelector(selectConsumedFood);
+  /*const consumedFood = useSelector(selectConsumedFood);
   const currentData = useSelector(selectCurrentData);
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const error = useSelector(selectError);*/
   const dispatch = useDispatch();
 
   useEffect(() => {
