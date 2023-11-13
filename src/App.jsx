@@ -88,7 +88,8 @@ function App() {
             />
             <Route
               path="/diary"
-              element = {<DiaryPage />}
+              element={<DiaryPage />
+              }
             />
             <Route
               path="/products"

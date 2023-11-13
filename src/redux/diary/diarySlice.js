@@ -19,7 +19,9 @@ const diarySlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      .addCase(fetchFood.pending, (state, action) => (state.isLoading = true))
+      .addCase(fetchFood.pending, (state, action) => {
+        state.isLoading = true
+      })
       .addCase(fetchFood.fulfilled, (state, action) => {
         state.data.consumedProduct = action.payload;
         state.error = null;
