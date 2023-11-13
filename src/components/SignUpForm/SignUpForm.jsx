@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import style from './signUpForm.module.css';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { register } from "redux/auth/operations";
 
 
@@ -17,8 +17,8 @@ const SignUpForm = () => {
         const password = event.currentTarget.elements.userPassword.value;
 
         const formData = {
-        name, 
-        email, 
+        name,
+        email,
         password,
         };
 
@@ -32,29 +32,29 @@ const SignUpForm = () => {
                 <p className={style.titleDescription}>Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.</p>
                 <form onSubmit={handleSubmit} className={style.form}>
                     <label className={style.label}>
-                        <input 
-                            type="text" 
-                            name='userName' 
-                            placeholder='Name' 
+                        <input
+                            type="text"
+                            name='userName'
+                            placeholder='Name'
                             required
                             className={style.input}
                         />
                     </label>
                     <label className={style.label}>
-                        <input 
-                            type="email" 
-                            name='userEmail' 
-                            placeholder='Email' 
+                        <input
+                            type="email"
+                            name='userEmail'
+                            placeholder='Email'
                             required
                             className={style.input}
                         />
                     </label>
                     <label className={style.label}>
-                        <input 
-                            type="password" 
-                            name='userPassword' 
+                        <input
+                            type="password"
+                            name='userPassword'
                             placeholder='Password'
-                            minLength={7} 
+                            minLength={7}
                             required
                             className={style.input}
                         />
