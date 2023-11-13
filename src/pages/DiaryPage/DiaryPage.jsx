@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import {
   selectConsumedFood,
   selectCurrentData,
-  selectisLoading,
+  selectIsLoading,
   selectError,
 } from 'redux/diary/selectors';
 /*{
@@ -19,7 +19,7 @@ import {
 const DiaryPage = () => {
   const consumedFood = useSelector(selectConsumedFood);
   const currentData = useSelector(selectCurrentData);
-  const isLoading = useSelector(selectisLoading);
+  const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
 

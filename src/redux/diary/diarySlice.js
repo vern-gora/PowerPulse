@@ -22,6 +22,7 @@ const diarySlice = createSlice({
       .addCase(fetchFood.pending, (state, action) => (state.isLoading = true))
       .addCase(fetchFood.fulfilled, (state, action) => {
         state.data.consumedProduct = action.payload;
+        state.error = null;
         state.isLoading = false;
       })
       .addCase(fetchFood.rejected, (state, action) => {
