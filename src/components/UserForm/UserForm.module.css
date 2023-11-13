@@ -69,3 +69,34 @@
   background: var(--orange-color);
   color: rgba(239, 237, 232, 0.6);
 }
+
+@media screen and (min-width: 768px) {
+  .form_container {
+    margin-top: 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 700px;
+  }
+  .section_title {
+    font-size: 14px;
+  }
+  .button {
+    margin: 40px 0px 64px 0;
+    padding: 16px 50px;
+  }
+  .wrapper_level {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .input {
+    width: 341px;
+  }
+  .wrapper_radio {
+    display: block;
+  }
+}

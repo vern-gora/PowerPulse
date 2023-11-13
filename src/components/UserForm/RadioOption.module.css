@@ -61,3 +61,10 @@
 .radio_input:checked + .radio_label::after {
   opacity: 1;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .radio_label {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
