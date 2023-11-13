@@ -5,7 +5,7 @@ import svg from '../../images/svg/sprite.svg';
 
 function Header() {
   return (
-    <>
+    <div className="container">
       <NavLink to="/" className={css.header_logo}>
         <svg className={css.icon_logo}>
           <use href={svg + `#logo_icon`}></use>
@@ -14,7 +14,7 @@ function Header() {
           <use href={svg + `#logo_text`}></use>
         </svg>
       </NavLink>
-    </>
+    </div>
   );
 }
 export default Header;
