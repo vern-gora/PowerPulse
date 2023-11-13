@@ -1,16 +1,36 @@
 import { NavLink } from "react-router-dom";
 import style from './signUpForm.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "redux/auth/operations";
 
 
 
 const SignUpForm = () => {
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const name = event.currentTarget.elements.userName.value;
+        const email = event.currentTarget.elements.userEmail.value;
+        const password = event.currentTarget.elements.userPassword.value;
+
+        const formData = {
+        name, 
+        email, 
+        password,
+        };
+
+        dispatch(register(formData));
+    };
 
     return(
         <div className={style.wrapper}>
             <div className={style.formContainer}>
                 <h1 className={style.title}>Sign Up</h1>
                 <p className={style.titleDescription}>Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.</p>
-                <form  className={style.form}>
+                <form onSubmit={handleSubmit} className={style.form}>
                     <label className={style.label}>
                         <input 
                             type="text" 
