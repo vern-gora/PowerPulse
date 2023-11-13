@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PowerPulse/static/css/main.03a999f9.css",
-    "main.js": "/PowerPulse/static/js/main.c7895f28.js",
+    "main.js": "/PowerPulse/static/js/main.d9846d35.js",
     "static/css/760.9f6e3f28.chunk.css": "/PowerPulse/static/css/760.9f6e3f28.chunk.css",
     "static/js/760.2c3e62b7.chunk.js": "/PowerPulse/static/js/760.2c3e62b7.chunk.js",
     "static/css/546.703abf69.chunk.css": "/PowerPulse/static/css/546.703abf69.chunk.css",
@@ -28,7 +28,7 @@
     "index.html": "/PowerPulse/index.html",
     "static/media/Line.svg": "/PowerPulse/static/media/Line.56c98a07893009bfdfbb2f9613a038d4.svg",
     "main.03a999f9.css.map": "/PowerPulse/static/css/main.03a999f9.css.map",
-    "main.c7895f28.js.map": "/PowerPulse/static/js/main.c7895f28.js.map",
+    "main.d9846d35.js.map": "/PowerPulse/static/js/main.d9846d35.js.map",
     "760.9f6e3f28.chunk.css.map": "/PowerPulse/static/css/760.9f6e3f28.chunk.css.map",
     "760.2c3e62b7.chunk.js.map": "/PowerPulse/static/js/760.2c3e62b7.chunk.js.map",
     "546.703abf69.chunk.css.map": "/PowerPulse/static/css/546.703abf69.chunk.css.map",
@@ -42,6 +42,6 @@
   },
   "entrypoints": [
     "static/css/main.03a999f9.css",
-    "static/js/main.c7895f28.js"
+    "static/js/main.d9846d35.js"
   ]
 }
