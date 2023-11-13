@@ -10,37 +10,37 @@ const SignUpForm = () => {
             <div className={style.formContainer}>
                 <h1 className={style.title}>Sign Up</h1>
                 <p className={style.titleDescription}>Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.</p>
-                <form className={style.form}>
+                <form  className={style.form}>
                     <label className={style.label}>
-                    <input 
-                        type="text" 
-                        name='userName' 
-                        placeholder='Name' 
-                        required
-                        className={style.input}
-                    />
+                        <input 
+                            type="text" 
+                            name='userName' 
+                            placeholder='Name' 
+                            required
+                            className={style.input}
+                        />
                     </label>
                     <label className={style.label}>
-                    <input 
-                        type="email" 
-                        name='userEmail' 
-                        placeholder='Email' 
-                        required
-                        className={style.input}
-                    />
+                        <input 
+                            type="email" 
+                            name='userEmail' 
+                            placeholder='Email' 
+                            required
+                            className={style.input}
+                        />
                     </label>
                     <label className={style.label}>
-                    <input 
-                        type="password" 
-                        name='userPassword' 
-                        placeholder='Password'
-                        minLength={7} 
-                        required
-                        className={style.input}
-                    />
+                        <input 
+                            type="password" 
+                            name='userPassword' 
+                            placeholder='Password'
+                            minLength={7} 
+                            required
+                            className={style.input}
+                        />
                     </label>
+                    <button type='submit' className={style.btn}>Sign Up</button>
                 </form>
-                <button className={style.btn}>Sign Up</button>
                 <p className={style.description}>Already have an account?&nbsp;
                     <NavLink to={'/signin'} className={style.link}>Sign In</NavLink>
                 </p>
