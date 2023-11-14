@@ -6,6 +6,7 @@ import Layout from 'components/Layout/Layout';
 import { useSelector } from 'react-redux';
 import { RestrictedRoute } from 'RestrictedRoute';
 import { PrivateRoute } from 'PrivateRoute';
+import ExerciseModal from 'components/ExercisesTable/ExercisesTable';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('pages/SignUpPage/SignUpPage'));
@@ -129,6 +130,7 @@ function App() {
                 />
               }
             />
+            <Route path="/modal" element={<ExerciseModal />} />
             <Route path="*" element={<Navigate to="/error" />} />
           </Route>
         </Routes>
