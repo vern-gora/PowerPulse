@@ -1,0 +1,136 @@
+.searchLabel {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 16px;
+  margin-top: 40px;
+  position: relative;
+  color: #efede8;
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 16px;
+    width: 236px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 0;
+    margin-top: 0;
+
+    margin-right: 16px;
+
+    width: 236px;
+  }
+}
+
+.searchIcon {
+  /* position: absolute; */
+  display: block;
+  /* top: 14px;
+  right: 14px; */
+  stroke: currentColor;
+
+  @media screen and (min-width: 1440px) {
+    /* bottom: 17px;
+    right: 14px; */
+  }
+}
+
+.filterBtn {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 0;
+  height: 18px;
+  width: 18px;
+
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  color: #efede8;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 1440px) {
+    top: 17px;
+    right: 14px;
+  }
+}
+
+.searchField {
+  display: flex;
+  padding: 14px;
+  margin-right: auto;
+  margin-left: auto;
+
+  /* width: 335px; */
+  height: auto;
+
+  color: #efede8;
+  font-size: 14px;
+  line-height: 1.29;
+
+  background-color: #040404;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+
+  &::placeholder {
+    color: #efede8;
+    font-size: 14px;
+    opacity: 1;
+    line-height: 1.29;
+  }
+
+  &:hover,
+  &:focus {
+    border: 1px solid #e6533c;
+  }
+
+  @media screen and (min-width: 375px) {
+    width: 307px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 16;
+
+    width: 236px;
+    font-size: 16px;
+
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
+}
+
+.clearSearchIcon {
+  stroke: currentColor;
+}
+
+.clearFilterBtn {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 0;
+  height: 18px;
+  width: 18px;
+
+  position: absolute;
+
+  top: 17px;
+  right: 40px;
+
+  color: #e6533c;
+  background-color: transparent;
+
+  cursor: pointer;
+}

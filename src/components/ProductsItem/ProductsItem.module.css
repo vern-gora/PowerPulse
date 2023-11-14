@@ -1,0 +1,177 @@
+.cardContainer {
+  padding: 16px;
+  margin-right: auto;
+  margin-left: auto;
+
+  width: 303px;
+  height: auto;
+
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: rgba(239, 237, 232, 0.05);
+
+  z-index: 10;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 1440px) {
+      /* margin-bottom: 0; */
+      margin: 0;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 373px;
+    margin-bottom: 0;
+  }
+}
+
+.cardHeadContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 41px;
+}
+
+.cardCategoryName {
+  padding: 5px 7.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 41px;
+  height: 24px;
+
+  text-transform: uppercase;
+
+  border-radius: 4px;
+  background: rgba(239, 237, 232, 0.05);
+}
+
+.addProductBtn {
+  display: block;
+  border: none;
+  outline: none;
+
+  margin-left: 16px;
+  padding: 0;
+
+  position: relative;
+  font-size: 14px;
+  align-items: center;
+
+  width: 49px;
+  height: 18px;
+
+  color: #e6533c;
+  text-align: left;
+  line-height: 1.29;
+
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.addBtnIcon {
+  position: absolute;
+  margin-left: 8px;
+  stroke: currentColor;
+  cursor: pointer;
+}
+
+.recommendWrapper {
+  display: flex;
+  margin-left: auto;
+}
+
+.labelRecommend {
+  margin-right: 8px;
+
+  display: block;
+  width: 14px;
+  height: 14px;
+
+  background-color: #419b09;
+  border-radius: 10px;
+}
+
+.recommendText {
+  color: #419b09;
+}
+
+.singleCardTitle {
+  width: 258px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.cardRunningIcon {
+  margin-right: 16px;
+  fill: currentColor;
+}
+
+.cardHeaderWrapper {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.cardProductStats {
+  display: flex;
+}
+
+.cardProdStatItem {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+}
+
+.cardProdStatItemText {
+  color: rgba(239, 237, 232, 0.4);
+}
+
+.warning {
+  margin-top: 136px;
+  width: 580px;
+}
+
+.highlightedText {
+  font-size: 16px;
+  color: #e6533c;
+  line-height: 1.5;
+}
+
+.notFoundText {
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: rgba(239, 237, 232, 0.3);
+  line-height: 1.5;
+}
+
+.productItem {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    &:not(:nth-last-child(-n + 2)) {
+      margin-bottom: 32px;
+    }
+
+    &:not(:nth-child(2n)) {
+      margin-right: 16px;
+    }
+  }
+}

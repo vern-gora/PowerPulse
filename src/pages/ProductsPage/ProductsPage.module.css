@@ -1,0 +1,155 @@
+.dropDownContainer {
+  position: relative;
+  display: flex;
+  margin-bottom: 40px;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+
+.productsTitle {
+  width: 98px;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    width: 130px;
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 0;
+  }
+}
+
+.dropDownAll {
+  padding: 14px;
+  /* width: 118px; */
+  height: auto;
+
+  color: #efede8;
+  font-size: 14px;
+  line-height: 1.29;
+  font-weight: 400;
+
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+
+  background-color: #040404;
+
+  @media screen and (min-width: 375px) {
+    width: 146px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 204px;
+    font-size: 16px;
+  }
+}
+
+.prodContainer {
+  padding: 40px 20px;
+  font-size: 14px;
+  color: #efede8;
+  background-color: #040404;
+
+  @media screen and (min-width: 768px) {
+    padding: 48px 32px;
+  }
+
+  /* ddd */
+  @media screen and (min-width: 1440px) {
+    padding: 68px 96px;
+
+    background-image: url(../../images/desktop_images/products-desktop.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: auto auto;
+  }
+}
+
+.desktopCntrlWrap {
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+}
+
+.cardsWrapper {
+  @media screen and (min-width: 768px) {
+    /* width: 710px; */
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 846px;
+    gap: 16px;
+    /* height: 446px;
+    overflow-y: scroll;
+    padding-right: 16px; */
+  }
+}
+
+/* drop down categories */
+
+.categoryListDrop {
+  display: block;
+  margin-right: 16px;
+  padding: 14px;
+  height: auto;
+
+  color: #efede8;
+  font-size: 14px;
+  line-height: 1.29;
+  font-weight: 400;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+
+  background-color: #040404;
+
+  @media screen and (min-width: 375px) {
+    width: 146px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 192px;
+
+    font-size: 16px;
+  }
+}
+
+.filtersTitle {
+  display: none;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 8px;
+    margin-right: 2px;
+    color: rgba(239, 237, 232, 0.5);
+    font-size: 14px;
+    text-align: right;
+  }
+}
+
+.filtersCtrls {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    display: flex;
+    margin-left: auto;
+    margin-bottom: 32px;
+    align-items: center;
+    margin-left: auto;
+    justify-content: left;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    margin-left: auto;
+  }
+}
