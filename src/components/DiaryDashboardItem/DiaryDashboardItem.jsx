@@ -1,4 +1,4 @@
-// import symbolDefs from "../../images/svg/symbol.svg";
+import symbolDefs from "../../images/svg/symbol.svg";
 
 import css from "./DiaryDashboardItem.module.css";
 import PropTypes from "prop-types";
