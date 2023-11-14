@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PowerPulse/static/css/main.03a999f9.css",
-    "main.js": "/PowerPulse/static/js/main.3cb72d1e.js",
+    "main.js": "/PowerPulse/static/js/main.45e6cc19.js",
     "static/css/760.9f6e3f28.chunk.css": "/PowerPulse/static/css/760.9f6e3f28.chunk.css",
     "static/js/760.73ec706c.chunk.js": "/PowerPulse/static/js/760.73ec706c.chunk.js",
     "static/css/546.703abf69.chunk.css": "/PowerPulse/static/css/546.703abf69.chunk.css",
@@ -10,13 +10,15 @@
     "static/js/623.365e3de1.chunk.js": "/PowerPulse/static/js/623.365e3de1.chunk.js",
     "static/css/4.be4ecba6.chunk.css": "/PowerPulse/static/css/4.be4ecba6.chunk.css",
     "static/js/4.8fcfe93d.chunk.js": "/PowerPulse/static/js/4.8fcfe93d.chunk.js",
-    "static/js/482.efb29368.chunk.js": "/PowerPulse/static/js/482.efb29368.chunk.js",
-    "static/css/727.5811ed2e.chunk.css": "/PowerPulse/static/css/727.5811ed2e.chunk.css",
-    "static/js/727.b2672a15.chunk.js": "/PowerPulse/static/js/727.b2672a15.chunk.js",
+    "static/css/882.991717a8.chunk.css": "/PowerPulse/static/css/882.991717a8.chunk.css",
+    "static/js/882.623ee722.chunk.js": "/PowerPulse/static/js/882.623ee722.chunk.js",
+    "static/css/88.37ae087b.chunk.css": "/PowerPulse/static/css/88.37ae087b.chunk.css",
+    "static/js/88.7210d6c9.chunk.js": "/PowerPulse/static/js/88.7210d6c9.chunk.js",
     "static/js/607.b33c70ae.chunk.js": "/PowerPulse/static/js/607.b33c70ae.chunk.js",
     "static/css/190.7cf0900a.chunk.css": "/PowerPulse/static/css/190.7cf0900a.chunk.css",
     "static/js/190.b5aae4a1.chunk.js": "/PowerPulse/static/js/190.b5aae4a1.chunk.js",
-    "static/js/483.191f86bb.chunk.js": "/PowerPulse/static/js/483.191f86bb.chunk.js",
+    "static/js/705.32f6fbea.chunk.js": "/PowerPulse/static/js/705.32f6fbea.chunk.js",
+    "static/js/727.dca88d13.chunk.js": "/PowerPulse/static/js/727.dca88d13.chunk.js",
     "static/media/hero-desktop@2x.png": "/PowerPulse/static/media/hero-desktop@2x.a4ee5c800df02df95b04.png",
     "static/media/hero-tablet@2x.png": "/PowerPulse/static/media/hero-tablet@2x.4db473605c14ccb575fc.png",
     "static/media/hero-mobile@2x.png": "/PowerPulse/static/media/hero-mobile@2x.e2163731e9e3165ed16f.png",
@@ -31,7 +33,7 @@
     "index.html": "/PowerPulse/index.html",
     "static/media/Line.svg": "/PowerPulse/static/media/Line.56c98a07893009bfdfbb2f9613a038d4.svg",
     "main.03a999f9.css.map": "/PowerPulse/static/css/main.03a999f9.css.map",
-    "main.3cb72d1e.js.map": "/PowerPulse/static/js/main.3cb72d1e.js.map",
+    "main.45e6cc19.js.map": "/PowerPulse/static/js/main.45e6cc19.js.map",
     "760.9f6e3f28.chunk.css.map": "/PowerPulse/static/css/760.9f6e3f28.chunk.css.map",
     "760.73ec706c.chunk.js.map": "/PowerPulse/static/js/760.73ec706c.chunk.js.map",
     "546.703abf69.chunk.css.map": "/PowerPulse/static/css/546.703abf69.chunk.css.map",
@@ -40,14 +42,17 @@
     "623.365e3de1.chunk.js.map": "/PowerPulse/static/js/623.365e3de1.chunk.js.map",
     "4.be4ecba6.chunk.css.map": "/PowerPulse/static/css/4.be4ecba6.chunk.css.map",
     "4.8fcfe93d.chunk.js.map": "/PowerPulse/static/js/4.8fcfe93d.chunk.js.map",
-    "727.5811ed2e.chunk.css.map": "/PowerPulse/static/css/727.5811ed2e.chunk.css.map",
-    "727.b2672a15.chunk.js.map": "/PowerPulse/static/js/727.b2672a15.chunk.js.map",
+    "882.991717a8.chunk.css.map": "/PowerPulse/static/css/882.991717a8.chunk.css.map",
+    "882.623ee722.chunk.js.map": "/PowerPulse/static/js/882.623ee722.chunk.js.map",
+    "88.37ae087b.chunk.css.map": "/PowerPulse/static/css/88.37ae087b.chunk.css.map",
+    "88.7210d6c9.chunk.js.map": "/PowerPulse/static/js/88.7210d6c9.chunk.js.map",
     "190.7cf0900a.chunk.css.map": "/PowerPulse/static/css/190.7cf0900a.chunk.css.map",
     "190.b5aae4a1.chunk.js.map": "/PowerPulse/static/js/190.b5aae4a1.chunk.js.map",
-    "483.191f86bb.chunk.js.map": "/PowerPulse/static/js/483.191f86bb.chunk.js.map"
+    "705.32f6fbea.chunk.js.map": "/PowerPulse/static/js/705.32f6fbea.chunk.js.map",
+    "727.dca88d13.chunk.js.map": "/PowerPulse/static/js/727.dca88d13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.03a999f9.css",
-    "static/js/main.3cb72d1e.js"
+    "static/js/main.45e6cc19.js"
   ]
 }
