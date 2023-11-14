@@ -96,7 +96,7 @@ function App() {
                 />
               }
             />
-            <Route
+            {/* <Route
               path="/products"
               element={
                 <PrivateRoute
@@ -105,7 +105,8 @@ function App() {
                   component={<ProductsPage />}
                 />
               }
-            />
+            /> */}
+            <Route path="/products" element={<ProductsPage />} />
             <Route
               path="/exercises"
               element={
