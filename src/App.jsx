@@ -73,7 +73,7 @@ function App() {
               path="/signin"
               element={
                 <RestrictedRoute
-                  redirectTo="/profile"
+                  redirectTo="/diary"
                   condition={() => !isLoggedIn}
                   component={<SignInPage />}
                 />
