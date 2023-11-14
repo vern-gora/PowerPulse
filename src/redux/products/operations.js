@@ -3,11 +3,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
 
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTUyMmE5M2VmZGEyYTBiYWY5Yzg0NDMiLCJpYXQiOjE2OTk5NDg3NDIsImV4cCI6MTY5OTk3Mzk0Mn0.FaViPKGLqRqo-q9rn5UYpZ3gkDFwd_OiLwB2HEUHkjs';
-
-axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-
 const fetchProducts = createAsyncThunk(
   'products/fetchAll',
   async (_, thunkAPI) => {
