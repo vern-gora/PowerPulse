@@ -2,7 +2,10 @@
     padding-left: 20px;
     padding-right: 20px;
 }
-
+.message{
+    background-color: #fff;
+    color: red;
+}
 .formContainer{
     width: 100%;
     max-width: 335px;
