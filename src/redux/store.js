@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 // import { createAction, createReducer } from "@reduxjs/toolkit";
 
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
@@ -10,24 +10,33 @@ import { exercisesReducer } from './exercises/exercisesSlice';
 import { productsReducer } from './products/productsSlice';
 
 
-const rootReducer = combineReducers({
-  auth: authReducer,
-  diary: diaryReducer,
-  products: productsReducer,
-  exercises: exercisesReducer,
-});
+// const rootReducer = combineReducers({
+//   auth: authReducer,
+//   diary: diaryReducer,
+//   products: productsReducer,
+//   exercises: exercisesReducer,
+// });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ['auth'],
+  whitelist: ['token'],
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const authPersistedReducer = persistReducer(persistConfig, authReducer);
 
 export const store = configureStore({
+  // reducer: {
+  //   info: persistedReducer,
+  // },
+
   reducer: {
-    info: persistedReducer,
+    auth: authPersistedReducer,
+    diary: diaryReducer,
+    products: productsReducer,
+    exercises: exercisesReducer,
   },
 
   middleware: (getDefaultMiddleware) =>
