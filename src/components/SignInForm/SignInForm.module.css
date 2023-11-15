@@ -40,6 +40,7 @@
     text-align: left;
     margin-top: 28px;
     margin-bottom: 12px;
+    cursor: pointer;
 }
 
 .form {
@@ -80,8 +81,12 @@
     height: 46px;
     border-radius: 12px;
     padding-left: 14px;
+    outline: none;
 }
 .input:hover{
+    border: 1px solid var(--orange-main-color);
+}
+.input:focus{
     border: 1px solid var(--orange-main-color);
 }
 .error{
