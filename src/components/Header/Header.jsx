@@ -7,7 +7,7 @@ function Header() {
   const isLoggedIn = true;
 
   return (
-    <div className="container">
+    <div className={`${css.header_home_link} container`}>
       <NavLink to="/" className={css.header_logo}>
         <svg className={css.icon_logo}>
           <use href={svg + `#logo_icon`}></use>

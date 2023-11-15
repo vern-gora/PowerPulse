@@ -1,6 +1,8 @@
-.header_logo {
+.header_home_link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
 .icon_logo {
   max-width: 36px;
   max-height: 13px;
@@ -13,7 +15,9 @@
   fill: #efede8;
 }
 .avatar_icon {
+  display: flex;
   width: 37px;
+  margin-left: auto;
   height: 37px;
   fill: rgba(48, 48, 48, 0.3);
   stroke-width: 1px;
