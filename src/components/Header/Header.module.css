@@ -1,5 +1,4 @@
 .header_logo {
-  flex-shrink: 0;
 }
 
 .icon_logo {
@@ -11,6 +10,12 @@
 .icon_text {
   width: 82px;
   height: 12px;
-  flex-shrink: 0;
   fill: #efede8;
+}
+.avatar_icon {
+  width: 37px;
+  height: 37px;
+  fill: rgba(48, 48, 48, 0.3);
+  stroke-width: 1px;
+  stroke: #e6533c;
 }

@@ -1,2 +1,6 @@
 .header {
+  display: flex;
+  min-height: 61px;
+  flex-shrink: 0;
+  align-items: center;
 }

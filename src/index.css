@@ -38,9 +38,11 @@
 }
 
 .container {
+  outline: solid 1px red;
   max-width: 375px;
-  padding-left: 20px ;
-  padding-right: 20px ;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .hidden {
@@ -106,7 +108,6 @@ h5,
 h6 {
   margin: 0;
 }
-
 
 /* body {
   margin: 0;

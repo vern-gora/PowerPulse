@@ -4,6 +4,8 @@ import css from './Header.module.css';
 import svg from '../../images/svg/sprite.svg';
 
 function Header() {
+  const isLoggedIn = true;
+
   return (
     <div className="container">
       <NavLink to="/" className={css.header_logo}>
@@ -14,6 +16,9 @@ function Header() {
           <use href={svg + `#logo_text`}></use>
         </svg>
       </NavLink>
+      <svg className={css.avatar_icon}>
+        <use href={svg + `#avatar_icon`}></use>
+      </svg>
     </div>
   );
 }
