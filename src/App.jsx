@@ -91,7 +91,12 @@ function App() {
             />
             <Route
               path="/diary"
-              element={<DiaryPage />
+              element={
+                <PrivateRoute
+                  redirectTo="/"
+                  condition={isLoggedIn}
+                  component={<DiaryPage />}
+                />
               }
             />
             <Route
