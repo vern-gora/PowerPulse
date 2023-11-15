@@ -17,14 +17,14 @@ export const register = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const res = await axios.post('/users/register', formData);
-      toast.success('Вітаю, ви успішно зареєструвались.')
+      toast.success('You have successfully registered')
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
       if (error.response && error.response.status === 409) {
-        toast.error('Користувач з цим E-mail вже зареєстрований. Будь ласка, використайте інший E-mail.');
+        toast.error('This email is already in use. Please choose another email address to continue.');
       } else {
-        toast.error('Сталася помилка під час реєстрації.');
+        toast.error('An error occurred during registration');
       }
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -36,11 +36,11 @@ export const logIn = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const res = await axios.post('/users/login', formData);
-      toast.success('Вітаю ви успішно увійшли.')
+      toast.success('You have successfully logged in')
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast.error('Невдалось увійти,перевірте будьласка E-mail та пароль та спробуйте ще раз.')
+      toast.error('Unable to sign in. Please ensure your email and password are correct, and make another attempt.')
       return thunkAPI.rejectWithValue(error.message);
     }
   }
