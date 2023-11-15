@@ -2,12 +2,9 @@ import css from './DayProducts.module.css';
 import { Link } from 'react-router-dom';
 import { DayProductItem } from "./DayProductItem"
 //import axios from "axios"
+//import { fetchFood } from 'redux/diary/operations';
+//import svg from '../../images/svg/sprite.svg';
 export const DayProducts = () => {
-  /*const fetchFood = async(date)  => {
-const response = await axios.get(`https://powerpulse-backend.onrender.com/diary/food?date=${date}`)
-return response.data
-}*/
-  //console.log(fetchFood("10/11/2023"));
   const exampleData = [
     {
       _id: '650f35ece3f5522fc6396289',
@@ -32,6 +29,7 @@ return response.data
       <div className={css.productsTopBar}>
         <p className={css.productsTitle}>Products</p>
         <Link to="/products" className={css.Link}>Add product
+
         </Link>
       </div>
       <div className={css.productsBottomBar}>

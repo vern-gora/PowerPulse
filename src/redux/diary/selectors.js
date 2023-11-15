@@ -1,7 +1,7 @@
-export const selectConsumedFood = state => state.info.diary.consumedProduct;
+export const selectConsumedFood = state => state.diary.consumedProduct;
 
-export const selectCurrentData = state => state.info.diary.currentData;
+export const selectCurrentData = state => state.diary.currentData;
 
-export const selectIsLoading = state => state.info.diary.isLoading;
+export const selectIsLoading = state => state.diary.isLoading;
 
-export const selectError = state => state.info.diary.error;
+export const selectError = state => state.diary.error;
