@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {toast} from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
 
@@ -16,9 +17,15 @@ export const register = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const res = await axios.post('/users/register', formData);
+      toast.success('Вітаю, ви успішно зареєструвались.')
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      if (error.response && error.response.status === 409) {
+        toast.error('Користувач з цим E-mail вже зареєстрований. Будь ласка, використайте інший E-mail.');
+      } else {
+        toast.error('Сталася помилка під час реєстрації.');
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -29,9 +36,11 @@ export const logIn = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const res = await axios.post('/users/login', formData);
+      toast.success('Вітаю ви успішно увійшли.')
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      toast.error('Невдалось увійти,перевірте будьласка E-mail та пароль та спробуйте ще раз.')
       return thunkAPI.rejectWithValue(error.message);
     }
   }

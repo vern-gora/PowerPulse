@@ -27,6 +27,7 @@ const SignUpForm = () => {
           .max(50,'Long password')
           .required('Required'),
       });
+      
 
     return(
         <div className={style.wrapper}>
