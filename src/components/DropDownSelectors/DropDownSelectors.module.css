@@ -1,0 +1,158 @@
+.categoryListWrapper {
+  position: relative;
+  margin-right: 16px;
+  width: 146px;
+  height: auto;
+
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+
+  @media screen and (min-width: 768px) {
+    width: 192px;
+    font-size: 16px;
+  }
+}
+
+.dropBtnDown {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 14px;
+  height: auto;
+  width: 146px;
+
+  cursor: pointer;
+
+  color: #efede8;
+  font-size: 14px;
+  text-align: left;
+  background-color: inherit;
+
+  @media screen and (min-width: 768px) {
+    width: 192px;
+    font-size: 16px;
+  }
+}
+
+.dropDownIcon {
+  position: absolute;
+  top: 17px;
+  right: 14px;
+  stroke: currentColor;
+}
+
+.catDropList {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+
+  height: 276px;
+  overflow-y: scroll;
+
+  transform: translateY(100%);
+
+  padding: 14px;
+  padding-right: auto;
+
+  border-radius: 12px;
+  background-color: #1c1c1c;
+
+  z-index: 100;
+
+  @media screen and (min-width: 768px) {
+    width: 164px;
+    font-size: 16px;
+  }
+}
+
+.categoryItem {
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.selectCatBtn {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 0;
+
+  color: #efede8;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-align: left;
+  line-height: 1.5;
+  background-color: #1c1c1c;
+  cursor: pointer;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+/* drop down type = recommended, not recommended*/
+.dropDownAllWrapper {
+  height: auto;
+
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+
+  @media screen and (min-width: 768px) {
+    width: 204px;
+    font-size: 16px;
+  }
+}
+
+.dropAllBtn {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 11px;
+  height: auto;
+  width: 146px;
+
+  cursor: pointer;
+
+  color: #efede8;
+  font-size: 14px;
+  text-align: left;
+  line-height: 1.5;
+  background-color: inherit;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 204px;
+    font-size: 16px;
+  }
+}
+
+.allDropList {
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 118px;
+
+  transform: translateY(100%);
+
+  padding: 14px;
+  padding-right: auto;
+
+  border-radius: 12px;
+  background-color: #1c1c1c;
+
+  z-index: 100;
+
+  @media screen and (min-width: 768px) {
+    width: 176px;
+    font-size: 16px;
+  }
+}
