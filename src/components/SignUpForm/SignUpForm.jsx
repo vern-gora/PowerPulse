@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import style from './signUpForm.module.css';
+import sprite from '../../images/svg/sprite.svg';
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/operations";
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 
@@ -13,15 +14,18 @@ const SignUpForm = () => {
     
     const SignupSchema = Yup.object().shape({
         name: Yup.string()
-          .min(2, 'Too Short Name!')
-          .max(50, 'Too Long Name!')
+          .min(2)
+          .max(50)
           .required('Required'),
         email: Yup.string()
-          .min(2, 'Too Short Email!')
-          .max(50, 'Too Long Email!')
-          .email('Invalid email !!!')
+          .min(2)
+          .max(50)
+          .email('Error email')
           .required('Required'),
-        password: Yup.string().required('Required'),
+        password: Yup.string()
+          .min(2, 'Short password')
+          .max(50,'Long password')
+          .required('Required'),
       });
 
     return(
@@ -48,9 +52,10 @@ const SignUpForm = () => {
                                     name='name'
                                     placeholder='Name'
                                     required
-                                    className={style.input}
+                                    className={`
+                                    ${style.input} ${errors.name && touched.name ? style.error : ''} 
+                                    ${touched.name && !errors.name ? style.success : ''}`}
                                 />
-                                {errors.name && touched.name ? (<div className={style.message}>{errors.name}</div>) : null}
                             </label>
                             <label className={style.label}>
                                 <Field
@@ -58,9 +63,26 @@ const SignUpForm = () => {
                                     name='email'
                                     placeholder='Email'
                                     required
-                                    className={style.input}
+                                    className={`
+                                    ${style.input} ${errors.email && touched.email ? style.error : ''} 
+                                    ${touched.email && !errors.email ? style.success : ''}`}
                                 />
-                                {errors.email && touched.email ? (<div className={style.message}>{errors.email}</div>) : null}
+                                {errors.email && touched.email && (
+                                    <div className={style.messageInput}>
+                                        <svg className={style.errorSvg}>
+                                            <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                                        </svg>
+                                        <ErrorMessage component='p' className={style.errorText} name='email'/>
+                                    </div>
+                                )}
+                                {!errors.email && touched.email && (
+                                    <div className={style.messageInput}>
+                                        <svg className={style.successSvg}>
+                                            <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                                        </svg>
+                                        <p className={style.successText}>Success email</p>
+                                    </div>
+                                )}
                             </label>
                             <label className={style.label}>
                                 <Field
@@ -69,9 +91,26 @@ const SignUpForm = () => {
                                     placeholder='Password'
                                     minLength={7}
                                     required
-                                    className={style.input}
+                                    className={`
+                                    ${style.input} ${errors.password && touched.password ? style.error : ''} 
+                                    ${touched.password && !errors.password ? style.success : ''}`}
                                 />
-                                {errors.password && touched.password ? (<div className={style.message}>{errors.password}</div>) : null}
+                                {errors.password && touched.password && (
+                                    <div className={style.messageInput}>
+                                        <svg className={style.errorSvg}>
+                                            <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                                        </svg>
+                                        <ErrorMessage component='p' className={style.errorText} name='password'/>
+                                    </div>
+                                )}
+                                {!errors.password && touched.password && (
+                                    <div className={style.messageInput}>
+                                        <svg className={style.successSvg}>
+                                            <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                                        </svg>
+                                        <p className={style.successText}>Success password</p>
+                                    </div>
+                                )}
                             </label>
                             <button type='submit' className={style.btn}>Sign Up</button>
                         </Form>
