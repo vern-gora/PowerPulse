@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
 
 const token = JSON.parse(localStorage.getItem("persist:root")).token;
 if(token){
-  axios.defaults.headers['Authorization'] = token;
+  axios.defaults.headers['Authorization'] = "Bearer " + JSON.parse(token);
 }else{
   axios.defaults.headers['Authorization']  = '';
 }
