@@ -20,7 +20,7 @@ const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 // const PrivateRoute = lazy(() => import('../src/PrivateRoute'));
 
 function App() {
-  const isLoggedIn = useSelector(state => state.info.auth.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   return (
     <>
@@ -73,7 +73,7 @@ function App() {
               path="/signin"
               element={
                 <RestrictedRoute
-                  redirectTo="/profile"
+                  redirectTo="/diary"
                   condition={() => !isLoggedIn}
                   component={<SignInPage />}
                 />
