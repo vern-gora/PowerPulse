@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./DayExercises.module.css";
-// import symbolDefs from "../../images/svg/symbol-exer.svg";
+import symbolDefs from "../../images/svg/symbol-exer.svg";
 
 import { Link } from "react-router-dom";
 
@@ -24,7 +24,7 @@ const DayExercises = ({ doneExercises, date }) => {
   };
 
   const listOfExercises = doneExercises.map((obj) => {
-    const num = obj._id; 
+    const num = obj._id;
     return (
       <tr key={num}>
         <td className={styles.tdBodyPart}>
@@ -109,7 +109,7 @@ DayExercises.propTypes = {
         target: PropTypes.string,
         burnedCalories: PropTypes.number,
       }),
-      _id: PropTypes.string, 
+      _id: PropTypes.string,
       burnedCalories: PropTypes.number,
       time: PropTypes.string,
     })
