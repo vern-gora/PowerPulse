@@ -4,7 +4,7 @@ import css from './Header.module.css';
 import svg from '../../images/svg/sprite.svg';
 
 function Header() {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   return (
     <div className={`${css.header} `}>

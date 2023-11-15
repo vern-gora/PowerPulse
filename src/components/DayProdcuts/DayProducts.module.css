@@ -15,13 +15,17 @@
   overflow: auto;
 }
 .productsTopBar {
-  width: 100%;
+  width: 100% - 16px;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
 }
 .Link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  fill: #E6533C;
   color: #E6533C;
   font-weight: 500;
   font-size: 16px;
@@ -29,10 +33,10 @@
   padding-right: 16px;
 }
 .productsBottomBar {
-  width: 100% - 16px;
+  width: 100% - 38px;
   display: flex;
   align-items: center;
-  padding-left: 16px;
+  padding-right: 22px;
 }
 .productsTitle {
   font-size: 14px;
@@ -72,6 +76,7 @@
 .productListSmallProperties {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 16px;
   margin-bottom: 40px;
 }
@@ -91,6 +96,18 @@
 }
 .productListSmall > p {
   color: #ef8964;
+}
+.deleteProductButton{
+  position: relative;
+  top: 9px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+.deleteProductButtonIcon{
+  width: 20px;
+  height: 20px;
+  fill: #E6533C;
 }
 @media screen and (min-width: 375px) {
 }
@@ -177,5 +194,8 @@
   }
   .adaptiveTitle:nth-child(4) {
     margin-right: 75px;
+  }
+  .productsBottomBar{
+    padding-left: 16px;
   }
 }

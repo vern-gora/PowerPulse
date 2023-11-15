@@ -122,7 +122,7 @@ function App() {
             <Route
               path="/error"
               element={
-                <PrivateRoute
+                <RestrictedRoute
                   redirectTo="/"
                   condition={isLoggedIn}
                   component={<ErrorPage />}
