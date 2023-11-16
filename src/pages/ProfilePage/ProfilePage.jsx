@@ -1,5 +1,5 @@
-// import { useSelector } from 'react-redux';
-// import { selectUser } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
 import UserForm from 'components/UserForm/UserForm';
 import UserCard from 'components/UserCard/UserCard';
 import css from './ProfilePage.module.css';
@@ -8,7 +8,7 @@ import ExclamationMark from 'components/ExclamationMark/ExclamationMark';
 import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 
 const ProfilePage = () => {
-  // const user = useSelector(selectUser);
+  const user = useSelector(selectUser);
 
   return (
     <div className={css.container}>
@@ -27,7 +27,7 @@ const ProfilePage = () => {
               color="var(--orange-main-color)"
               iconId="dumbbell_icon"
               text="Daily norm of sports"
-              value="1110 cal"
+              value={user.bmr.toString()}
             />
           </div>
           <ExclamationMark />
