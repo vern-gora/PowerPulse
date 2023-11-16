@@ -42,6 +42,10 @@
     margin-bottom: 12px;
     cursor: pointer;
 }
+.btn:hover,
+.btn:focus {
+    background-color: #EF8964;
+}
 
 .form {
     display: flex;
@@ -142,6 +146,23 @@
     height: 16px;
     margin-right: 4px;
     margin-top: 1px;
+}
+
+.eyeIcon {
+    stroke: rgba(239, 237, 232, 1);
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: -35px;
+    bottom: -3px;
+}
+.eyeIconOff {
+    stroke: rgba(239, 237, 232, 1);
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: -35px;
+    bottom: -3px;
 }
 
 @media screen and (min-width: 768px) {
