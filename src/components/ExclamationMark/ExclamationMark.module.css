@@ -1,0 +1,33 @@
+.wrappers {
+  display: flex;
+  justify-content: center;
+}
+.wrapper {
+  display: flex;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.wrapper_mark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--beige-color);
+}
+.text {
+  font-family: 'RobotoRegular';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgba(239, 237, 232, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 440px;
+  }
+}
