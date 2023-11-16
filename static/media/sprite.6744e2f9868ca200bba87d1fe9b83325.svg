@@ -138,5 +138,9 @@
 <symbol id="icon-back-arrow" viewBox="0 0 32 32">
 <path fill="none" stroke="#EFEDE866" style="stroke: var(--color1, #EFEDE866)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M17 28l-13-13M4 15l13-13M4 15h26"></path>
 </symbol>
+<symbol id="icon-cross" viewBox="0 0 32 32">
+<path d="M19.5 6.5L6.5 19.5" stroke="#EFEDE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.5 6.5L19.5 19.5" stroke="#EFEDE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
 </defs>
 </svg>
