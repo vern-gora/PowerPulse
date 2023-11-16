@@ -9,7 +9,7 @@ import sprite from '../../images/svg/sprite.svg';
 axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
 
 function ExerciseModal() {
-  const [data, setData] = useState({
+  const [data, /*setData*/] = useState({
     _id: {
       $oid: '64f2458d6f67bc34bae4f8b2',
     },
@@ -30,7 +30,7 @@ function ExerciseModal() {
   const [isRunning, setIsRunning] = useState(false);
   const [percentage, setPercentage] = useState(100);
   const [countingForward, setCountingForward] = useState(false);
-  const [intervalId, setIntervalId] = useState(null);
+  const [intervalId, /*setIntervalId*/] = useState(null);
 
   useEffect(() => {
     let intervalId;
