@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { DayProductItem } from './DayProductItem';
 import { selectConsumedFood } from 'redux/diary/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { fetchFoodNameById } from 'redux/diary/operations'; 
+// import { fetchFoodNameById } from 'redux/diary/operations';
 import svg from '../../images/svg/sprite.svg';
 export const DayProducts = () => {
 const data = useSelector(selectConsumedFood)

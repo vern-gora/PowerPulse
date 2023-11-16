@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchFood,fetchFoodNameById, deleteFood, addProductToDiary } from './operations';
+import { fetchFood,/*fetchFoodNameById,*/ deleteFood, addProductToDiary } from './operations';
 const initialState = {
   data: {
     _id: '',
