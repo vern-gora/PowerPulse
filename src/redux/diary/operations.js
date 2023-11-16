@@ -1,13 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-/*[Immer] An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft. */
-
 axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
-
-// const setAuthHeader = token => {
-//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// };
-
 const token = JSON.parse(localStorage.getItem('persist:root')).token;
 if (token) {
   axios.defaults.headers['Authorization'] = 'Bearer ' + JSON.parse(token);
@@ -18,7 +11,8 @@ export const fetchFood = createAsyncThunk(
   'food/fetchFood',
   async (date, thunkAPI) => {
     try {
-      const response = await axios.get(`/diary?date=${date}`);
+      console.log( axios.defaults.headers['Authorization'])
+      const response = await axios.get(`/diary/food?date=${date}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -37,6 +31,17 @@ export const deleteFood = createAsyncThunk(
   }
 );
 
+export const fetchFoodNameById = createAsyncThunk('food/fetchFoodNameById',
+async(id, thunkAPI)=>{
+try{
+  const response = await axios.get(`/products/current/${id}`);
+  return response.data;
+
+}catch(e){
+  return thunkAPI.rejectWithValue(e.message);
+}
+}
+)
 export const addProductToDiary = createAsyncThunk(
   'diary/addProductToDiary',
   async (data, thunkAPI) => {

@@ -13,9 +13,8 @@ import { useEffect } from 'react';
 
 
 /*{
-    "name":"Someone",
-    "email":"someemail@email.com",
-    "password":"123456789"
+  "email": "jhon@wick.com",
+  "password": "JhonWick"
 }*/
 const DiaryPage = () => {
   /*const consumedFood = useSelector(selectConsumedFood);
