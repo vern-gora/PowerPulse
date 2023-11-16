@@ -2,6 +2,7 @@ import { DayProducts } from 'components/DayProdcuts/DayProdcuts';
 import { DaySwitch } from 'components/DaySwitch/DaySwitch';
 import css from './DiaryPage.module.css';
 import { useDispatch, /*useSelector*/ } from 'react-redux';
+import { useDispatch, useSelector /*useSelector*/ } from 'react-redux';
 import { fetchFood } from 'redux/diary/operations';
 import { useEffect } from 'react';
 /*import {
@@ -25,7 +26,7 @@ const DiaryPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchFood("10/11/2023"));
+    dispatch(fetchFood('10/11/2023'));
   }, [dispatch]);
 
   return (

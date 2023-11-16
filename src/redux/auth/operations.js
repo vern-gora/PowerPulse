@@ -40,7 +40,8 @@ export const logIn = createAsyncThunk(
       const res = await axios.post('/users/login', formData);
       toast.success('You have successfully logged in');
       setAuthHeader(res.data.token);
-      return res;
+      console.log('🚀 ~ file: operations.js:44 ~ res:', res);
+      return res.data;
     } catch (error) {
       toast.error(
         'Unable to sign in. Please ensure your email and password are correct, and make another attempt.'

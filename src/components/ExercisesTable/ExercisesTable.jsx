@@ -4,12 +4,13 @@ import 'react-circular-progressbar/dist/styles.css';
 import style from './ExerciseModal.module.css';
 import axios from 'axios';
 import sprite from '../../images/svg/sprite.svg';
+import WellDone from './WellDoneModall';
 // import { useSelector } from 'react-redux';
 
 axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
 
 function ExerciseModal() {
-  const [data, /*setData*/] = useState({
+  const [data /*setData*/] = useState({
     _id: {
       $oid: '64f2458d6f67bc34bae4f8b2',
     },
@@ -30,7 +31,8 @@ function ExerciseModal() {
   const [isRunning, setIsRunning] = useState(false);
   const [percentage, setPercentage] = useState(100);
   const [countingForward, setCountingForward] = useState(false);
-  const [intervalId, /*setIntervalId*/] = useState(null);
+  const [intervalId /*setIntervalId*/] = useState(null);
+  const [finish, setFinish] = useState(false);
 
   useEffect(() => {
     let intervalId;
@@ -126,92 +128,96 @@ function ExerciseModal() {
       time: Math.floor(burned / cofPerS),
       calories: burned,
     };
+    setFinish(true);
     console.log(exersiceLog);
   };
   return (
     <div className={style.background}>
-      <div className={style.modalWindow}>
-        <button className={style.close}>
-          <svg className={style.closeIcon}>
-            <use href={sprite + '#icon-cross'}></use>
-          </svg>
-        </button>
-        {data && (
-          <div className={style.exerciseCard}>
-            <div className={style.timerBox}>
-              <img className={style.gif} src={data.gifUrl} alt={data.name} />
-              <div className={style.watcher}>
-                {data && (
-                  <div className={style.timer}>
-                    <p className={style.time}>Time</p>
-                    <div style={{ width: '100px', margin: 'auto' }}>
-                      <CircularProgressbar
-                        value={percentage}
-                        text={`${String(Math.floor(time / 60)).padStart(
-                          2,
-                          '0'
-                        )}:${String(time % 60).padStart(2, '0')}`}
-                        strokeWidth={4}
-                        styles={buildStyles({
-                          pathColor: getColor(),
-                          trailColor: countingForward
-                            ? '#8effe87a'
-                            : '#efede81a',
-                          textColor: '#fff',
-                          strokeLinecap: 'round',
-                        })}
-                      />
+      {!finish && (
+        <div className={style.modalWindow}>
+          <button className={style.close}>
+            <svg className={style.closeIcon}>
+              <use href={sprite + '#icon-cross'}></use>
+            </svg>
+          </button>
+          {data && (
+            <div className={style.exerciseCard}>
+              <div className={style.timerBox}>
+                <img className={style.gif} src={data.gifUrl} alt={data.name} />
+                <div className={style.watcher}>
+                  {data && (
+                    <div className={style.timer}>
+                      <p className={style.time}>Time</p>
+                      <div style={{ width: '100px', margin: 'auto' }}>
+                        <CircularProgressbar
+                          value={percentage}
+                          text={`${String(Math.floor(time / 60)).padStart(
+                            2,
+                            '0'
+                          )}:${String(time % 60).padStart(2, '0')}`}
+                          strokeWidth={4}
+                          styles={buildStyles({
+                            pathColor: getColor(),
+                            trailColor: countingForward
+                              ? '#8effe87a'
+                              : '#efede81a',
+                            textColor: '#fff',
+                            strokeLinecap: 'round',
+                          })}
+                        />
+                      </div>
+                      {play && (
+                        <button className={style.btn} onClick={startTimer}>
+                          <svg className={style.play}>
+                            <use href={sprite + '#play_icon'}></use>
+                          </svg>
+                        </button>
+                      )}
+                      {!play && (
+                        <button className={style.btn} onClick={stopTimer}>
+                          <svg className={style.pause}>
+                            <use href={sprite + '#pause_square_icon'}></use>
+                          </svg>
+                        </button>
+                      )}
+                      <p className={style.coment}>
+                        Burned calories:{' '}
+                        <span className={style.calor}>{burned}</span>
+                      </p>
                     </div>
-                    {play && (
-                      <button className={style.btn} onClick={startTimer}>
-                        <svg className={style.play}>
-                          <use href={sprite + '#play_icon'}></use>
-                        </svg>
-                      </button>
-                    )}
-                    {!play && (
-                      <button className={style.btn} onClick={stopTimer}>
-                        <svg className={style.pause}>
-                          <use href={sprite + '#pause_square_icon'}></use>
-                        </svg>
-                      </button>
-                    )}
-                    <p className={style.coment}>
-                      Burned calories:{' '}
-                      <span className={style.calor}>{burned}</span>
-                    </p>
-                  </div>
-                )}
+                  )}
+                </div>
+              </div>
+              <div className={style.infoBox}>
+                <div className={style.info}>
+                  <p className={style.infoBlock}>
+                    <span className={style.tip}>Name:</span>
+                    <span className={style.text}>{data.name}</span>
+                  </p>
+                  <p className={style.infoBlock}>
+                    <span className={style.tip}>Body Part:</span>
+                    <span className={style.text}>{data.bodyPart}</span>
+                  </p>
+                  <p className={style.infoBlock}>
+                    <span className={style.tip}>Equipment:</span>
+                    <span className={style.text}>{data.equipment}</span>
+                  </p>
+                  <p className={style.infoBlock}>
+                    <span className={style.tip}>Target:</span>
+                    <span className={style.text}>{data.target}</span>
+                  </p>
+                </div>
+                <div className={style.btnBox}>
+                  <button className={style.addExercise} onClick={handleButton}>
+                    Add to diary
+                  </button>
+                </div>
               </div>
             </div>
-            <div className={style.infoBox}>
-              <div className={style.info}>
-                <p className={style.infoBlock}>
-                  <span className={style.tip}>Name:</span>
-                  <span className={style.text}>{data.name}</span>
-                </p>
-                <p className={style.infoBlock}>
-                  <span className={style.tip}>Body Part:</span>
-                  <span className={style.text}>{data.bodyPart}</span>
-                </p>
-                <p className={style.infoBlock}>
-                  <span className={style.tip}>Equipment:</span>
-                  <span className={style.text}>{data.equipment}</span>
-                </p>
-                <p className={style.infoBlock}>
-                  <span className={style.tip}>Target:</span>
-                  <span className={style.text}>{data.target}</span>
-                </p>
-              </div>
-              <div className={style.btnBox}>
-                <button className={style.addExercise} onClick={handleButton}>
-                  Add to diary
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      )}
+      {finish && <WellDone />}
     </div>
   );
 }
