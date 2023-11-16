@@ -124,9 +124,27 @@ h6 {
   margin: 0;
 }
 
-/* 
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .container {
+    max-width: none;
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: none;
+    margin-left: 96px;
+    margin-right: 96px;
+  }
+}
+
+/*
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-} */
+}
+
+*/
