@@ -5,11 +5,10 @@ import { useDispatch } from "react-redux";
 import { register } from "redux/auth/operations";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
-
-
+import { useState } from "react";
 
 const SignUpForm = () => {
+    const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     
     const SignupSchema = Yup.object().shape({
@@ -87,7 +86,7 @@ const SignUpForm = () => {
                             </label>
                             <label className={style.label}>
                                 <Field
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     name='password'
                                     placeholder='Password'
                                     minLength={7}
@@ -112,6 +111,12 @@ const SignUpForm = () => {
                                         <p className={style.successText}>Success password</p>
                                     </div>
                                 )}
+                                <svg
+                                    className={style.eyeIcon}
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    <use href={sprite + '#icon-eye'}></use>
+                                </svg>
                             </label>
                             <button type='submit' className={style.btn}>Sign Up</button>
                         </Form>
