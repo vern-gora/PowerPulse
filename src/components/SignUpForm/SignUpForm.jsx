@@ -111,12 +111,18 @@ const SignUpForm = () => {
                                         <p className={style.successText}>Success password</p>
                                     </div>
                                 )}
-                                <svg
+                                {!showPassword && <svg
                                     className={style.eyeIcon}
                                     onClick={() => setShowPassword(!showPassword)}
                                 >
                                     <use href={sprite + '#icon-eye'}></use>
-                                </svg>
+                                </svg>}
+                                {showPassword && <svg
+                                    className={style.eyeIconOff}
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    <use href={sprite + '#icon-eye-off'}></use>
+                                </svg>}
                             </label>
                             <button type='submit' className={style.btn}>Sign Up</button>
                         </Form>
