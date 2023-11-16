@@ -8,7 +8,7 @@ import css from './UserCard.module.css';
 const UserCard = () => {
   const dispatch = useDispatch;
   const user = useSelector(selectUser);
-  const [avatar, setAvatar] = useState(user.avatarUrl);
+  const [avatar, setAvatar] = useState(user.avatarURL);
 
   const avatarUser = (
     <img className={css.photo} src={avatar} width="100%" alt="Avatar" />
