@@ -8,12 +8,179 @@
   background-color: rgba(97, 97, 97, 0.171);
 }
 .modalWindow {
+  box-sizing: border-box;
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: aliceblue;
-  width: 694px;
-  height: 550px;
+  width: 335px;
+  height: auto;
   text-align: center;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  color: rgba(239, 237, 232, 0.4);
+  background: #10100f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.exerciseCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 42px 12px;
+}
+.gif {
+  width: 270px;
+  height: 226px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+}
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.infoBlock {
+  box-sizing: border-box;
+  width: 147px;
+  height: 82px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: rgba(239, 237, 232, 0.05);
+  overflow: hidden;
+}
+.tip {
+  color: rgba(239, 237, 232, 0.4);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+.text {
+  color: #efede8;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+}
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.coment {
+  color: rgba(239, 237, 232, 0.3);
+  /* font-family: 'Roboto'; */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+.calor {
+  color: #e6533c;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: #e6533c;
+  border: none;
+  border-radius: 6px;
+}
+.play,
+.pause {
+  scale: 1.5;
+  width: 32px;
+  height: 32px;
+  stroke: white;
+  fill: white;
+}
+.btnBox {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.addExercise {
+  margin-top: 24px;
+  display: inline-flex;
+  padding: 12px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  color: white;
+  background: var(--orange, #e6533c);
+}
+.time {
+  color: rgba(239, 237, 232, 0.4);
+  font-feature-settings: 'clig' off, 'liga' off;
+  /* font-family: Roboto; */
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 140% */
+}
+.timerBox,
+.infoBox {
+}
+.close {
+  display: none;
+  position: absolute;
+  z-index: 11;
+  top: 16px;
+  right: 16px;
+  background-color: transparent;
+  border: none;
+}
+.closeIcon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+@media screen and (min-width: 768px) {
+  .modalWindow {
+    width: 694px;
+    height: 550px;
+  }
+  .exerciseCard {
+    flex-direction: row;
+    padding: 0 20px;
+  }
+  .infoBox {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .infoBlock {
+    width: 170px;
+  }
+  .btnBox {
+    padding-right: 20px;
+    justify-content: flex-end;
+  }
+  .close {
+    display: block;
+  }
 }
