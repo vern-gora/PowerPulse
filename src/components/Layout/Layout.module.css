@@ -4,3 +4,6 @@
   flex-shrink: 0;
   align-items: center;
 }
+.isLoggedIn {
+  border-bottom: 1px solid rgba(239, 237, 232, 0.2);
+}

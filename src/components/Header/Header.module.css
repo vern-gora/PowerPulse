@@ -1,8 +1,19 @@
-.header_home_link {
+.header {
   display: flex;
-  justify-content: space-between;
+  width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
   align-items: center;
+  outline: 1px solid red;
+  margin: 0 auto;
 }
+
+.header_logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
 .icon_logo {
   max-width: 36px;
   max-height: 13px;
@@ -14,12 +25,54 @@
   height: 12px;
   fill: #efede8;
 }
+
+.ctrl_container {
+  display: flex;
+  margin-left: auto;
+}
+
+.settings_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings_button:is(:hover, :focus) {
+  transform: rotate(45deg);
+}
 .avatar_icon {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 37px;
-  margin-left: auto;
   height: 37px;
-  fill: rgba(48, 48, 48, 0.3);
-  stroke-width: 1px;
-  stroke: #e6533c;
+  border: 1px solid #e6533c;
+  border-radius: 50%;
+}
+
+.burger_menu_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    width: 1440px;
+    padding-left: 96px;
+    padding-right: 96px;
+  }
 }
