@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
 
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearAuthHeader = token => {
@@ -71,7 +71,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.post('/users/current');
+      const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

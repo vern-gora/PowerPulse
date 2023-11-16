@@ -62,10 +62,12 @@
     padding: 48px 32px;
   }
 
-  /* ddd */
   @media screen and (min-width: 1440px) {
     padding: 68px 96px;
 
+    /* background: linear-gradient(89deg, #040404 1.1%, rgba(4, 4, 4, 0) 70.79%),
+      url(../../images/desktop_images/products-desktop.png),
+      lightgray -372.891px -2.705px / 133.568% 100.375% no-repeat; */
     background-image: url(../../images/desktop_images/products-desktop.png);
     background-repeat: no-repeat;
     background-position: right top;
@@ -82,20 +84,22 @@
 }
 
 .cardsWrapper {
+  gap: 16px;
+
   @media screen and (min-width: 768px) {
-    /* width: 710px; */
     display: flex;
     flex-wrap: wrap;
+    overflow-y: scroll;
   }
 
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-wrap: wrap;
-    width: 846px;
+    width: 850px;
     gap: 16px;
-    /* height: 446px;
+    height: 487px;
+
     overflow-y: scroll;
-    padding-right: 16px; */
   }
 }
 
@@ -128,7 +132,10 @@
 }
 
 .filtersTitle {
-  display: none;
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
+
   @media screen and (min-width: 1440px) {
     margin-bottom: 8px;
     margin-right: 2px;

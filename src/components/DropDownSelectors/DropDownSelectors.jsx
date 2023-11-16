@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import style from './DropDownSelectors.module.css';
 import sprite from '../../images/svg/sprite.svg';
 import productsSelectors from 'redux/products/selectors';
+import productsOperations from 'redux/products/operations';
+import { selectUser } from 'redux/auth/selectors';
 
-const DropDownSelectors = ({ onCategoryFilterSelect }) => {
+const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
   const [isCategoryListOpen, setCategoryIsListOpen] = useState(false);
   const [isTypeListOpen, setTypeListOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const currentUser = useSelector(selectUser);
 
   const categories = useSelector(productsSelectors.getProductsCategories);
 
@@ -29,15 +35,25 @@ const DropDownSelectors = ({ onCategoryFilterSelect }) => {
     }
   };
 
-  const onTypeListClose = () => {
-    setTypeListOpen(false);
-  };
-
   const onCategorySelect = e => {
     const selectedCategory = e.currentTarget.dataset.category;
 
+    const searchParam = { category: `${selectedCategory}` };
+    dispatch(productsOperations.getFilteredProducts(searchParam));
+
     onCategoryFilterSelect(selectedCategory);
     setCategoryIsListOpen(false);
+  };
+
+  const onTypeSelection = e => {
+    const type = e.currentTarget.dataset.type;
+    onTypeSelect(type);
+
+    setTypeListOpen(false);
+
+    const userBloodType = currentUser.user.blood;
+    const searchParam = { category: `${userBloodType}` };
+    dispatch(productsOperations.getFilteredProducts(searchParam));
   };
 
   return (
@@ -55,6 +71,16 @@ const DropDownSelectors = ({ onCategoryFilterSelect }) => {
         </button>
         {isCategoryListOpen && (
           <ul className={style.catDropList}>
+            <li key={nanoid(5)} className={style.categoryItem}>
+              <button
+                type="button"
+                className={style.selectCatBtn}
+                data-category={'all'}
+                onClick={onCategorySelect}
+              >
+                All categories
+              </button>
+            </li>
             {categories.map(category => {
               return (
                 <li key={nanoid(5)} className={style.categoryItem}>
@@ -87,27 +113,36 @@ const DropDownSelectors = ({ onCategoryFilterSelect }) => {
 
         {isTypeListOpen && (
           <ul className={style.allDropList}>
-            <button
-              type="button"
-              className={style.selectCatBtn}
-              onClick={onTypeListClose}
-            >
-              All
-            </button>
-            <button
-              type="button"
-              className={style.selectCatBtn}
-              onClick={onTypeListClose}
-            >
-              Recommended
-            </button>
-            <button
-              type="button"
-              className={style.selectCatBtn}
-              onClick={onTypeListClose}
-            >
-              Not recommended
-            </button>
+            <li key={nanoid(5)} className={style.typeItem}>
+              <button
+                type="button"
+                className={style.selectCatBtn}
+                onClick={onTypeSelection}
+                data-type="all"
+              >
+                All
+              </button>
+            </li>
+            <li key={nanoid(5)} className={style.typeItem}>
+              <button
+                type="button"
+                className={style.selectCatBtn}
+                onClick={onTypeSelection}
+                data-type="recommended"
+              >
+                Recommended
+              </button>
+            </li>
+            <li key={nanoid(5)} className={style.typeItem}>
+              <button
+                type="button"
+                className={style.selectCatBtn}
+                onClick={onTypeSelection}
+                data-type="not-recommended"
+              >
+                Not recommended
+              </button>
+            </li>
           </ul>
         )}
       </div>

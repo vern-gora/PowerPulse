@@ -1,7 +1,5 @@
 .cardContainer {
   padding: 16px;
-  margin-right: auto;
-  margin-left: auto;
 
   width: 303px;
   height: auto;
@@ -12,13 +10,9 @@
 
   z-index: 10;
 
-  &:not(:last-child) {
-    margin-bottom: 20px;
-
-    @media screen and (min-width: 1440px) {
-      /* margin-bottom: 0; */
-      margin: 0;
-    }
+  @media screen and (max-width: 767px) {
+    margin-right: auto;
+    margin-left: auto;
   }
 
   @media screen and (min-width: 1440px) {
@@ -95,6 +89,17 @@
   border-radius: 10px;
 }
 
+.labelNotRecommended {
+  margin-right: 8px;
+
+  display: block;
+  width: 14px;
+  height: 14px;
+
+  background-color: #e9101d;
+  border-radius: 10px;
+}
+
 .recommendText {
   color: #419b09;
 }
@@ -161,17 +166,15 @@
 }
 
 .productItem {
-  &:not(:last-child) {
-    margin-bottom: 20px;
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     &:not(:nth-last-child(-n + 2)) {
-      margin-bottom: 32px;
-    }
-
-    &:not(:nth-child(2n)) {
-      margin-right: 16px;
+      margin-bottom: 16px;
     }
   }
 }

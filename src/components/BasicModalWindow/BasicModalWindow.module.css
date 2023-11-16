@@ -18,8 +18,8 @@
   padding: 48px 24px;
 
   display: flex;
-  width: 287px;
-  height: 184px;
+  width: 335px;
+  height: 280px;
 
   transform: translate(-50%, -50%) scale(100%);
 
@@ -31,15 +31,15 @@
   @media screen and (min-width: 768px) {
     padding: 48px 24px;
 
-    width: 431px;
-    height: 190px;
+    width: 479px;
+    height: 286px;
   }
 
   @media screen and (min-width: 1440px) {
     padding: 48px 32px;
 
-    width: 470px;
-    height: 190px;
+    width: 479px;
+    height: 286px;
   }
 }
 
@@ -80,7 +80,8 @@
   border-radius: 12px;
   border: 1px solid #e6533c;
 
-  @media screen and (width: 375px) {
+  @media screen and (width: 375px) and (max-width: 767px) {
+    margin-bottom: 16px;
     width: 273px;
   }
 
@@ -90,7 +91,7 @@
   }
 
   @media screen and (min-width: 1440px) {
-    width: 244px;
+    width: 242px;
   }
 }
 
@@ -125,20 +126,21 @@
 .weightLabel {
   position: absolute;
 
-  left: 450px;
+  left: 252px;
+  top: 113px;
+  width: 273px;
 
   color: rgba(239, 237, 232, 0.3);
   font-size: 12px;
 
-  @media screen and (width: 375px) {
-    width: 273px;
-  }
-
   @media screen and (min-width: 768px) {
+    left: 382px;
+    top: 60px;
     width: 127px;
   }
 
   @media screen and (min-width: 1440px) {
+    left: 401px;
     width: 155px;
   }
 }
