@@ -61,6 +61,17 @@
   background-color: transparent;
 }
 
+.logout_button {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  color: #efede8;
+  border: none;
+  background-color: transparent;
+  line-height: 1.5; /* 150% */
+}
+
 @media screen and (min-width: 768px) {
   .header {
     width: 768px;

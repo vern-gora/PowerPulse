@@ -9,13 +9,13 @@ const LogoutBtn = () => {
   const handleLogOut = () => dispatch(logOut());
 
   return (
-    <Link to="/" onClick={handleLogOut} className={css.log_out_link}>
+    <div onClick={handleLogOut} className={css.log_out_link}>
       <span className={css.btn}>
         <svg width="24" height="24">
           <use href={`${sprite}#log_out_icon`}></use>
         </svg>
       </span>
-    </Link>
+    </div>
   );
 };
 

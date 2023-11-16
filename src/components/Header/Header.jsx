@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
 import svg from '../../images/svg/sprite.svg';
+import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 
 function Header() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Очистка слушателя события при размонтировании компонента
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const isLoggedIn = true;
 
   return (
@@ -28,11 +44,22 @@ function Header() {
               <use href={svg + `#avatar_icon`}></use>
             </svg>
           </div>
-          <button className={css.burger_menu_button}>
-            <svg width={24} height={24}>
-              <use href={svg + `#burger_menu_icon`}></use>
-            </svg>
-          </button>
+          {windowWidth < 1440 && (
+            <button className={css.burger_menu_button}>
+              <svg width={24} height={24}>
+                <use href={svg + `#burger_menu_icon`}></use>
+              </svg>
+            </button>
+          )}
+          {windowWidth >= 1440 && (
+            // <button className={css.logout_button}>
+            //   Logout
+            //   <svg width={20} height={20}>
+            //     <use href={svg + `#log_out_icon`}></use>
+            //   </svg>
+            // </button>
+            <LogoutBtn />
+          )}
         </div>
       )}
     </div>
@@ -40,8 +67,7 @@ function Header() {
 }
 export default Header;
 
-
-  /* <div className={css.ctrl_container}>
+/* <div className={css.ctrl_container}>
   <button className={css.settings_button}>
     <svg width={24} height={24}>
       <use href={svg + `#settings_icon`}></use>
@@ -58,4 +84,3 @@ export default Header;
     </svg>
   </button>
 </div>; */
-
