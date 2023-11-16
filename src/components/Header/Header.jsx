@@ -40,7 +40,7 @@ function Header() {
 }
 export default Header;
 
-{
+
   /* <div className={css.ctrl_container}>
   <button className={css.settings_button}>
     <svg width={24} height={24}>
@@ -58,4 +58,4 @@ export default Header;
     </svg>
   </button>
 </div>; */
-}
+
