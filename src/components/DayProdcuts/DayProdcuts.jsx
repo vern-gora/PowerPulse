@@ -1,28 +1,23 @@
+import React, { useEffect } from 'react';
 import css from './DayProducts.module.css';
 import { Link } from 'react-router-dom';
 import { DayProductItem } from './DayProductItem';
 //import axios from "axios"
-//import { fetchFood } from 'redux/diary/operations';
+import { fetchFood } from 'redux/diary/operations';
 import svg from '../../images/svg/sprite.svg';
-export const DayProducts = () => {
-  const exampleData = [
-    {
-      _id: '650f35ece3f5522fc6396289',
-      title: 'Bread Hercules grain',
-      category: 'Flour',
-      calories: '289',
-      weight: '100',
-      recommend: true,
-    },
-    {
-      _id: '650f35ece3f5522fc6396299',
-      title: 'Rice Semolina',
-      category: 'Cereals',
-      calories: '340',
-      weight: '200',
-      recommend: false,
-    },
-  ];
+import { useDispatch, useSelector } from 'react-redux';
+import { selectConsumedFood } from 'redux/diary/selectors';
+import { date } from 'yup';
+
+function DayProducts() {
+  const dispatch = useDispatch();
+  const date = '17/11/2023';
+  dispatch(fetchFood(date));
+
+  const productsData = useSelector(state => state.diary.data.consumedProduct);
+  const exerciseData = useSelector(state => state.diary.data.exerciseDone);
+
+  console.log('data:', productsData);
 
   return (
     <div className={css.productsContainer}>
@@ -36,7 +31,7 @@ export const DayProducts = () => {
         </Link>
       </div>
       <div className={css.productsBottomBar}>
-        {!exampleData && (
+        {!productsData && (
           <p className={css.noProductsText}>Not found products</p>
         )}
         <ul className={css.adaptiveTitlesList}>
@@ -47,11 +42,13 @@ export const DayProducts = () => {
           <li className={css.adaptiveTitle}>Recommend</li>
         </ul>
         <ul className={css.productsList}>
-          {exampleData.map(item => {
+          {productsData.map(item => {
             return <DayProductItem data={item} key={item.title} />;
           })}
         </ul>
       </div>
     </div>
   );
-};
+}
+
+export default DayProducts;

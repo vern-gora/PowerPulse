@@ -1,8 +1,7 @@
-import { DayProducts } from 'components/DayProdcuts/DayProdcuts';
+import DayProducts from 'components/DayProdcuts/DayProdcuts';
 import { DaySwitch } from 'components/DaySwitch/DaySwitch';
 import css from './DiaryPage.module.css';
-import { useDispatch, /*useSelector*/ } from 'react-redux';
-import { useDispatch, useSelector /*useSelector*/ } from 'react-redux';
+import { useDispatch /*useSelector*/ } from 'react-redux';
 import { fetchFood } from 'redux/diary/operations';
 import { useEffect } from 'react';
 /*import {
@@ -11,7 +10,6 @@ import { useEffect } from 'react';
   selectIsLoading,
   selectError,
 } from 'redux/diary/selectors';*/
-
 
 /*{
     "name":"Someone",

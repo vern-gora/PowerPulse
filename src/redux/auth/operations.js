@@ -40,7 +40,6 @@ export const logIn = createAsyncThunk(
       const res = await axios.post('/users/login', formData);
       toast.success('You have successfully logged in');
       setAuthHeader(res.data.token);
-      console.log('🚀 ~ file: operations.js:44 ~ res:', res);
       return res.data;
     } catch (error) {
       toast.error(
