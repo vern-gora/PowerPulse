@@ -43,6 +43,11 @@
     margin-bottom: 12px;
     cursor: pointer;
 }
+.btn:hover,
+.btn:focus {
+    background-color: #EF8964;
+}
+
 .form {
     display: flex;
     flex-direction: column;
