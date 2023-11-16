@@ -10,13 +10,20 @@ import style from './ProductsPage.module.css';
 import BasicModalWindow from 'components/BasicModalWindow/BasicModalWindow';
 import productsOperations from 'redux/products/operations';
 import productsSelectors from 'redux/products/selectors';
+import { refreshUser } from 'redux/auth/operations';
 
 const ProductsPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState('');
+  const [filterByRecommended, setFilterByRecommended] = useState(false);
+  const [filterByBloodType, setFilterByBloodType] = useState(false);
 
   const dispatch = useDispatch();
   const products = useSelector(productsSelectors.getProducts);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(productsOperations.fetchProducts());
@@ -39,7 +46,30 @@ const ProductsPage = () => {
   };
 
   const onCategoryFilterSelect = category => {
+    if (category === 'all') {
+      setCategoryFilter('');
+      return;
+    }
+
     setCategoryFilter(category);
+  };
+
+  const onTypeSelect = type => {
+    switch (type) {
+      // case 'all':
+      //   break;
+      case 'recommended':
+        setFilterByRecommended(true);
+        setFilterByBloodType(true);
+        break;
+      case 'not-recommended':
+        setFilterByRecommended(false);
+        setFilterByBloodType(true);
+        break;
+      default:
+        setFilterByRecommended(false);
+        setFilterByBloodType(false);
+    }
   };
 
   return (
@@ -52,6 +82,7 @@ const ProductsPage = () => {
           <div className={style.dropDownContainer}>
             <DropDownSelectors
               onCategoryFilterSelect={onCategoryFilterSelect}
+              onTypeSelect={onTypeSelect}
             />
           </div>
         </div>
@@ -61,6 +92,8 @@ const ProductsPage = () => {
           <ProductsItem
             onOpenModal={onOpenModal}
             categoryFilter={categoryFilter}
+            filterByRecommended={filterByRecommended}
+            filterByBloodType={filterByBloodType}
           />
         </ul>
       ) : (
@@ -83,7 +116,6 @@ const ProductsPage = () => {
           lastLineColor=""
         />
       )}
-
       {showModal && <BasicModalWindow onCloseModal={onCloseModal} />}
     </div>
   );

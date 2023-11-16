@@ -1,0 +1,160 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.successWrap {
+  position: relative;
+  width: 335px;
+  height: 362px;
+  padding: 48px 89px;
+
+  background-color: #10100f;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+
+  @media screen and (min-width: 768px) {
+    padding: 64px 136px;
+    width: 430px;
+    height: 428px;
+  }
+}
+
+.closeBasicModal {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 0;
+
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  color: #efede8;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+.closeBasicModalIcon {
+  stroke: currentColor;
+
+  @media screen and (min-width: 768px) {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.successData {
+  display: flex;
+  flex-direction: column;
+
+  /* margin-right: auto;
+  margin-left: auto; */
+}
+
+.successImg {
+  display: block;
+  border: none;
+  outline: none;
+
+  width: 123px;
+  height: 97px;
+
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 19px;
+  }
+
+  /* @media screen and (min-width: 768px) {
+    width: 123px;
+    height: 97px;
+  } */
+}
+
+.wellDone {
+  margin-bottom: 16px;
+
+  color: #efede8;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.33;
+}
+
+.kcal {
+  margin-bottom: 24px;
+
+  text-align: center;
+  color: rgba(239, 237, 232, 0.3);
+  font-size: 14px;
+  line-height: 1.29;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+}
+
+.kcalNumber {
+  color: #e6533c;
+}
+
+.nextBtn {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  width: 157px;
+  height: auto;
+
+  margin-bottom: 16px;
+  padding: 12px 32px;
+
+  color: #efede8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  background-color: #e6533c;
+  border-radius: 12px;
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 32px;
+  }
+}
+
+.linkWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+
+  cursor: pointer;
+
+  color: rgba(239, 237, 232, 0.3);
+}
+
+.link {
+  margin-right: 8px;
+  color: rgba(239, 237, 232, 0.3);
+  font-size: 14px;
+}
+
+.linkArrow {
+  stroke: currentColor;
+}

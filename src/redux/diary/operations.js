@@ -4,11 +4,15 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
 
-const token = JSON.parse(localStorage.getItem("persist:root")).token;
-if(token){
-  axios.defaults.headers['Authorization'] = "Bearer " + JSON.parse(token);
-}else{
-  axios.defaults.headers['Authorization']  = '';
+// const setAuthHeader = token => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
+
+const token = JSON.parse(localStorage.getItem('persist:root')).token;
+if (token) {
+  axios.defaults.headers['Authorization'] = 'Bearer ' + JSON.parse(token);
+} else {
+  axios.defaults.headers['Authorization'] = '';
 }
 export const fetchFood = createAsyncThunk(
   'food/fetchFood',
@@ -29,6 +33,25 @@ export const deleteFood = createAsyncThunk(
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const addProductToDiary = createAsyncThunk(
+  'diary/addProductToDiary',
+  async (data, thunkAPI) => {
+    // const state = thunkAPI.getState();
+    // const storedToken = state.auth.token;
+
+    // if (storedToken === null) {
+    //   return thunkAPI.rejectWithValue();
+    // }
+    try {
+      // setAuthHeader(storedToken);
+      const res = await axios.post('/diary/food', data);
+      return res.data.result;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

@@ -3,63 +3,101 @@ import { useSelector } from 'react-redux';
 import sprite from '../../images/svg/sprite.svg';
 import style from './ProductsItem.module.css';
 import productsSelectors from 'redux/products/selectors';
+import { selectUser } from 'redux/auth/selectors';
 
-const ProductsItem = ({ onOpenModal, categoryFilter }) => {
+const ProductsItem = ({
+  onOpenModal,
+  categoryFilter,
+  filterByRecommended,
+  filterByBloodType,
+}) => {
   const products = useSelector(productsSelectors.getProducts);
   const filter = useSelector(productsSelectors.getFilter);
 
-  const limitedProducts = products.slice(0, 20);
-  const filteredProducts = limitedProducts
+  const currentUser = useSelector(selectUser);
+  const userBloodType = currentUser.user.blood || '1';
+
+  const filteredProducts = products
     .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
     .filter(({ category }) =>
       category.toLowerCase().includes(categoryFilter.toLowerCase())
     );
 
-  return filteredProducts.map(({ category, calories, title, weight, _id }) => {
-    return (
-      <li key={_id} data-id={_id} className={style.productItem}>
-        <div className={style.cardContainer}>
-          <div className={style.cardHeadContainer}>
-            <div className={style.cardCategoryName}>Diet</div>
-            <div className={style.recommendWrapper}>
-              <span className={style.labelRecommend}></span>
-              <p className={style.recommendText}>Recommended</p>
+  const onFilterProducts = () => {
+    if (filterByBloodType && filterByRecommended) {
+      return filteredProducts.filter(
+        ({ groupBloodNotAllowed }) => groupBloodNotAllowed[userBloodType]
+      );
+    } else if (filterByBloodType && !filterByRecommended) {
+      return filteredProducts.filter(
+        ({ groupBloodNotAllowed }) => !groupBloodNotAllowed[userBloodType]
+      );
+    } else {
+      return filteredProducts;
+    }
+  };
+
+  // const onProductsRender = () => {
+  //   if (filteredProducts.length !== 0) {
+  //     return filteredProducts;
+  //   }
+
+  //   return products;
+  // };
+
+  return onFilterProducts().map(
+    ({ category, calories, title, weight, _id, groupBloodNotAllowed }) => {
+      return (
+        <li key={_id} data-id={_id} className={style.productItem}>
+          <div className={style.cardContainer}>
+            <div className={style.cardHeadContainer}>
+              <div className={style.cardCategoryName}>Diet</div>
+              <div className={style.recommendWrapper}>
+                <span
+                  className={
+                    groupBloodNotAllowed[userBloodType]
+                      ? style.labelRecommend
+                      : style.labelNotRecommended
+                  }
+                ></span>
+                <p className={style.recommendText}>Recommended</p>
+              </div>
+              <button
+                type="button"
+                className={style.addProductBtn}
+                onClick={onOpenModal}
+              >
+                Add
+                <svg className={style.addBtnIcon} width="16" height="16">
+                  <use href={sprite + '#arrow_add_icon'}></use>
+                </svg>
+              </button>
             </div>
-            <button
-              type="button"
-              className={style.addProductBtn}
-              onClick={onOpenModal}
-            >
-              Add
-              <svg className={style.addBtnIcon} width="16" height="16">
-                <use href={sprite + '#arrow_add_icon'}></use>
+            <div className={style.cardHeaderWrapper}>
+              <svg className={style.cardRunningIcon} width="24" height="24">
+                <use href={sprite + '#running_stick_figure_icon'}></use>
               </svg>
-            </button>
+              <h3 className={style.singleCardTitle}>{title}</h3>
+            </div>
+            <div className={style.cardProductStats}>
+              <p className={style.cardProdStatItem}>
+                <span className={style.cardProdStatItemText}>Calories:</span>{' '}
+                {calories}
+              </p>
+              <p className={style.cardProdStatItem}>
+                <span className={style.cardProdStatItemText}>Category: </span>
+                {category}
+              </p>
+              <p className={style.cardProdStatItem}>
+                <span className={style.cardProdStatItemText}>Weight:</span>{' '}
+                {weight}
+              </p>
+            </div>
           </div>
-          <div className={style.cardHeaderWrapper}>
-            <svg className={style.cardRunningIcon} width="24" height="24">
-              <use href={sprite + '#running_stick_figure_icon'}></use>
-            </svg>
-            <h3 className={style.singleCardTitle}>{title}</h3>
-          </div>
-          <div className={style.cardProductStats}>
-            <p className={style.cardProdStatItem}>
-              <span className={style.cardProdStatItemText}>Calories:</span>{' '}
-              {calories}
-            </p>
-            <p className={style.cardProdStatItem}>
-              <span className={style.cardProdStatItemText}>Category: </span>
-              {category}
-            </p>
-            <p className={style.cardProdStatItem}>
-              <span className={style.cardProdStatItemText}>Weight:</span>{' '}
-              {weight}
-            </p>
-          </div>
-        </div>
-      </li>
-    );
-  });
+        </li>
+      );
+    }
+  );
 };
 
 export default ProductsItem;

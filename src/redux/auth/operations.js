@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import {toast} from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
 
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearAuthHeader = token => {
@@ -17,12 +17,14 @@ export const register = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const res = await axios.post('/users/register', formData);
-      toast.success('You have successfully registered')
+      toast.success('You have successfully registered');
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
       if (error.response && error.response.status === 409) {
-        toast.error('This email is already in use. Please choose another email address to continue.');
+        toast.error(
+          'This email is already in use. Please choose another email address to continue.'
+        );
       } else {
         toast.error('An error occurred during registration');
       }
@@ -36,11 +38,13 @@ export const logIn = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const res = await axios.post('/users/login', formData);
-      toast.success('You have successfully logged in')
+      toast.success('You have successfully logged in');
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast.error('Unable to sign in. Please ensure your email and password are correct, and make another attempt.')
+      toast.error(
+        'Unable to sign in. Please ensure your email and password are correct, and make another attempt.'
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -67,7 +71,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.post('/users/current');
+      const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

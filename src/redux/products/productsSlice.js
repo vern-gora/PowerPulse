@@ -8,6 +8,7 @@ const initialState = {
   error: null,
   isLoading: false,
   filter: '',
+  filteredProducts: [],
 };
 
 const handleRejected = (state, action) => {
@@ -62,7 +63,20 @@ export const productsSlice = createSlice({
         state.error = null;
         state.currentProduct = action.payload;
       })
-      .addCase(productsOperations.getProductById.rejected, handleRejected);
+      .addCase(productsOperations.getProductById.rejected, handleRejected)
+      .addCase(productsOperations.getFilteredProducts.pending, state => {
+        state.isLoading = true;
+        state.filteredProducts = [];
+      })
+      .addCase(
+        productsOperations.getFilteredProducts.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.filteredProducts = action.payload;
+        }
+      )
+      .addCase(productsOperations.getFilteredProducts.rejected, handleRejected);
   },
 });
 

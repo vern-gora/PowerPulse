@@ -133,28 +133,27 @@ function App() {
             <Route path="*" element={<Navigate to="/error" />} />
           </Route>
         </Routes>
-      <Toaster
-        toastOptions={{
-          duration: 5000,
-          style: {
-            background: '#303030',
-            color: '#fff',
-          },
-          success: {
-            duration: 3000,
-            style:{
-              border: '1px solid #3CBF61'
-            }
-            
-          },
-          error: {
-            duration: 3000,
-            style:{
-              border: '1px solid #D80027'
-            }
-          },
-        }}
-      />
+        <Toaster
+          toastOptions={{
+            duration: 5000,
+            style: {
+              background: '#303030',
+              color: '#fff',
+            },
+            success: {
+              duration: 3000,
+              style: {
+                border: '1px solid #3CBF61',
+              },
+            },
+            error: {
+              duration: 3000,
+              style: {
+                border: '1px solid #D80027',
+              },
+            },
+          }}
+        />
       </Suspense>
     </>
   );
