@@ -4,30 +4,9 @@ import { DayProductItem } from './DayProductItem';
 import { selectConsumedFood } from 'redux/diary/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { fetchFoodNameById } from 'redux/diary/operations'; 
-//import axios from "axios"
-//import { fetchFood } from 'redux/diary/operations';
 import svg from '../../images/svg/sprite.svg';
 export const DayProducts = () => {
-  /*const exampleData = [
-    {
-      _id: '650f35ece3f5522fc6396289',
-      title: 'Bread Hercules grain',
-      category: 'Flour',
-      calories: '289',
-      weight: '100',
-      recommend: true,
-    },
-    {
-      _id: '650f35ece3f5522fc6396299',
-      title: 'Rice Semolina',
-      category: 'Cereals',
-      calories: '340',
-      weight: '200',
-      recommend: false,
-    },
-  ];*/
 const data = useSelector(selectConsumedFood)
-console.log(data);
   return (
     <div className={css.productsContainer}>
       <div className={css.productsTopBar}>
