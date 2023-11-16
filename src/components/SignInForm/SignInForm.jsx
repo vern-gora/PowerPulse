@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import style from './SignInForm.module.css'
+import sprite from '../../images/svg/sprite.svg';
 import { useDispatch } from "react-redux";
 import { logIn } from "redux/auth/operations";
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const SignInForm = () => {
@@ -12,9 +13,12 @@ const SignInForm = () => {
         email: Yup.string()
           .min(2, 'Too Short Email!')
           .max(50, 'Too Long Email!')
-          .email('Invalid email !!!')
+          .email('Error email')
           .required('Required'),
-        password: Yup.string().required('Required'),
+        password: Yup.string()
+          .required('Required')
+          .min(2)
+          .max(50),
       });
 
     return (
@@ -35,12 +39,59 @@ const SignInForm = () => {
                     {({ errors, touched }) => (
                         <Form className={style.form}>
                             <label>
-                                <Field type="email" required placeholder="Email" name="email" className={style.input} />
-                                {errors.email && touched.email ? (<div className={style.message}>{errors.email}</div>) : null}
+                                <Field 
+                                type="email" 
+                                required 
+                                placeholder="Email" 
+                                name="email" 
+                                className={`
+                                    ${style.input} ${errors.email && touched.email ? style.error : ''} 
+                                    ${touched.email && !errors.email ? style.success : ''}`}
+                                />
+                                {errors.email && touched.email && (
+                                    <div className={style.messageInput}>
+                                        <svg className={style.errorSvg}>
+                                            <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                                        </svg>
+                                        <ErrorMessage component='p' className={style.errorText} name='email'/>
+                                    </div>
+                                )}
+                                {!errors.email && touched.email && (
+                                    <div className={style.messageInput}>
+                                        <svg className={style.successSvg}>
+                                            <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                                        </svg>
+                                        <p className={style.successText}>Success email</p>
+                                    </div>
+                                )}
                             </label>
                             <label>
-                                <Field type="password" required placeholder="Password" name="password" minLength={7} className={style.input} />
-                                {errors.password && touched.password ? (<div className={style.message}>{errors.password}</div>) : null}
+                                <Field 
+                                type="password" 
+                                required 
+                                placeholder="Password" 
+                                name="password" 
+                                minLength={7} 
+                                className={`
+                                    ${style.input} ${errors.password && touched.password ? style.error : ''} 
+                                    ${touched.password && !errors.password ? style.success : ''}`} 
+                                />
+                                {errors.password && touched.password && (
+                                    <div className={style.messageInput}>
+                                        <svg className={style.errorSvg}>
+                                            <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                                        </svg>
+                                        <ErrorMessage component='p' className={style.errorText} name='password'/>
+                                    </div>
+                                )}
+                                {!errors.password && touched.password && (
+                                    <div className={style.messageInput}>
+                                        <svg className={style.successSvg}>
+                                            <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                                        </svg>
+                                        <p className={style.successText}>Success password</p>
+                                    </div>
+                                )}
                             </label>
                             <button type="submit" className={style.btn}>Sign In</button>
                         </Form>

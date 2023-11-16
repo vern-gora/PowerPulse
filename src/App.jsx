@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { RestrictedRoute } from 'RestrictedRoute';
 import { PrivateRoute } from 'PrivateRoute';
 import ExerciseModal from 'components/ExercisesTable/ExercisesTable';
+import { Toaster } from 'react-hot-toast';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('pages/SignUpPage/SignUpPage'));
@@ -123,7 +124,7 @@ function App() {
             <Route
               path="/error"
               element={
-                <PrivateRoute
+                <RestrictedRoute
                   redirectTo="/"
                   condition={isLoggedIn}
                   component={<ErrorPage />}
@@ -134,6 +135,27 @@ function App() {
             <Route path="*" element={<Navigate to="/error" />} />
           </Route>
         </Routes>
+        <Toaster
+          toastOptions={{
+            duration: 5000,
+            style: {
+              background: '#303030',
+              color: '#fff',
+            },
+            success: {
+              duration: 3000,
+              style: {
+                border: '1px solid #3CBF61',
+              },
+            },
+            error: {
+              duration: 3000,
+              style: {
+                border: '1px solid #D80027',
+              },
+            },
+          }}
+        />
       </Suspense>
     </>
   );

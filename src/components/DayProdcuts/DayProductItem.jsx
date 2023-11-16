@@ -1,5 +1,5 @@
 import css from './DayProducts.module.css';
-
+import svg from '../../images/svg/sprite.svg';
 export const DayProductItem = ({ data }) => {
     const { title, category, calories, weight, recommend } = data;
     return (
@@ -32,7 +32,13 @@ export const DayProductItem = ({ data }) => {
               }}></div>
             {recommend ? 'Yes' : 'No'}</span>
         </div>
+        <button type='button' className={css.deleteProductButton}>
+              <svg className={css.deleteProductButtonIcon}>
+                <use href={svg + '#trash_icon'}></use>
+              </svg>
+        </button>
         </div>
+       
       </li>
     );
 };
