@@ -27,7 +27,7 @@ const ProfilePage = () => {
               color="var(--orange-main-color)"
               iconId="dumbbell_icon"
               text="Daily norm of sports"
-              value="110 cal"
+              value="1110 cal"
             />
           </div>
           <ExclamationMark />
