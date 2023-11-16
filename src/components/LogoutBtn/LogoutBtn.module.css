@@ -1,9 +1,12 @@
 .log_out_link {
   display: flex;
-  justify-content: flex-end;
+  font-size: 16px;
   align-items: center;
+  justify-content: center;
   color: var(--white-color);
-  margin-top: 40px;
+  border: none;
+  background-color: transparent;
+  line-height: 1.5; /* 150% */
 }
 
 .btn {
@@ -11,7 +14,4 @@
 }
 
 @media screen and (min-width: 768px) {
-  .log_out_link {
-    margin-right: 150px;
-  }
 }

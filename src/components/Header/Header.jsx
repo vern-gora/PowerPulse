@@ -14,7 +14,6 @@ function Header() {
 
     window.addEventListener('resize', handleResize);
 
-    // Очистка слушателя события при размонтировании компонента
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -52,13 +51,15 @@ function Header() {
             </button>
           )}
           {windowWidth >= 1440 && (
-            // <button className={css.logout_button}>
-            //   Logout
-            //   <svg width={20} height={20}>
-            //     <use href={svg + `#log_out_icon`}></use>
-            //   </svg>
-            // </button>
-            <LogoutBtn />
+            <>
+              {/* <button className={css.logout_button}>
+                Logout
+                <svg width={20} height={20}>
+                  <use href={svg + `#log_out_icon`}></use>
+                </svg>
+              </button> */}
+              <LogoutBtn />
+            </>
           )}
         </div>
       )}
