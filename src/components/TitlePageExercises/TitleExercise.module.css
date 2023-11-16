@@ -1,0 +1,29 @@
+.title {
+    color: #EFEDE8;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 116.667% */
+    margin-top: 100px;
+    margin-left: 20px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  
+  /* При ширине экрана от 768px выравниваем элементы по горизонтали */
+  @media (min-width: 768px) {
+    .container {
+      justify-content: space-between;
+      margin: 0 32px;
+    }
+    .title{
+        margin-left: 0;
+    }
+}
