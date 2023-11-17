@@ -18,6 +18,8 @@ const ProductsPage = lazy(() => import('pages/ProductsPage/ProductsPage'));
 const ExercisesPage = lazy(() => import('pages/ExercisesPage/ExercisesPage'));
 const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 
+const ErrorrrrPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
+
 // const RestrictedRoute = lazy(() => import('../src/RestrictedRoute'));
 // const PrivateRoute = lazy(() => import('../src/PrivateRoute'));
 
