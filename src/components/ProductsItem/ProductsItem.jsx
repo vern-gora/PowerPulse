@@ -15,7 +15,7 @@ const ProductsItem = ({
   const filter = useSelector(productsSelectors.getFilter);
 
   const currentUser = useSelector(selectUser);
-  const userBloodType = currentUser.user.blood || '1';
+  const userBloodType = currentUser.blood || '1';
 
   const filteredProducts = products
     .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))

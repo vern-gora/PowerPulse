@@ -22,6 +22,7 @@ const initialState = {
     levelActivity: 1,
   },
   token: null,
+  refreshToken: null,
   isLoggedIn: false,
   goToParams: false,
   isRefreshing: false,

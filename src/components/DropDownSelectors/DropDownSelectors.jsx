@@ -51,7 +51,7 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
 
     setTypeListOpen(false);
 
-    const userBloodType = currentUser.user.blood;
+    const userBloodType = currentUser.blood;
     const searchParam = { category: `${userBloodType}` };
     dispatch(productsOperations.getFilteredProducts(searchParam));
   };
