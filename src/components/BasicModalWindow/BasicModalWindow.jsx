@@ -37,21 +37,14 @@ const BasicModalWindow = ({ onCloseModal }) => {
   const handleProductAdd = e => {
     e.preventDefault();
 
-    const today = new Date();
-    const month = today.getMonth() + 1;
-    const year = today.getFullYear();
-    const day = today.getDate();
-    const date = `${month}/${day}/${year}`;
-
     const data = {
       productId: product._id,
-      date,
       amount: caloriesNumber,
       calories: consumedCalories,
     };
 
     dispatch(addProductToDiary(data));
-    // onCloseModal();
+
     setIsSuccess(true);
   };
 

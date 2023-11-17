@@ -38,8 +38,8 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
   const onCategorySelect = e => {
     const selectedCategory = e.currentTarget.dataset.category;
 
-    const searchParam = { category: `${selectedCategory}` };
-    dispatch(productsOperations.getFilteredProducts(searchParam));
+    // const searchParam = { category: `${selectedCategory}` };
+    // dispatch(productsOperations.getFilteredProducts(searchParam));
 
     onCategoryFilterSelect(selectedCategory);
     setCategoryIsListOpen(false);
@@ -51,7 +51,7 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
 
     setTypeListOpen(false);
 
-    const userBloodType = currentUser.user.blood;
+    const userBloodType = currentUser.blood;
     const searchParam = { category: `${userBloodType}` };
     dispatch(productsOperations.getFilteredProducts(searchParam));
   };

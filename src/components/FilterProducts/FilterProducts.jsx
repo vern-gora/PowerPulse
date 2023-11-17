@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import style from './FilterProducts.module.css';
 import sprite from '../../images/svg/sprite.svg';
-import productsSelectors from 'redux/products/selectors';
+// import productsSelectors from 'redux/products/selectors';
 import { filterProducts, clearFilter } from 'redux/products/productsSlice';
-import productsOperations from 'redux/products/operations';
+// import productsOperations from 'redux/products/operations';
 
 const FilterProducts = () => {
   const [isFilterEmpty, setIsFilterEmpty] = useState(true);
 
   const dispatch = useDispatch();
-  const filter = useSelector(productsSelectors.getFilter);
+  // const filter = useSelector(productsSelectors.getFilter);
 
   const onFilterChange = e => {
     if (e.currentTarget.value === '') {
@@ -23,10 +23,10 @@ const FilterProducts = () => {
   const onFocusChange = e => {
     dispatch(filterProducts(e.currentTarget.value));
 
-    const searchParam = {
-      category: `${filter}`,
-    };
-    dispatch(productsOperations.getFilteredProducts(searchParam));
+    // const searchParam = {
+    //   category: `${filter}`,
+    // };
+    // dispatch(productsOperations.getFilteredProducts(searchParam));
   };
 
   const handleFilter = e => {
