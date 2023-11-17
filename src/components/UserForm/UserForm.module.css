@@ -4,9 +4,8 @@
 .section_title {
   margin-bottom: 4px;
   font-size: 12px;
-  color: var(--white-color);
+  color: rgba(239, 237, 232, 0.5)
 }
-
 .input {
   width: 335px;
   padding: 14px;
@@ -29,17 +28,18 @@
   background-color: transparent;
   color: #efede8;
 }
+.input_field::placeholder {
+  color: #efede8;
+}
 
 .wrapper_input_field {
   display: inline-flex;
   align-items: flex-end;
-  margin-top: 20px;
   gap: 14px;
 }
 
 .wrapper_input {
   position: relative;
-  margin-top: 40px;
 }
 .wrapper_input_label {
   position: absolute;
@@ -63,12 +63,29 @@
 }
 
 .button {
-  margin: 40px 0px 80px 20px;
-  padding: 12px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E6533C;
+  width: 136px;
+  height: 42px;
   border-radius: 12px;
-  background: var(--orange-color);
-  color: rgba(239, 237, 232, 0.6);
-}
+  border: none;
+  color: #EFEDE8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  }
+
+  .button:hover,
+  .button:focus {
+    background-color: #EF8964;
+  }
 
 @media screen and (min-width: 768px) {
   .form_container {
@@ -98,5 +115,9 @@
   }
   .wrapper_radio {
     display: block;
+  }
+  .button {
+    width: 144px;
+    height: 56px;
   }
 }
