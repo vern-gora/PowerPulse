@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
       const res = await axios.post('/users/register', formData);
       toast.success('You have successfully registered');
       setAuthHeader(res.data.token);
-      return res;
+      return res.data;
     } catch (error) {
       if (error.response && error.response.status === 409) {
         toast.error(
@@ -40,7 +40,7 @@ export const logIn = createAsyncThunk(
       const res = await axios.post('/users/login', formData);
       toast.success('You have successfully logged in');
       setAuthHeader(res.data.token);
-      return res;
+      return res.data;
     } catch (error) {
       toast.error(
         'Unable to sign in. Please ensure your email and password are correct, and make another attempt.'
