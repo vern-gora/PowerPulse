@@ -4,6 +4,7 @@ import { DaySwitch } from 'components/DaySwitch/DaySwitch';
 import css from './DiaryPage.module.css';
 import { useDispatch, /*useSelector*/ } from 'react-redux';
 import { fetchFood } from 'redux/diary/operations';
+import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 /*import {
   selectConsumedFood,

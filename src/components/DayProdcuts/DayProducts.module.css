@@ -10,7 +10,6 @@
     ),
     linear-gradient(0deg, rgba(239, 237, 232, 0.046), rgba(239, 237, 232, 0.05));
   padding: 16px;
-  width: 336px;
   height: 250px;
   overflow: auto;
 }
@@ -114,7 +113,18 @@
   height: 20px;
   fill: #E6533C;
 }
+.errorMessage{
+  position: relative;
+  top: 50%;
+  font-size: 14px;
+  line-height: 18px;
+  color: #efede83a;
+  margin: 0 auto;
+}
 @media screen and (min-width: 375px) {
+  .productsContainer{
+  width: 336px;
+}
 }
 @media screen and (min-width: 768px) {
   .productsContainer{
@@ -175,6 +185,9 @@
   .productListItem {
     display: flex;
     flex-direction: row;
+  }
+  .deleteProductButton{
+    position: static;
   }
 }
 @media screen and (min-width: 1440px) {

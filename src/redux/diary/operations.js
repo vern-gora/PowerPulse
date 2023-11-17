@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 /*const token = JSON.parse(localStorage.getItem('persist:root')).token;
 if (token) {
   axios.defaults.headers['Authorization'] = 'Bearer ' + JSON.parse(token);
@@ -7,7 +8,6 @@ if (token) {
   axios.defaults.headers['Authorization'] = '';
 }*/
 
-axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
 
 const setAuthHeader = token => {
   axios.defaults.headers['Authorization'] = `Bearer ${token}`;
@@ -27,6 +27,9 @@ export const fetchFood = createAsyncThunk(
       const response = await axios.get(`/diary/food?date=${date}`);
       return response.data;
     } catch (e) {
+      toast.error(
+        'Some error occured. Please try again later'
+      );
       return thunkAPI.rejectWithValue(e.message);
     }
   }
