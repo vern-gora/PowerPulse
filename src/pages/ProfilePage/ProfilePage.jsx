@@ -27,7 +27,7 @@ const ProfilePage = () => {
               color="var(--orange-main-color)"
               iconId="dumbbell_icon"
               text="Daily norm of sports"
-              value={user.bmr.toString()}
+              value={Math.round(user.bmr) || 0}
             />
           </div>
           <ExclamationMark />
