@@ -23,7 +23,7 @@ const ExercisesCategories = () => {
           className={`${styles.btnCategories} ${activeSubcategory === 'muscules' ? styles.active : ''}`}
           onClick={() => handleSubcategoryClick('muscules')}
         >
-          Muscles
+        Muscles
         </button>
 
         <button
