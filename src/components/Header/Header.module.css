@@ -11,7 +11,6 @@
 .header_logo {
   display: flex;
   align-items: center;
-  flex: 1;
 }
 
 .icon_logo {
@@ -23,6 +22,7 @@
 .icon_text {
   width: 82px;
   height: 12px;
+  margin-left: 8px;
   fill: #efede8;
 }
 
@@ -77,6 +77,16 @@
     width: 768px;
     padding-left: 32px;
     padding-right: 32px;
+  }
+
+  .icon_logo {
+    width: 44px;
+    height: 17px;
+  }
+
+  .icon_text {
+    width: 100px;
+    height: 15px;
   }
 }
 

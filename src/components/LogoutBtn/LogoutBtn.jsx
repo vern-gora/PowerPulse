@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import sprite from '../../images/svg/sprite.svg';
-import { Link } from 'react-router-dom';
 import { logOut } from 'redux/auth/operations';
 import css from './LogoutBtn.module.css';
 
