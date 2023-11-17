@@ -52,7 +52,7 @@ const diarySlice = createSlice({
       .addCase(addProductToDiary.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.data.consumedProduct = [action.payload];
+        state.data.consumedProduct.push(action.payload);
       })
       .addCase(addProductToDiary.rejected, (state, action) => {
         state.isLoading = false;

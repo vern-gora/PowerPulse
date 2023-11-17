@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import style from './DropDownSelectors.module.css';
 import sprite from '../../images/svg/sprite.svg';
 import productsSelectors from 'redux/products/selectors';
-import productsOperations from 'redux/products/operations';
-import { selectUser } from 'redux/auth/selectors';
+// import productsOperations from 'redux/products/operations';
+// import { selectUser } from 'redux/auth/selectors';
 
 const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
   const [isCategoryListOpen, setCategoryIsListOpen] = useState(false);
   const [isTypeListOpen, setTypeListOpen] = useState(false);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const currentUser = useSelector(selectUser);
+  // const currentUser = useSelector(selectUser);
 
   const categories = useSelector(productsSelectors.getProductsCategories);
 
@@ -38,8 +38,8 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
   const onCategorySelect = e => {
     const selectedCategory = e.currentTarget.dataset.category;
 
-    const searchParam = { category: `${selectedCategory}` };
-    dispatch(productsOperations.getFilteredProducts(searchParam));
+    // const searchParam = { category: `${selectedCategory}` };
+    // dispatch(productsOperations.getFilteredProducts(searchParam));
 
     onCategoryFilterSelect(selectedCategory);
     setCategoryIsListOpen(false);

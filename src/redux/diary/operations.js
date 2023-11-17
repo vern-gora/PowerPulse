@@ -37,7 +37,14 @@ export const deleteFood = createAsyncThunk(
 export const addProductToDiary = createAsyncThunk(
   'diary/addProductToDiary',
   async (data, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const storedToken = state.auth.token;
+
+    if (storedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
     try {
+      setAuthHeader(storedToken);
       const res = await axios.post('/diary/food', data);
       return res.data.result;
     } catch (error) {

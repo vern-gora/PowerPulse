@@ -88,9 +88,10 @@ const authSlice = createSlice({
 
       .addCase(getUserParams.pending, (state, action) => state)
       .addCase(getUserParams.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = action.payload.user;
         state.isLoggedIn = true;
-        state.token = action.payload.token;
+        state.isRefreshing = false;
+        // state.token = action.payload.token;
       })
       .addCase(getUserParams.rejected, (state, action) => state)
 
