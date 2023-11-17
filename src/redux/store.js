@@ -1,14 +1,22 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 // import { createAction, createReducer } from "@reduxjs/toolkit";
 
-import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/authSlice';
 import { diaryReducer } from './diary/diarySlice';
 import { exercisesReducer } from './exercises/exercisesSlice';
 import { productsReducer } from './products/productsSlice';
-
 
 // const rootReducer = combineReducers({
 //   auth: authReducer,
@@ -18,9 +26,9 @@ import { productsReducer } from './products/productsSlice';
 // });
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
-  whitelist: ['token'],
+  blacklist: ['user'],
 };
 
 // const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -39,7 +47,7 @@ export const store = configureStore({
     exercises: exercisesReducer,
   },
 
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
@@ -47,4 +55,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);

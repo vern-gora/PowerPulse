@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { selectUser } from 'redux/auth/selectors';
-import { updateUserParams } from 'redux/auth/operations';
+import { selectGoToParams, selectUser } from 'redux/auth/selectors';
+import { updateUserParams, addUserData } from 'redux/auth/operations';
 import RadioOption from './RadioOption';
 import css from './UserForm.module.css';
+// import { setFullinfo } from 'redux/auth/authSlice';
 
 const UserForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const params = useSelector(selectGoToParams);
 
   const bloodOptions = [
     {
@@ -99,8 +101,14 @@ const UserForm = () => {
   });
 
   const handleSumbit = values => {
-    const sendData = { ...values };
-    dispatch(updateUserParams(sendData));
+    const sendData = { ...values, birthday: '1990-01-01' };
+    if (params) {
+      console.log('put');
+      dispatch(addUserData(sendData));
+    } else {
+      console.log('patch');
+      dispatch(updateUserParams(sendData));
+    }
   };
 
   return (
@@ -118,7 +126,7 @@ const UserForm = () => {
                 className={css.input}
                 name="name"
                 type="text"
-                placehodler="Your name..."
+                placeholder="Name"
                 defaultValue={user.name}
                 style={{ color: 'rgba(239, 237, 232, 0.60)' }}
                 readOnly
@@ -130,6 +138,7 @@ const UserForm = () => {
                 className={css.input}
                 type="text"
                 name="email"
+                placeholder="Email"
                 defaultValue={user.email}
                 style={{ color: 'rgba(239, 237, 232, 0.60)' }}
                 readOnly
@@ -137,61 +146,43 @@ const UserForm = () => {
               />
             </div>
           </div>
-
           <div className={css.wrapper_input_field}>
             <div className={css.wrapper_input}>
+              <p className={css.section_title}>Height</p>
               <input
                 className={css.input_field}
                 type="number"
                 name="height"
                 id="height"
-                placeholder=""
+                placeholder="0"
               />
-              <label className={css.wrapper_input_label} htmlFor="height">
-                Height
-              </label>
             </div>
-            <div className={css.wrapper}>
               <div className={css.wrapper_input}>
+                <p className={css.section_title}>Current Weight</p>
                 <input
                   className={css.input_field}
                   type="number"
                   name="currentWeight"
                   id="currentWeight"
-                  placehodler=""
+                  placeholder="0"
                 />
-                <label
-                  htmlFor="currentWeight"
-                  className={css.wrapper_input_label}
-                >
-                  Current Weight
-                </label>
               </div>
-            </div>
-          </div>
-
-          <div className={css.wrapper_input_field}>
             <div className={css.wrapper_input}>
+              <p className={css.section_title}>Desired Weight</p>
               <input
                 type="number"
                 className={css.input_field}
                 name="desiredWeight"
                 id="desiredWeight"
-                placeholder=""
+                placeholder="0"
               />
-              <label
-                className={css.wrapper_input_label}
-                htmlFor="desiredWeight"
-              >
-                Desired Weight
-              </label>
             </div>
             <>Calendar</>
           </div>
-
           <div className={css.wrapper_radio}>
-            <div style={{ display: 'flex', marginRight: '20px' }}>
-              <div style={{ display: 'flex', marginRight: '20px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', marginRight: '20px' }}>
+              <p className={css.section_title}>Blood</p>
+              <div style={{ display: 'flex', flexDirection: 'row', marginRight: '20px', marginBottom:'32px' }}>
                 {bloodOptions.map(option => (
                   <RadioOption
                     key={option.id}
@@ -202,21 +193,18 @@ const UserForm = () => {
                     onChange={() => formik.setFieldValue('blood', option.value)}
                   />
                 ))}
-              </div>
-              <div style={{ display: 'flex' }}>
                 {sexOptions.map(option => (
                   <RadioOption
-                    key={option.id}
-                    id={option.id}
-                    name="sex"
-                    checked={formik.values.sex === option.value}
-                    label={option.label}
-                    onChange={() => formik.setFieldValue('sex', option.value)}
+                  key={option.id}
+                  id={option.id}
+                  name="sex"
+                  checked={formik.values.sex === option.value}
+                  label={option.label}
+                  onChange={() => formik.setFieldValue('sex', option.value)}
                   />
-                ))}
+                  ))}
               </div>
             </div>
-
             <div сlassName={css.wrapper_level}>
               {levelOptions.map(option => (
                 <RadioOption
@@ -232,7 +220,6 @@ const UserForm = () => {
               ))}
             </div>
           </div>
-
           <button className={css.button} type="submit">
             Save
           </button>

@@ -1,11 +1,20 @@
-.wrapper {
+.main_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-top: 40px;
 }
-
+.wrap_avatar{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1px solid #e6533c;
+  background-color: rgba(48, 48, 48, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .avatar {
   width: 90px;
   height: 90px;
@@ -15,9 +24,10 @@
   justify-content: center;
   align-items: center;
 }
-
-.photo {
-  border-radius: 100px;
+.avatar_svg{
+  width: 62px;
+  height: 62px;
+  fill: rgba(239, 237, 232, 0.1);
 }
 .button {
   cursor: pointer;
@@ -33,24 +43,28 @@
   color: var(--white-color);
 }
 .subtitle {
-  font-family: 'RobotoRegular';
   font-size: 14px;
   line-height: 18px;
   color: #efede84d;
   margin-top: 4px;
 }
 
+
 @media screen and (min-width: 768px) {
-  .svg_logo_user {
-    width: 102px;
-    height: 102px;
-  }
-  .wrapper {
+  .main_wrapper {
     margin-top: 40px;
+  }
+  .wrap_avatar{
+    width: 150px;
+    height: 150px;
   }
   .avatar {
     width: 150px;
     height: 150px;
+  }
+  .avatar_svg{
+    width: 102px;
+    height: 102px;
   }
   .icon_btn {
     width: 32px;
@@ -58,11 +72,13 @@
     top: -17.5px;
   }
   .title_name {
-    font-family: 'RobotoRegular';
     font-size: 24px;
     line-height: 28px;
   }
   .subtitle {
     margin-top: 8px;
   }
+}
+@media screen and (min-width: 1440px){
+  
 }

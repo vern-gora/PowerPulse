@@ -6,6 +6,7 @@ import {
   logOut,
   refreshUser,
   register,
+  updateAvatar,
   updateUserParams,
 } from './operations';
 
@@ -20,8 +21,10 @@ const initialState = {
     blood: 1,
     sex: 'male',
     levelActivity: 1,
+    avatarUrl: null,
   },
   token: null,
+  refreshToken: null,
   isLoggedIn: false,
   goToParams: false,
   isRefreshing: false,
@@ -54,6 +57,11 @@ const authSlice = createSlice({
         state.token = null;
         state.isLoggedIn = false;
       })
+      .addCase(logOut.rejected, state => {
+        state.user = initialState.user;
+        state.token = null;
+        state.isLoggedIn = false;
+      })
 
       .addCase(refreshUser.pending, (state, action) => {
         state.isRefreshing = true;
@@ -82,10 +90,9 @@ const authSlice = createSlice({
 
       .addCase(getUserParams.pending, (state, action) => state)
       .addCase(getUserParams.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user = action.payload;
         state.isLoggedIn = true;
-        state.isRefreshing = false;
-        // state.token = action.payload.token;
+        state.token = action.payload.token;
       })
       .addCase(getUserParams.rejected, (state, action) => state)
 
@@ -99,7 +106,18 @@ const authSlice = createSlice({
       .addCase(addUserData.rejected, (state, action) => {
         state.isLoggedIn = true;
         state.goToParams = false;
+      })
+      .addCase(updateAvatar.pending, (state, action) => {
+        state.isRefreshing = true;
+      })
+      .addCase(updateAvatar.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isRefreshing = false;
+      })
+      .addCase(updateAvatar.rejected, (state, action) => {
+        state.isRefreshing = false;
       }),
 });
 
 export const authReducer = authSlice.reducer;
+
