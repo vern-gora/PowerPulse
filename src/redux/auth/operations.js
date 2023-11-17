@@ -130,17 +130,18 @@ export const getUserParams = createAsyncThunk(
 
 export const updateAvatar = createAsyncThunk(
   'auth/avatar',
-  async (file, thunkAPI) => {
+  async (formData, thunkAPI) => {
     try {
-      const formData = new FormData();
-      formData.append('avatar', file);
-
-      const res = await axios.post('/users/avatar/upload', formData, {
-        headers: { 'content-type': 'multipart/form-data' },
+      const res = await axios.post('/users/avatar/upload', formData,{
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        
       });
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      toast.error('Error, failed to load avatar');
+      return thunkAPI.rejectWithValue(console.log(error.message));
     }
   }
 );
