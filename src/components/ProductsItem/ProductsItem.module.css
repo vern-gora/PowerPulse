@@ -148,21 +148,40 @@
 }
 
 .warning {
-  margin-top: 136px;
-  width: 580px;
+  margin-top: 64px;
+  width: 335px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 132px;
+    width: 580px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 136px;
+  }
 }
 
 .highlightedText {
-  font-size: 16px;
+  font-size: 14px;
   color: #e6533c;
-  line-height: 1.5;
+  line-height: 1.29;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
 .notFoundText {
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 14px;
   color: rgba(239, 237, 232, 0.3);
-  line-height: 1.5;
+  line-height: 1.29;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
 .productItem {

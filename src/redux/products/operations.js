@@ -72,7 +72,7 @@ const getFilteredProducts = createAsyncThunk(
     }
     try {
       setAuthHeader(storedToken);
-      const res = await axios.get('/products', {
+      const res = await axios.get('/products/search', {
         params,
       });
       return res.data.data;
