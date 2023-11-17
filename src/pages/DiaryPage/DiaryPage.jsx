@@ -3,7 +3,7 @@ import { DayProducts } from 'components/DayProdcuts/DayProdcuts';
 import { DaySwitch } from 'components/DaySwitch/DaySwitch';
 import css from './DiaryPage.module.css';
 import { useDispatch /*useSelector*/ } from 'react-redux';
-import { fetchFood } from 'redux/diary/operations';
+// import { fetchFood } from 'redux/diary/operations';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
 /*import {

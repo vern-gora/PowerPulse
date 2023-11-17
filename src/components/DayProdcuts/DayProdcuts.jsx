@@ -14,7 +14,7 @@ export const DayProducts = () => {
   useEffect(() => {
     const date = '17/11/2023';
     dispatch(fetchFoodAndExercises(date));
-  }, []);
+  }, /*[]*/);
 
   const productsData = useSelector(selectConsumedFood);
   const data = [...productsData];

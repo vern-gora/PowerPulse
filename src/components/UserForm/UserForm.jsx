@@ -5,7 +5,7 @@ import { selectGoToParams, selectUser } from 'redux/auth/selectors';
 import { updateUserParams, addUserData } from 'redux/auth/operations';
 import RadioOption from './RadioOption';
 import css from './UserForm.module.css';
-import { setFullinfo } from 'redux/auth/authSlice';
+// import { setFullinfo } from 'redux/auth/authSlice';
 
 const UserForm = () => {
   const dispatch = useDispatch();
