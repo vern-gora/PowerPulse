@@ -58,20 +58,26 @@
   margin-top: 22px;
   width: inherit;
 }
+.productData{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .productListLarge {
   display: flex;
   flex-direction: column;
   gap: 5px;
   margin-bottom: 16px;
   width: 297px;
+
 }
 .productListLarge > span {
-
   height: 38px;
  padding-top: 10px;
  padding-left: 8px;
   border: 1px solid #efede84d;
   border-radius: 12px;
+  overflow-y: auto;
 }
 .productListLarge > p {
   color: #ef8964;
@@ -97,6 +103,7 @@
   height: 38px;
   border: 1px solid #efede84d;
   border-radius: 12px;
+  overflow: hidden;
 }
 .productListSmall > p {
   color: #ef8964;
