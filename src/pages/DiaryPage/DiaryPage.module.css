@@ -56,7 +56,7 @@ body {
 }
 @media screen and (min-width: 1440px) {
   .diaryPage {
-    width: calc(1440px - 96px * 2);
+    width: 1440px;
     padding: 52px 96px 68px 96px;
   }
   .reminder {
