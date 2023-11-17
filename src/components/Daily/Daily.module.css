@@ -18,7 +18,7 @@
 .svg {
   width: 16px;
   height: 16px;
-  fill: var(--orange-main-color);
+  fill:rgba(239, 137, 100, 1);
   stroke: var(--orange-main-color);
 }
 

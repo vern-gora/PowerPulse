@@ -6,7 +6,7 @@ const ExclamationMark = () => {
     <div className={css.wrappers}>
       <div className={css.wrapper}>
         <div className={css.wrapper_mark}>
-          <svg width="24" height="24">
+          <svg className={css.icon_mark}>
             <use href={`${sprite}#exclamation_mark_icon`}></use>
           </svg>
         </div>
