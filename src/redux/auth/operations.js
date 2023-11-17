@@ -63,15 +63,15 @@ export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    const refreshToken = state.auth.refreshToken;
 
-    if (persistedToken === null) {
+    if (refreshToken === null) {
       return thunkAPI.rejectWithValue('Unable to get user');
     }
 
     try {
-      setAuthHeader(persistedToken);
-      const res = await axios.get('/users/refresh');
+      const res = await axios.get('/users/refresh', refreshToken);
+      console.log('refreshed');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -94,7 +94,13 @@ export const updateUserParams = createAsyncThunk(
 export const addUserData = createAsyncThunk(
   'auth/data',
   async (params, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const storedToken = state.auth.token;
+    if (storedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
     try {
+      setAuthHeader(storedToken);
       const res = await axios.put('/users/update', params);
       return res.data;
     } catch (error) {

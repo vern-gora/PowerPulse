@@ -22,6 +22,7 @@ const initialState = {
     levelActivity: 1,
   },
   token: null,
+  refreshToken: null,
   isLoggedIn: false,
   goToParams: false,
   isRefreshing: false,
@@ -50,6 +51,11 @@ const authSlice = createSlice({
       })
 
       .addCase(logOut.fulfilled, state => {
+        state.user = initialState.user;
+        state.token = null;
+        state.isLoggedIn = false;
+      })
+      .addCase(logOut.rejected, state => {
         state.user = initialState.user;
         state.token = null;
         state.isLoggedIn = false;

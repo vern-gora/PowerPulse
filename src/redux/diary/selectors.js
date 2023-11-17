@@ -1,4 +1,5 @@
-export const selectConsumedFood = state => state.diary.data.consumedProduct.data;
+export const selectConsumedFood = state => state.diary.data.consumedProduct;
+export const selectDoneExercise = state => state.diary.data.exerciseDone;
 
 export const selectCurrentData = state => state.diary.currentData;
 
