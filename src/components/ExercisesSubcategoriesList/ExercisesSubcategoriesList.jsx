@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CategoryItem from '../CategoryItem/CategoryItem';
+import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem.jsx';
 import styles from "../ExercisesCategories/ExercisesCategories.module.css";
 import { Rings } from 'react-loader-spinner';
 
@@ -28,8 +28,15 @@ const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
     fetchData();
   }, [subcategory]);
 
-  const handleExerciseSelect = (exercise) => {
-    onSelectExercise(exercise);
+  const handleExerciseSelect = async (exercise) => {
+    try {
+      // Виконуємо запит на сервер для отримання фільтрованих вправ
+      const response = await axios.get(`/exercises/${exercise.filter}/${exercise.name}`);
+      console.log('Filtered Exercises:', response.data);
+      // Додайте код для обробки отриманих даних, наприклад, оновлення стану компоненту
+    } catch (error) {
+      console.error('Error fetching filtered exercises:', error);
+    }
   };
 
   return (
@@ -41,7 +48,7 @@ const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
       ) : (
         <div className={styles.phContainer}>
           {exercises.map((exercise) => (
-            <CategoryItem key={exercise._id} data={exercise} onClick={() => handleExerciseSelect(exercise)} />
+            <ExercisesSubcategoriesItem key={exercise._id} data={exercise} onClick={() => handleExerciseSelect(exercise)} />
           ))}
         </div>
       )}
