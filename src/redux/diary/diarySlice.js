@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchFood,/*fetchFoodNameById,*/ deleteFood, addProductToDiary } from './operations';
+import {
+  fetchFoodAndExercises,
+  /*fetchFoodNameById,*/ deleteFood,
+  addProductToDiary,
+} from './operations';
 const initialState = {
   data: {
     _id: '',
@@ -19,15 +23,16 @@ const diarySlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      .addCase(fetchFood.pending, (state, action) => {
+      .addCase(fetchFoodAndExercises.pending, (state, action) => {
         state.isLoading = true;
       })
-      .addCase(fetchFood.fulfilled, (state, action) => {
-        state.data.consumedProduct = action.payload;
+      .addCase(fetchFoodAndExercises.fulfilled, (state, action) => {
+        state.data.consumedProduct = action.payload.data.foods;
+        state.data.exerciseDone = action.payload.data.exercises;
         state.error = null;
         state.isLoading = false;
       })
-      .addCase(fetchFood.rejected, (state, action) => {
+      .addCase(fetchFoodAndExercises.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
@@ -47,7 +52,7 @@ const diarySlice = createSlice({
       .addCase(addProductToDiary.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.data.consumedProduct = [action.payload];
+        state.data.consumedProduct.push(action.payload);
       })
       .addCase(addProductToDiary.rejected, (state, action) => {
         state.isLoading = false;

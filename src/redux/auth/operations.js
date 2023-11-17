@@ -63,15 +63,15 @@ export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    const refreshToken = state.auth.refreshToken;
 
-    if (persistedToken === null) {
+    if (refreshToken === null) {
       return thunkAPI.rejectWithValue('Unable to get user');
     }
 
     try {
-      setAuthHeader(persistedToken);
-      const res = await axios.get('/users/refresh');
+      const res = await axios.get('/users/refresh', refreshToken);
+      console.log('refreshed');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -94,7 +94,13 @@ export const updateUserParams = createAsyncThunk(
 export const addUserData = createAsyncThunk(
   'auth/data',
   async (params, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const storedToken = state.auth.token;
+    if (storedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
     try {
+      setAuthHeader(storedToken);
       const res = await axios.put('/users/update', params);
       return res.data;
     } catch (error) {
@@ -113,6 +119,7 @@ export const getUserParams = createAsyncThunk(
     }
 
     try {
+      setAuthHeader(persistedToken);
       const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
@@ -123,17 +130,18 @@ export const getUserParams = createAsyncThunk(
 
 export const updateAvatar = createAsyncThunk(
   'auth/avatar',
-  async (file, thunkAPI) => {
+  async (formData, thunkAPI) => {
     try {
-      const formData = new FormData();
-      formData.append('avatar', file);
-
-      const res = await axios.post('/users/avatar/upload', formData, {
-        headers: { 'content-type': 'multipart/form-data' },
+      const res = await axios.post('/users/avatar/upload', formData,{
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        
       });
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      toast.error('Error, failed to load avatar');
+      return thunkAPI.rejectWithValue(console.log(error.message));
     }
   }
 );
