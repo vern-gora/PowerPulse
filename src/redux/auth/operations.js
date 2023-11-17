@@ -94,7 +94,13 @@ export const updateUserParams = createAsyncThunk(
 export const addUserData = createAsyncThunk(
   'auth/data',
   async (params, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const storedToken = state.auth.token;
+    if (storedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
     try {
+      setAuthHeader(storedToken);
       const res = await axios.put('/users/update', params);
       return res.data;
     } catch (error) {

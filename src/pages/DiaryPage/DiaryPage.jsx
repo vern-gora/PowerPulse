@@ -25,7 +25,7 @@ const DiaryPage = () => {
   const dispatch = useDispatch();
 
   // useEffect(() => {
-  //   dispatch(fetchFood("10/11/2023"));
+  //   dispatch(fetchFoodAndExercises("10/11/2023"));
   // }, [dispatch]);
   useEffect(() => {
     dispatch(refreshUser());

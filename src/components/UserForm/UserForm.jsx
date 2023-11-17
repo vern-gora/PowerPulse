@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { selectUser } from 'redux/auth/selectors';
-import { updateUserParams } from 'redux/auth/operations';
+import { selectGoToParams, selectUser } from 'redux/auth/selectors';
+import { updateUserParams, addUserData } from 'redux/auth/operations';
 import RadioOption from './RadioOption';
 import css from './UserForm.module.css';
+import { setFullinfo } from 'redux/auth/authSlice';
 
 const UserForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const params = useSelector(selectGoToParams);
 
   const bloodOptions = [
     {
@@ -99,8 +101,14 @@ const UserForm = () => {
   });
 
   const handleSumbit = values => {
-    const sendData = { ...values };
-    dispatch(updateUserParams(sendData));
+    const sendData = { ...values, birthday: '1990-01-01' };
+    if (params) {
+      console.log('put');
+      dispatch(addUserData(sendData));
+    } else {
+      console.log('patch');
+      dispatch(updateUserParams(sendData));
+    }
   };
 
   return (

@@ -6,14 +6,14 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 // import { fetchFoodNameById } from 'redux/diary/operations';
 import svg from '../../images/svg/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { fetchFood } from 'redux/diary/operations';
+import { fetchFoodAndExercises } from 'redux/diary/operations';
 import { useEffect } from 'react';
 export const DayProducts = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const date = '17/11/2023';
-    dispatch(fetchFood(date));
+    dispatch(fetchFoodAndExercises(date));
   }, []);
 
   const productsData = useSelector(selectConsumedFood);
@@ -41,8 +41,8 @@ export const DayProducts = () => {
               <li className={css.adaptiveTitle}>Recommend</li>
             </ul>
             <ul className={css.productsList}>
-              {data.map(item => {
-                return <DayProductItem data={item} key={item.title} />;
+              {data.map((item, index) => {
+                return <DayProductItem data={item} key={index} />;
               })}
             </ul>
           </>

@@ -5,7 +5,7 @@ const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export const fetchFood = createAsyncThunk(
+export const fetchFoodAndExercises = createAsyncThunk(
   'food/fetchFood',
   async (date, thunkAPI) => {
     try {
