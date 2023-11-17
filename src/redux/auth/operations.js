@@ -138,6 +138,7 @@ export const updateAvatar = createAsyncThunk(
         },
         
       });
+      toast.success('Avatar successfully added')
       return res.data;
     } catch (error) {
       toast.error('Error, failed to load avatar');

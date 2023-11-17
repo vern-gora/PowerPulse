@@ -6,7 +6,6 @@ import {
   logOut,
   refreshUser,
   register,
-  updateAvatar,
   updateUserParams,
 } from './operations';
 
@@ -21,7 +20,6 @@ const initialState = {
     blood: 1,
     sex: 'male',
     levelActivity: 1,
-    avatarUrl: null,
   },
   token: null,
   refreshToken: null,
@@ -106,16 +104,6 @@ const authSlice = createSlice({
       .addCase(addUserData.rejected, (state, action) => {
         state.isLoggedIn = true;
         state.goToParams = false;
-      })
-      .addCase(updateAvatar.pending, (state, action) => {
-        state.isRefreshing = true;
-      })
-      .addCase(updateAvatar.fulfilled, (state, action) => {
-        state.user = action.payload;
-        state.isRefreshing = false;
-      })
-      .addCase(updateAvatar.rejected, (state, action) => {
-        state.isRefreshing = false;
       }),
 });
 
