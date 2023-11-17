@@ -10,7 +10,7 @@ import style from './ProductsPage.module.css';
 import BasicModalWindow from 'components/BasicModalWindow/BasicModalWindow';
 import productsOperations from 'redux/products/operations';
 import productsSelectors from 'redux/products/selectors';
-import { refreshUser } from 'redux/auth/operations';
+import { getUserParams } from 'redux/auth/operations';
 
 const ProductsPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -22,7 +22,7 @@ const ProductsPage = () => {
   const products = useSelector(productsSelectors.getProducts);
 
   useEffect(() => {
-    dispatch(refreshUser());
+    dispatch(getUserParams());
   }, [dispatch]);
 
   useEffect(() => {

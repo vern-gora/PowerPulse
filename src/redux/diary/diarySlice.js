@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchFood, deleteFood, addProductToDiary } from './operations';
+import {
+  fetchFood,
+  /*fetchFoodNameById,*/ deleteFood,
+  addProductToDiary,
+} from './operations';
 const initialState = {
   data: {
     _id: '',
@@ -47,7 +51,7 @@ const diarySlice = createSlice({
       .addCase(addProductToDiary.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.data.consumedProduct = [action.payload];
+        state.data.consumedProduct.push(action.payload);
       })
       .addCase(addProductToDiary.rejected, (state, action) => {
         state.isLoading = false;

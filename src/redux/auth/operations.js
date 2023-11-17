@@ -71,7 +71,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get('/users/current');
+      const res = await axios.get('/users/refresh');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -83,7 +83,7 @@ export const updateUserParams = createAsyncThunk(
   'auth/params',
   async (params, thunkAPI) => {
     try {
-      const res = await axios.patch('/users/params', params);
+      const res = await axios.patch('/users/update', params);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -95,7 +95,7 @@ export const addUserData = createAsyncThunk(
   'auth/data',
   async (params, thunkAPI) => {
     try {
-      const res = await axios.patch('/users', params);
+      const res = await axios.put('/users/update', params);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -113,7 +113,8 @@ export const getUserParams = createAsyncThunk(
     }
 
     try {
-      const res = await axios.get('/users/getuser');
+      setAuthHeader(persistedToken);
+      const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -128,7 +129,7 @@ export const updateAvatar = createAsyncThunk(
       const formData = new FormData();
       formData.append('avatar', file);
 
-      const res = await axios.patch('/users/avatar/upload', formData, {
+      const res = await axios.post('/users/avatar/upload', formData, {
         headers: { 'content-type': 'multipart/form-data' },
       });
       return res.data;

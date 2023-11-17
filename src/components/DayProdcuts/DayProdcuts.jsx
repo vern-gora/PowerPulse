@@ -1,29 +1,12 @@
 import css from './DayProducts.module.css';
 import { Link } from 'react-router-dom';
 import { DayProductItem } from './DayProductItem';
-//import axios from "axios"
-//import { fetchFood } from 'redux/diary/operations';
+import { selectConsumedFood } from 'redux/diary/selectors';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+// import { fetchFoodNameById } from 'redux/diary/operations';
 import svg from '../../images/svg/sprite.svg';
 export const DayProducts = () => {
-  const exampleData = [
-    {
-      _id: '650f35ece3f5522fc6396289',
-      title: 'Bread Hercules grain',
-      category: 'Flour',
-      calories: '289',
-      weight: '100',
-      recommend: true,
-    },
-    {
-      _id: '650f35ece3f5522fc6396299',
-      title: 'Rice Semolina',
-      category: 'Cereals',
-      calories: '340',
-      weight: '200',
-      recommend: false,
-    },
-  ];
-
+const data = useSelector(selectConsumedFood)
   return (
     <div className={css.productsContainer}>
       <div className={css.productsTopBar}>
@@ -36,9 +19,11 @@ export const DayProducts = () => {
         </Link>
       </div>
       <div className={css.productsBottomBar}>
-        {!exampleData && (
+        {!data && (
           <p className={css.noProductsText}>Not found products</p>
         )}
+       {data &&
+       <>
         <ul className={css.adaptiveTitlesList}>
           <li className={css.adaptiveTitle}>Title</li>
           <li className={css.adaptiveTitle}>Category</li>
@@ -47,10 +32,11 @@ export const DayProducts = () => {
           <li className={css.adaptiveTitle}>Recommend</li>
         </ul>
         <ul className={css.productsList}>
-          {exampleData.map(item => {
+          {data.map(item => {
             return <DayProductItem data={item} key={item.title} />;
           })}
         </ul>
+       </>}
       </div>
     </div>
   );

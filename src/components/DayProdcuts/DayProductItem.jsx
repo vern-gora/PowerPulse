@@ -1,12 +1,12 @@
 import css from './DayProducts.module.css';
 import svg from '../../images/svg/sprite.svg';
-export const DayProductItem = ({ data }) => {
-    const { title, category, calories, weight, recommend } = data;
+export const DayProductItem = ({ data, itemName }) => {
+    const { category, calories, amount, recommend } = data;
     return (
       <li className={css.productListItem}>
         <div className={css.productListLarge}>
          <p> Title </p>
-          <span>{title}</span>
+          <span>{itemName}</span>
         </div>
         <div className={css.productListLarge}>
         <p>Category</p>
@@ -19,7 +19,7 @@ export const DayProductItem = ({ data }) => {
         </div>
         <div className={css.productListSmall}>
         <p> Weight </p>
-          <span>{weight}</span>
+          <span>{amount}</span>
         </div>
         <div className={css.productListSmall}>
         <p>Recommend</p>

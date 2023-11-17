@@ -30,16 +30,8 @@
 }
 
 .searchIcon {
-  /* position: absolute; */
   display: block;
-  /* top: 14px;
-  right: 14px; */
   stroke: currentColor;
-
-  @media screen and (min-width: 1440px) {
-    /* bottom: 17px;
-    right: 14px; */
-  }
 }
 
 .filterBtn {
@@ -52,12 +44,16 @@
 
   position: absolute;
   top: 14px;
-  right: 14px;
+  right: 24px;
 
   color: #efede8;
   background-color: transparent;
 
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    right: 14px;
+  }
 
   @media screen and (min-width: 1440px) {
     top: 17px;
@@ -126,11 +122,19 @@
 
   position: absolute;
 
-  top: 17px;
-  right: 40px;
+  top: 14px;
+  right: 48px;
 
   color: #e6533c;
   background-color: transparent;
 
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    right: 38px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 17px;
+  }
 }
