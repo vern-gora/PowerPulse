@@ -177,32 +177,36 @@ const UserForm = () => {
                 placeholder="0"
               />
             </div>
-            <>Calendar</>
+            <p>Calendar</p>
           </div>
           <div className={css.wrapper_radio}>
             <div style={{ display: 'flex', flexDirection: 'column', marginRight: '20px' }}>
               <p className={css.section_title}>Blood</p>
-              <div style={{ display: 'flex', flexDirection: 'row', marginRight: '20px', marginBottom:'32px' }}>
-                {bloodOptions.map(option => (
-                  <RadioOption
+              <div style={{ display: 'flex', flexDirection: 'row', marginRight: '20px', marginBottom:'32px'}}>
+                <div style={{display: 'flex', marginRight: '32px'}}>
+                  {bloodOptions.map(option => (
+                    <RadioOption
+                      key={option.id}
+                      id={option.id}
+                      name="blood"
+                      checked={formik.values.blood === option.value}
+                      label={option.label}
+                      onChange={() => formik.setFieldValue('blood', option.value)}
+                    />
+                  ))}
+                </div>
+                <div style={{display: 'flex'}}>
+                  {sexOptions.map(option => (
+                    <RadioOption
                     key={option.id}
                     id={option.id}
-                    name="blood"
-                    checked={formik.values.blood === option.value}
+                    name="sex"
+                    checked={formik.values.sex === option.value}
                     label={option.label}
-                    onChange={() => formik.setFieldValue('blood', option.value)}
-                  />
-                ))}
-                {sexOptions.map(option => (
-                  <RadioOption
-                  key={option.id}
-                  id={option.id}
-                  name="sex"
-                  checked={formik.values.sex === option.value}
-                  label={option.label}
-                  onChange={() => formik.setFieldValue('sex', option.value)}
-                  />
-                  ))}
+                    onChange={() => formik.setFieldValue('sex', option.value)}
+                    />
+                    ))}
+                </div>
               </div>
             </div>
             <div сlassName={css.wrapper_level}>
