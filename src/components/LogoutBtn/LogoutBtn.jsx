@@ -11,9 +11,11 @@ const LogoutBtn = () => {
   return (
     <Link to="/" onClick={handleLogOut} className={css.log_out_link}>
       <span className={css.btn}>
-        <svg width="24" height="24">
-          <use href={`${sprite}#log_out_icon`}></use>
-        </svg>
+        <label className={css.icon_wrap}>Logout&nbsp;
+          <svg className={css.icon}>
+            <use href={`${sprite}#log_out_icon`}></use>
+          </svg>
+        </label>
       </span>
     </Link>
   );
