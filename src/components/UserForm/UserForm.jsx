@@ -118,7 +118,7 @@ const UserForm = () => {
                 className={css.input}
                 name="name"
                 type="text"
-                placehodler="Your name..."
+                placeholder="Name"
                 defaultValue={user.name}
                 style={{ color: 'rgba(239, 237, 232, 0.60)' }}
                 readOnly
@@ -130,6 +130,7 @@ const UserForm = () => {
                 className={css.input}
                 type="text"
                 name="email"
+                placeholder="Email"
                 defaultValue={user.email}
                 style={{ color: 'rgba(239, 237, 232, 0.60)' }}
                 readOnly
@@ -137,58 +138,43 @@ const UserForm = () => {
               />
             </div>
           </div>
-
           <div className={css.wrapper_input_field}>
             <div className={css.wrapper_input}>
+              <p className={css.section_title}>Height</p>
               <input
                 className={css.input_field}
                 type="number"
                 name="height"
                 id="height"
-                placeholder=""
+                placeholder="0"
               />
-              <label className={css.wrapper_input_label} htmlFor="height">
-                Height
-              </label>
             </div>
             <div className={css.wrapper}>
               <div className={css.wrapper_input}>
+                <p className={css.section_title}>Current Weight</p>
                 <input
                   className={css.input_field}
                   type="number"
                   name="currentWeight"
                   id="currentWeight"
-                  placehodler=""
+                  placeholder="0"
                 />
-                <label
-                  htmlFor="currentWeight"
-                  className={css.wrapper_input_label}
-                >
-                  Current Weight
-                </label>
               </div>
             </div>
           </div>
-
           <div className={css.wrapper_input_field}>
             <div className={css.wrapper_input}>
+              <p className={css.section_title}>Desired Weight</p>
               <input
                 type="number"
                 className={css.input_field}
                 name="desiredWeight"
                 id="desiredWeight"
-                placeholder=""
+                placeholder="0"
               />
-              <label
-                className={css.wrapper_input_label}
-                htmlFor="desiredWeight"
-              >
-                Desired Weight
-              </label>
             </div>
             <>Calendar</>
           </div>
-
           <div className={css.wrapper_radio}>
             <div style={{ display: 'flex', marginRight: '20px' }}>
               <div style={{ display: 'flex', marginRight: '20px' }}>
@@ -216,7 +202,6 @@ const UserForm = () => {
                 ))}
               </div>
             </div>
-
             <div сlassName={css.wrapper_level}>
               {levelOptions.map(option => (
                 <RadioOption
@@ -232,7 +217,6 @@ const UserForm = () => {
               ))}
             </div>
           </div>
-
           <button className={css.button} type="submit">
             Save
           </button>
