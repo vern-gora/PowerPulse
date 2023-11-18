@@ -9,10 +9,6 @@ export const fetchFoodAndExercises = createAsyncThunk(
   'food/fetchFood',
   async (date, thunkAPI) => {
     try {
-      const state = thunkAPI.getState();
-      const storedToken = state.auth.token;
-
-      setAuthHeader(storedToken);
       const response = await axios.get(`/diary?date=${date}`);
       return response.data;
     } catch (e) {
@@ -28,9 +24,6 @@ export const deleteFood = createAsyncThunk(
   'food/deleteFood',
   async (_id, thunkAPI) => {
     try {
-      const state = thunkAPI.getState();
-      const storedToken = state.auth.token;
-      setAuthHeader(storedToken);
       const response = await axios.delete(`/diary/food/${_id}`);
       return response.data;
     } catch (e) {
@@ -43,12 +36,6 @@ export const deleteFood = createAsyncThunk(
 export const addProductToDiary = createAsyncThunk(
   'diary/addProductToDiary',
   async (data, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const storedToken = state.auth.token;
-
-    if (storedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
     try {
       setAuthHeader(storedToken);
       const res = await axios.post('/diary/food', data);

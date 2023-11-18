@@ -2,10 +2,14 @@ import css from './DayProducts.module.css';
 import svg from '../../images/svg/sprite.svg';
 import { deleteFood } from 'redux/diary/operations';
 import { useDispatch } from 'react-redux';
+import { updateFoodList } from 'redux/diary/diarySlice';
 export const DayProductItem = ({ data }) => {
   const { title, category, calories, amount, recommend } = data;
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteFood(data.id));
+  const handleDelete = () => {
+    dispatch(deleteFood(data._id))
+    dispatch(updateFoodList(data._id));
+  };
   return (
     <li className={css.productListItem}>
       <div className={css.productListLarge}>

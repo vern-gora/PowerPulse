@@ -21,6 +21,14 @@ const initialState = {
 const diarySlice = createSlice({
   name: 'diary',
   initialState,
+  reducers: {
+    updateFoodList: (state, action) => {
+      const foodIdToDelete = action.payload;
+      state.data.consumedProduct = state.data.consumedProduct.filter(
+        item=> item._id !== foodIdToDelete
+      );
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(fetchFoodAndExercises.pending, (state, action) => {
@@ -61,5 +69,6 @@ const diarySlice = createSlice({
         state.error = action.payload;
       }),
 });
+export const { updateFoodList } = diarySlice.actions;
 
 export const diaryReducer = diarySlice.reducer;
