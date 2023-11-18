@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CategoryItem from '../CategoryItem/CategoryItem';
-import styles from "../ExercisesCategories/ExercisesCategories.module.css";
+import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem.jsx';
+import styles from '../ExercisesCategories/ExercisesCategories.module.css';
 import { Rings } from 'react-loader-spinner';
 
 const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
@@ -12,9 +12,9 @@ const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`https://powerpulse-backend.onrender.com/exercises/${subcategory}`, {
+        const response = await axios.get(`https://powerpulse-backend.onrender.com/exercises/${subcategory.toLowerCase()}`, {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTUyMWRjNzdiZjRlYzMwYjNjYWQzMWUiLCJpYXQiOjE3MDAxNjgzMjcsImV4cCI6MTcwMDc3MzEyN30.Y-VGEoGvx9Q12pSA8hS32tJvoRtOKGOiqQbfwfCm_YI`,
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTUyMWRjNzdiZjRlYzMwYjNjYWQzMWUiLCJpYXQiOjE3MDAyNTM0NjUsImV4cCI6MTcwMDg1ODI2NX0.b1lP8YMZkgLKjx9xr6wW36fv_RLtpakwePByRg0Myb8',
           },
         });
         setExercises(response.data.data);
@@ -28,8 +28,18 @@ const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
     fetchData();
   }, [subcategory]);
 
-  const handleExerciseSelect = (exercise) => {
-    onSelectExercise(exercise);
+  const handleExerciseSelect = async (exercise) => {
+    const { name } = exercise;
+    try {
+      const response = await axios.get(`https://powerpulse-backend.onrender.com/exercises/${subcategory.toLowerCase()}/${name.toLowerCase()}`, {
+        headers: {
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTUyMWRjNzdiZjRlYzMwYjNjYWQzMWUiLCJpYXQiOjE3MDAyNTM0NjUsImV4cCI6MTcwMDg1ODI2NX0.b1lP8YMZkgLKjx9xr6wW36fv_RLtpakwePByRg0Myb8',
+        },
+      });
+      console.log('Filtered Exercises:', response.data);
+    } catch (error) {
+      console.error('Error fetching filtered exercises:', error);
+    }
   };
 
   return (
@@ -41,7 +51,7 @@ const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
       ) : (
         <div className={styles.phContainer}>
           {exercises.map((exercise) => (
-            <CategoryItem key={exercise._id} data={exercise} onClick={() => handleExerciseSelect(exercise)} />
+            <ExercisesSubcategoriesItem key={exercise._id} data={exercise} onClick={() => handleExerciseSelect(exercise)} />
           ))}
         </div>
       )}

@@ -1,53 +1,37 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 import sprite from '../../images/svg/sprite.svg';
 import { updateAvatar } from 'redux/auth/operations';
 import css from './UserCard.module.css';
+import { nanoid } from 'nanoid';
 
 const UserCard = () => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const [avatar, setAvatar] = useState(user.avatarUrl);
+  const imageId = nanoid();
 
-  const avatarUser = (
-    <img className={css.photo} src={avatar} width="100%" alt="Avatar" />
-  );
-  const avatarLogo = (
-    <svg className={css.svg_logo_user} fill="#efede84d" width="62" height="62">
-      <use href={`${sprite}#avatar_icon`}></use>
-    </svg>
-  );
-
-  const handleAvatatChange = event => {
-    const file = event.target.files[0];
-
-    if (file) {
-      const blob = new Blob([file]);
-      const objectURL = URL.createObjectURL(blob);
-      setAvatar(objectURL);
-    }
-
-    try {
-      dispatch(updateAvatar(file));
-      console.log(file);
-    } catch (error) {
-      console.log('Помилка при відправленні файлу на сервер', error);
-    }
+  const handleAvatarChange = (event) => {
+    const formData = new FormData();
+    formData.append('avatar', event.target.files[0], imageId);
+    dispatch(updateAvatar(formData));
   };
-
   return (
-    <div className={css.wrapper}>
-      <div className={css.avatar}>{avatar ? avatarUser : avatarLogo}</div>
+    <div className={css.main_wrapper}>
+      <div className={css.wrap_avatar}>
+        {user.avatarUrl ? 
+          <img src={user.avatarUrl} alt="Avatar" className={css.avatar}/>: 
+          <svg className={css.avatar_svg}>
+            <use href={sprite + '#avatar_icon'}></use>
+          </svg>
+        }
+      </div>
       <form id="upload-form">
         <input
-          type="file
-        "
+          type="file"
           id="file-input"
-          name="file
-                  "
+          name="file"
           style={{ display: 'none' }}
-          onChange={handleAvatatChange}
+          onChange={handleAvatarChange}
         />
         <label htmlFor="file-input">
           <div className={css.button}>
@@ -57,7 +41,7 @@ const UserCard = () => {
           </div>
         </label>
       </form>
-      <p className={css.title_name}>{user.name}</p>
+      <p className={css.title_name}>{user.name ? user.name : 'User'}</p>
       <p className={css.subtitle}>User</p>
     </div>
   );
