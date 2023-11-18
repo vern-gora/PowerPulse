@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchFoodAndExercises,
-  /*fetchFoodNameById,*/ deleteFood,
+  fetchFoodAndExercises, deleteFood,
   addProductToDiary,
 } from './operations';
 const initialState = {
@@ -36,14 +35,13 @@ const diarySlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(deleteFood.pending, (state, action) => (state.isLoading = true))
+      .addCase(deleteFood.pending, (state, action) => state.isLoading = true)
       .addCase(deleteFood.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.data.consumedProduct.findIndex(
-          product => product._id === action.payload._id
-        );
-        state.data.consumedProduct.splice(index, 1);
+        state.data.consumedProduct = state.data.consumedProduct.filter(
+          product => product._id !== action.payload._id
+      );
       })
       .addCase(deleteFood.rejected, (state, action) => {
         state.isLoading = false;

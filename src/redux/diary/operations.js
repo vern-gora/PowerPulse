@@ -28,14 +28,17 @@ export const deleteFood = createAsyncThunk(
   'food/deleteFood',
   async (_id, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const storedToken = state.auth.token;
+      setAuthHeader(storedToken);
       const response = await axios.delete(`/diary/food/${_id}`);
-
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+/*[Immer] An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.*/
 
 export const addProductToDiary = createAsyncThunk(
   'diary/addProductToDiary',
