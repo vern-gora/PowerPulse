@@ -176,8 +176,14 @@ const UserForm = () => {
                 id="desiredWeight"
                 placeholder="0"
               />
+              <input
+                type="number"
+                className={css.input_field}
+                name="desiredWeight"
+                id="desiredWeight"
+                placeholder="0"
+              />
             </div>
-            <>Calendar</>
           </div>
           <div className={css.wrapper_radio}>
             <div
