@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem.jsx';
-import ExercisesItem from '../ExercisesItem/ExercisesItem.jsx';  // Импорт нового компонента
 import styles from '../ExercisesCategories/ExercisesCategories.module.css';
 import { Rings } from 'react-loader-spinner';
 
@@ -50,17 +49,10 @@ const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
           <Rings height="100" width="100" color="#e6533c" ariaLabel="rings-loading" />
         </div>
       ) : (
-        <div>
-          <div className={styles.phContainer}>
-            {exercises.map((exercise) => (
-              <ExercisesSubcategoriesItem key={exercise._id} data={exercise} onClick={() => handleExerciseSelect(exercise)} />
-            ))}
-          </div>
-          <div>
-            {exercises.map((exercise) => (
-              <ExercisesItem key={exercise._id} data={exercise} />
-            ))}
-          </div>
+        <div className={styles.phContainer}>
+          {exercises.map((exercise) => (
+            <ExercisesSubcategoriesItem key={exercise._id} data={exercise} onClick={() => handleExerciseSelect(exercise)} />
+          ))}
         </div>
       )}
     </div>
