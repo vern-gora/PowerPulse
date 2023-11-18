@@ -1,34 +1,161 @@
 /* ExercisesItem.module.css */
 
 .exercises-item {
-    border-radius: 12px;
-    border: 1px solid rgba(239, 237, 232, 0.20);
-    background: rgba(239, 237, 232, 0.05);
-    padding: 10px;
-    margin-bottom: 10px;
-    color: #EFEDE8; /* Цвет для самих данных в div */
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px; /* 150% */
-  }
-  
-  .exercises-item h3 {
-    color: #EFEDE8; /* Цвет для самого названия упражнения */
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Roboto;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 120% */
-  }
-  
-  .data-name {
-    color: rgba(239, 237, 232, 0.40); /* Цвет для названия данных */
-  }
-  
-  .data-value {
-    color: #EFEDE8; /* Цвет для самих данных */
-  }
+  width: 335px;
+  height: 141px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.20);
+  background: rgba(239, 237, 232, 0.05);
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #EFEDE8;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.exercise-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.exercise-middle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.exercise-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+}
+
+.exercise-middle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin-top: 33px;
+}
+
+.cardRunningIcon {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+}
+
+.data-right {
+  text-transform: capitalize;
+  color: #EFEDE8;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 120% */
+}
+
+.exercise-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data-name {
+  color: rgba(239, 237, 232, 0.40);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+}
+
+.data-value {
+  text-transform: capitalize;
+  color: #EFEDE8;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Roboto;
+ 
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+}
+
+
+.exercise-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.workout-title {
+  display: inline-flex;
+  padding: 5px 7.5px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  background: rgba(239, 237, 232, 0.05);
+
+  color: var(--white-white, #FFF);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.start-button {
+  color: #E6533C;
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 128.571% */
+}
+
+.arrow-svg {
+  width: 24px;
+  height: 24px;
+  fill: #E6533C;
+}
+
+.workout-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-svg-container{
+  display: flex;
+  align-items: center;
+  gap:8px;
+}
+
+.data-name-middle{
+  color: #EFEDE8;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 120% */
+}

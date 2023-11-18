@@ -1,3 +1,4 @@
+//ExercisesSubcategoriesList
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem.jsx';

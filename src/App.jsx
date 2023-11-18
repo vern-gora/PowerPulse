@@ -113,12 +113,12 @@ function App() {
             />
             <Route
               path="/exercises"
-              element={
-                <PrivateRoute
-                  redirectTo="/"
-                  condition={isLoggedIn}
-                  component={<ExercisesPage />}
-                />
+              element={<ExercisesPage />
+                // <PrivateRoute
+                //   redirectTo="/"
+                //   condition={isLoggedIn}
+                //   component={<ExercisesPage />}
+                // />
               }
             />
             <Route
