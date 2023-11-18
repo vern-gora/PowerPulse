@@ -1,3 +1,5 @@
+//ExercisesCategories
+
 import React, { useState } from 'react';
 import ExerciseSubcategoriesList from '../ExercisesSubcategoriesList/ExercisesSubcategoriesList.jsx';
 import styles from "../ExercisesCategories/ExercisesCategories.module.css";
@@ -23,7 +25,7 @@ const ExercisesCategories = () => {
           className={`${styles.btnCategories} ${activeSubcategory === 'muscules' ? styles.active : ''}`}
           onClick={() => handleSubcategoryClick('muscules')}
         >
-          Muscles
+        Muscles
         </button>
 
         <button

@@ -8,17 +8,18 @@
   margin-top: 40px;
 }
 
-.wrapper_mark {
+.icon_mark {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 100px;
   width: 24px;
   height: 24px;
-  background-color: var(--beige-color);
+  fill: var(--beige-color);
+  stroke: #fff;
 }
 .text {
-  font-family: 'RobotoRegular';
+  font-family: 'Roboto-400';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

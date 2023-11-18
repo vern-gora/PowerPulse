@@ -1,11 +1,11 @@
-// ExercisesSubcategoriesItem.jsx
+//ExercisesSubcategoriesItem
+
 import React from 'react';
 import styles from '../ExercisesCategories/ExercisesCategories.module.css';
 
 const ExercisesSubcategoriesItem = ({ data, onClick }) => {
   const handleImageClick = () => {
-    // Передаємо інформацію про вибрану вправу на обробник
-    onClick(data);
+      onClick(data);
   };
 
   return (
