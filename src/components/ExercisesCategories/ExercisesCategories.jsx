@@ -1,3 +1,5 @@
+//ExercisesCategories
+
 import React, { useState } from 'react';
 import ExerciseSubcategoriesList from '../ExercisesSubcategoriesList/ExercisesSubcategoriesList.jsx';
 import styles from "../ExercisesCategories/ExercisesCategories.module.css";
