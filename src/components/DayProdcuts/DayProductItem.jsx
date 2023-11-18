@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 export const DayProductItem = ({ data }) => {
   const { title, category, calories, amount, recommend } = data;
   const dispatch = useDispatch();
-  const handleDelete = (id) => dispatch(deleteFood(id));
+  const handleDelete = () => dispatch(deleteFood(data.id));
   return (
     <li className={css.productListItem}>
       <div className={css.productListLarge}>
@@ -42,7 +42,7 @@ export const DayProductItem = ({ data }) => {
         <button
           type="button"
           className={css.deleteProductButton}
-          onClick={()=> handleDelete(data._id)}
+          onClick={handleDelete}
         >
           <svg className={css.deleteProductButtonIcon}>
             <use href={svg + '#trash_icon'}></use>
