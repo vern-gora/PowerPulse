@@ -1,4 +1,3 @@
-// ExercisesSubcategoriesItem.jsx
 import React from 'react';
 import styles from '../ExercisesCategories/ExercisesCategories.module.css';
 
