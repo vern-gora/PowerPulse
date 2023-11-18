@@ -37,7 +37,6 @@ const DiaryPage = () => {
         <h1 className={css.header}>Diary</h1>
         <DaySwitch />
       </div>
-
       <DayProducts />
       <div className={css.reminder}>
         <p className={css.reminderText}>

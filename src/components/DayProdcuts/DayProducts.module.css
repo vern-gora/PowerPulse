@@ -68,7 +68,6 @@
   flex-direction: column;
   gap: 5px;
   margin-bottom: 16px;
-  width: 297px;
 
 }
 .productListLarge > span {
@@ -99,7 +98,6 @@
   gap: 8px;
   padding-top: 10px;
   padding-left: 14px;
-  width: 81px;
   height: 38px;
   border: 1px solid #efede84d;
   border-radius: 12px;
@@ -131,6 +129,12 @@
 @media screen and (min-width: 375px) {
   .productsContainer{
   width: 336px;
+}
+.productListLarge{
+  width: 297px;
+}
+.productListSmall > span{
+  width: 81px;
 }
 }
 @media screen and (min-width: 768px) {
