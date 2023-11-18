@@ -157,16 +157,16 @@ const UserForm = () => {
                 placeholder="0"
               />
             </div>
-              <div className={css.wrapper_input}>
-                <p className={css.section_title}>Current Weight</p>
-                <input
-                  className={css.input_field}
-                  type="number"
-                  name="currentWeight"
-                  id="currentWeight"
-                  placeholder="0"
-                />
-              </div>
+            <div className={css.wrapper_input}>
+              <p className={css.section_title}>Current Weight</p>
+              <input
+                className={css.input_field}
+                type="number"
+                name="currentWeight"
+                id="currentWeight"
+                placeholder="0"
+              />
+            </div>
             <div className={css.wrapper_input}>
               <p className={css.section_title}>Desired Weight</p>
               <input
@@ -180,11 +180,28 @@ const UserForm = () => {
             <>Calendar</>
           </div>
           <div className={css.wrapper_radio}>
-            <div style={{ display: 'flex', flexDirection: 'column', marginRight: '20px' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                marginRight: '20px',
+              }}
+            >
               <p className={css.section_title}>Blood</p>
-              <div style={{ display: 'flex', flexDirection: 'row', marginRight: '20px', marginBottom:'32px' }}>
+              <div
+                style={{
+                  fontFamily: 'Roboto',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  marginRight: '20px',
+                  marginBottom: '32px',
+                }}
+              >
                 {bloodOptions.map(option => (
                   <RadioOption
+                    style={{
+                      fontFamily: 'Roboto',
+                    }}
                     key={option.id}
                     id={option.id}
                     name="blood"
@@ -195,14 +212,14 @@ const UserForm = () => {
                 ))}
                 {sexOptions.map(option => (
                   <RadioOption
-                  key={option.id}
-                  id={option.id}
-                  name="sex"
-                  checked={formik.values.sex === option.value}
-                  label={option.label}
-                  onChange={() => formik.setFieldValue('sex', option.value)}
+                    key={option.id}
+                    id={option.id}
+                    name="sex"
+                    checked={formik.values.sex === option.value}
+                    label={option.label}
+                    onChange={() => formik.setFieldValue('sex', option.value)}
                   />
-                  ))}
+                ))}
               </div>
             </div>
             <div сlassName={css.wrapper_level}>

@@ -1,17 +1,28 @@
 .log_out_link {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
   color: var(--white-color);
   margin-top: 40px;
+  position: absolute;
+  right: 0;
 }
 
 .btn {
   margin-right: 8px;
 }
+.icon_wrap{
+  color: var(--white-color);
+}
+
+.icon {
+  stroke: rgba(230, 83, 60, 1);
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 5px;
+}
 
 @media screen and (min-width: 768px) {
   .log_out_link {
-    margin-right: 150px;
+    margin-right:90px;
   }
 }

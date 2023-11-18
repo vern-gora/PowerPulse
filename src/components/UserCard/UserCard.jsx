@@ -3,14 +3,16 @@ import { selectUser } from 'redux/auth/selectors';
 import sprite from '../../images/svg/sprite.svg';
 import { updateAvatar } from 'redux/auth/operations';
 import css from './UserCard.module.css';
+import { nanoid } from 'nanoid';
 
 const UserCard = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const imageId = nanoid();
 
   const handleAvatarChange = (event) => {
     const formData = new FormData();
-    formData.append('avatar', event.target.files[0]);
+    formData.append('avatar', event.target.files[0], imageId);
     dispatch(updateAvatar(formData));
   };
   return (
