@@ -79,7 +79,7 @@ const authSlice = createSlice({
       .addCase(updateUserParams.pending, (state, action) => state)
       .addCase(updateUserParams.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.token = action.payload.token;
+        // state.token = action.payload.token;
         state.isLoggedIn = true;
         state.goToParams = false;
         state.isRefreshing = false;
@@ -91,16 +91,16 @@ const authSlice = createSlice({
 
       .addCase(getUserParams.pending, (state, action) => state)
       .addCase(getUserParams.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = action.payload.user;
         state.isLoggedIn = true;
-        state.token = action.payload.token;
+        // state.token = action.payload.token;
       })
       .addCase(getUserParams.rejected, (state, action) => state)
 
       .addCase(addUserData.pending, (state, action) => state)
       .addCase(addUserData.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.token = action.payload.token;
+        // state.token = action.payload.token;
         state.isLoggedIn = true;
         state.goToParams = false;
       })
@@ -111,4 +111,3 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-

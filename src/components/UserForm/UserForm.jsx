@@ -82,9 +82,9 @@ const UserForm = () => {
     height: user.height || '150',
     currentWeight: user.currentWeight || '35',
     desiredWeight: user.desiredWeight || '35',
-    blood: (user.blood ?? '1').toString() || '1',
+    blood: (user.blood ?? '1') || '1',
     sex: user.sex || 'male',
-    levelActivity: (user.levelActivity ?? '1').toString() || '1',
+    levelActivity: (user.levelActivity ?? '1') || '1',
   };
 
   const validationSchema = Yup.object({
