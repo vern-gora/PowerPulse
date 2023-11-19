@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchFoodAndExercises,
   deleteFood,
+  deleteExercise,
   addProductToDiary,
 } from './operations';
 const initialState = {
@@ -25,7 +26,13 @@ const diarySlice = createSlice({
     updateFoodList: (state, action) => {
       const foodIdToDelete = action.payload;
       state.data.consumedProduct = state.data.consumedProduct.filter(
-        item=> item._id !== foodIdToDelete
+        item => item._id !== foodIdToDelete
+      );
+    },
+    updateExerciseList: (state, action) => {
+      const exerciseIdToDelete = action.payload;
+      state.data.exerciseDone = state.data.exerciseDone.filter(
+        item => item._id !== exerciseIdToDelete
       );
     },
   },
@@ -45,10 +52,10 @@ const diarySlice = createSlice({
         state.error = action.payload;
       })
       .addCase(deleteFood.pending, (state, action) => {
-        state.isLoading = true
+        state.isLoading = true;
       })
       .addCase(deleteFood.fulfilled, (state, action) => {
-        console.log(action.payload._id)
+        console.log(action.payload._id);
         state.isLoading = false;
         const deletedId = action.payload._id;
         state.data.consumedProduct = state.data.consumedProduct.filter(
@@ -56,6 +63,20 @@ const diarySlice = createSlice({
         );
       })
       .addCase(deleteFood.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteExercise.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteExercise.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const deletedId = action.payload._id;
+        state.data.exerciseDone = state.data.exerciseDone.filter(
+          exersize => exersize._id !== deletedId
+        );
+      })
+      .addCase(deleteExercise.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })

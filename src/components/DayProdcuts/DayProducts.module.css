@@ -10,6 +10,7 @@
     ),
     linear-gradient(0deg, rgba(239, 237, 232, 0.046), rgba(239, 237, 232, 0.05));
   padding: 16px;
+  margin-bottom: 40px;
   height: 250px;
   overflow: auto;
 }
@@ -140,6 +141,7 @@
 @media screen and (min-width: 768px) {
   .productsContainer{
     width: 704px;
+    margin-bottom: 32px;
   }
   .productsBottomBar {
     display: block;

@@ -14,6 +14,7 @@ import svg from '../../images/svg/sprite.svg';
 export const DayProducts = ({productsData}) => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  console.log(productsData)
   return (
     <div className={css.productsContainer}>
       {isLoading ? (
@@ -49,7 +50,7 @@ export const DayProducts = ({productsData}) => {
             </Link>
           </div>
           <div className={css.productsBottomBar}>
-            {!productsData && (
+            {!productsData || productsData.length === 0 && (
               <p className={css.noProductsText}>Not found products</p>
             )}
             {productsData && (

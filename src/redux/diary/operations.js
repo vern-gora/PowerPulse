@@ -9,6 +9,10 @@ export const fetchFoodAndExercises = createAsyncThunk(
   'food/fetchFood',
   async (date, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const storedToken = state.auth.token;
+
+      setAuthHeader(storedToken);
       const response = await axios.get(`/diary?date=${date}`);
       return response.data;
     } catch (e) {
@@ -31,13 +35,23 @@ export const deleteFood = createAsyncThunk(
     }
   }
 );
-/*[Immer] An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.*/
+
+export const deleteExercise =createAsyncThunk(
+  'exersize/deleteExercise',
+  async (_id, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/diary/exercise/${_id}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
 export const addProductToDiary = createAsyncThunk(
   'diary/addProductToDiary',
   async (data, thunkAPI) => {
     try {
-      setAuthHeader(storedToken);
       const res = await axios.post('/diary/food', data);
       return res.data.result;
     } catch (error) {
