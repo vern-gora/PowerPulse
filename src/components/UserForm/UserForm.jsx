@@ -79,9 +79,9 @@ const UserForm = () => {
 
   const initialValues = {
     name: user.name || 'Name',
-    height: user.height,
-    currentWeight: user.currentWeight || '35',
-    desiredWeight: user.desiredWeight || '35',
+    height: user.height || '0',
+    currentWeight: user.currentWeight || '0',
+    desiredWeight: user.desiredWeight || '0',
     blood: (user.blood ?? '1') || '1',
     sex: user.sex || 'male',
     levelActivity: (user.levelActivity ?? '1') || '1',
@@ -165,7 +165,7 @@ const UserForm = () => {
                 type="number"
                 name="currentWeight"
                 id="currentWeight"
-                placeholder="0"
+                placeholder={user.currentWeight}
                 value={formik.values.currentWeight}
                 onChange={formik.handleChange}
               />
@@ -177,7 +177,7 @@ const UserForm = () => {
                 className={css.input_field}
                 name="desiredWeight"
                 id="desiredWeight"
-                placeholder="0"
+                placeholder={user.desiredWeight}
                 value={formik.values.desiredWeight}
                 onChange={formik.handleChange}
               />
