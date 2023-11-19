@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import {toast} from "react-hot-toast"
+import { toast } from 'react-hot-toast';
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -16,9 +16,7 @@ export const fetchFoodAndExercises = createAsyncThunk(
       const response = await axios.get(`/diary?date=${date}`);
       return response.data;
     } catch (e) {
-      toast.error(
-        'Some error occured. Please try again later'
-      );
+      toast.error('Some error occured. Please try again later');
       return thunkAPI.rejectWithValue(e.message);
     }
   }

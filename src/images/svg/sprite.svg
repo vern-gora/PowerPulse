@@ -79,10 +79,10 @@
 <path d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 25.333v0.013M16 20v-13.333"></path>
 </symbol>
-<symbol id="log_out_icon" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M12 4h-1.6c-2.24 0-3.36 0-4.216 0.436-0.753 0.383-1.365 0.995-1.748 1.748-0.436 0.856-0.436 1.976-0.436 4.216v11.2c0 2.24 0 3.36 0.436 4.216 0.383 0.753 0.995 1.364 1.748 1.748 0.856 0.436 1.976 0.436 4.216 0.436h1.6"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M21.333 22.667l6.667-6.667M28 16l-6.667-6.667M28 16h-16"></path>
-</symbol>
+<svg id='log_out_icon' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+  <path d="M7.5 2.5H6.5C5.09987 2.5 4.3998 2.5 3.86502 2.77248C3.39462 3.01217 3.01217 3.39462 2.77248 3.86502C2.5 4.3998 2.5 5.09987 2.5 6.5V13.5C2.5 14.9001 2.5 15.6002 2.77248 16.135C3.01217 16.6054 3.39462 16.9878 3.86502 17.2275C4.3998 17.5 5.09987 17.5 6.5 17.5H7.5" stroke="#E6533C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13.3333 14.1667L17.5 10M17.5 10L13.3333 5.83337M17.5 10H7.5" stroke="#E6533C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 <symbol id="bubble_icon" viewBox="0 0 32 32">
 <path d="M20.793 16.346c3.778 0 6.84-3.062 6.84-6.84s-3.062-6.84-6.84-6.84c-3.778 0-6.84 3.062-6.84 6.84s3.062 6.84 6.84 6.84z"></path>
 <path d="M8.476 25.919c2.268 0 4.107-1.839 4.107-4.107s-1.839-4.107-4.107-4.107c-2.268 0-4.107 1.839-4.107 4.107s1.839 4.107 4.107 4.107z"></path>
