@@ -3,7 +3,7 @@ import React, { lazy } from 'react';
 import { Rings } from 'react-loader-spinner';
 import { Suspense } from 'react';
 import Layout from 'components/Layout/Layout';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { RestrictedRoute } from 'RestrictedRoute';
 import { PrivateRoute } from 'PrivateRoute';
 import ExerciseModal from 'components/ExercisesTable/ExercisesTable';
