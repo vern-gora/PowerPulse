@@ -14,7 +14,7 @@ import {
   selectDailyPhysicalActivity,
 } from 'redux/diary/selectors';
 import { fetchFoodAndExercises } from 'redux/diary/operations';
-import { refreshUser } from 'redux/auth/operations';
+// import { refreshUser } from 'redux/auth/operations';
 /*import {
   selectConsumedFood,
   selectCurrentData,
