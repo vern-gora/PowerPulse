@@ -33,11 +33,11 @@ function Header() {
       </NavLink>
       {isLoggedIn && (
         <div className={css.ctrl_container}>
-          <button className={css.settings_button}>
+          <NavLink to="/profile" className={css.settings_button}>
             <svg width={24} height={24}>
               <use href={svg + `#settings_icon`}></use>
             </svg>
-          </button>
+          </NavLink>
           <div className={css.avatar_icon}>
             <svg width={21} height={21}>
               <use href={svg + `#avatar_icon`}></use>

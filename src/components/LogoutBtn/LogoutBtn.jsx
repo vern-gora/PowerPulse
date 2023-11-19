@@ -10,7 +10,7 @@ const LogoutBtn = () => {
   return (
     <button onClick={handleLogOut} className={css.log_out_link}>
       Logout
-      <svg width="20" height="20">
+      <svg width="20" height="20" className={css.logout_icon}>
         <use href={`${sprite}#log_out_icon`}></use>
       </svg>
     </button>
