@@ -1,0 +1,11 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="arrow-icon" viewBox="0 0 32 32">
+<path fill="none" stroke="#e6533c" style="stroke: var(--color2, #e6533c)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M15 28l13-13M28 15l-13-13M28 15h-26"></path>
+</symbol>
+<symbol id="trash_icon" viewBox="0 0 32 32">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" stroke-width="2.4" d="M12 4h8m-6.667 10v6.667M18.667 14v6.667M4 8h24m-2.667 0-.935 14.026c-.14 2.104-.21 3.156-.665 3.954a4.007 4.007 0 0 1-1.731 1.62c-.826.4-1.881.4-3.99.4h-4.025c-2.109 0-3.163 0-3.99-.4a3.996 3.996 0 0 1-1.731-1.62c-.455-.798-.525-1.85-.665-3.954L6.666 8"></path>
+</symbol>
+
+</defs>
+</svg>
