@@ -228,7 +228,7 @@ const UserForm = () => {
                 ))}
               </div>
             </div>
-            <div сlassName={css.wrapper_level}>
+            <div className={css.wrapper_level}>
               {levelOptions.map(option => (
                 <RadioOption
                   key={option.id}
