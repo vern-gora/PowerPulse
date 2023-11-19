@@ -19,7 +19,7 @@ const WellDone = ({ handleClose, time, calories }) => {
       </button>
       <img src={thumbUp} alt="Well done!" width={120} height={74} />
       <h5 className={style.title}>Well Done!</h5>
-      <div>
+      <div className={style.textBox}>
         <p className={style.doneTip}>
           Your time:
           <span className={style.doneScore}>{time} minutes</span>

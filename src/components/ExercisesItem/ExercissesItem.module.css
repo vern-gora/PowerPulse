@@ -4,11 +4,11 @@
   width: 335px;
   height: 141px;
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.20);
+  border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
   padding: 10px;
   margin-bottom: 10px;
-  color: #EFEDE8;
+  color: #efede8;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Roboto;
   font-size: 12px;
@@ -64,7 +64,7 @@ svg {
 
 .data-right {
   text-transform: capitalize;
-  color: #EFEDE8;
+  color: #efede8;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Roboto;
   font-size: 20px;
@@ -80,7 +80,7 @@ svg {
 }
 
 .data-name {
-  color: rgba(239, 237, 232, 0.40);
+  color: rgba(239, 237, 232, 0.4);
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Roboto;
   font-size: 12px;
@@ -91,15 +91,14 @@ svg {
 
 .data-value {
   text-transform: capitalize;
-  color: #EFEDE8;
+  color: #efede8;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Roboto;
- 
+
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 150% */
 }
-
 
 .exercise-top {
   display: flex;
@@ -115,7 +114,7 @@ svg {
   border-radius: 4px;
   background: rgba(239, 237, 232, 0.05);
 
-  color: var(--white-white, #FFF);
+  color: var(--white-white, #fff);
   font-family: Roboto;
   font-size: 12px;
   font-style: normal;
@@ -124,18 +123,18 @@ svg {
 }
 
 .start-button {
-  color: #E6533C;
-font-family: Roboto;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 18px; /* 128.571% */
+  color: #e6533c;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
 }
 
 .arrow-svg {
   width: 24px;
   height: 24px;
-  fill: #E6533C;
+  fill: #e6533c;
 }
 
 .workout-container {
@@ -144,18 +143,20 @@ line-height: 18px; /* 128.571% */
   align-items: center;
 }
 
-.button-svg-container{
+.button-svg-container {
   display: flex;
   align-items: center;
-  gap:8px;
+  gap: 8px;
+  border: none;
+  background-color: transparent;
 }
 
-.data-name-middle{
-  color: #EFEDE8;
-font-feature-settings: 'clig' off, 'liga' off;
-font-family: Roboto;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; /* 120% */
+.data-name-middle {
+  color: #efede8;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 120% */
 }
