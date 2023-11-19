@@ -73,7 +73,7 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.post('/users/refresh', refreshToken);
       console.log('refreshed');
       console.log('res.data from refreshUSer: ', res.data);
-      return res.data;
+      return res.data.user;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -83,6 +83,7 @@ export const refreshUser = createAsyncThunk(
 export const updateUserParams = createAsyncThunk(
   'auth/params',
   async (params, thunkAPI) => {
+    console.log('params', params)
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
     if (persistedToken === null) {
@@ -92,8 +93,11 @@ export const updateUserParams = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const res = await axios.patch('/users/update', params);
-      return res.data;
+      toast.success('User successfully updated');
+      console.log('res.data', res.data)
+      return res.data.user;
     } catch (error) {
+      toast.error('User update failed');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -110,7 +114,7 @@ export const addUserData = createAsyncThunk(
     try {
       setAuthHeader(storedToken);
       const res = await axios.put('/users/update', params);
-      return res.data;
+      return res.data.user;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
