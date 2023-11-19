@@ -10,6 +10,7 @@
 .header_logo {
   display: flex;
   align-items: center;
+  background-color: transparent !important;
 }
 
 .icon_logo {
