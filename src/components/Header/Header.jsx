@@ -4,6 +4,7 @@ import css from './Header.module.css';
 import svg from '../../images/svg/sprite.svg';
 import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 import { useAuth } from 'hooks/useAuth';
+import NavigationMenu from 'components/NavigationMenu/Navigationmenu';
 
 function Header() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -33,6 +34,7 @@ function Header() {
       </NavLink>
       {isLoggedIn && (
         <div className={css.ctrl_container}>
+          {windowWidth >= 1440 && <NavigationMenu />}
           <NavLink to="/profile" className={css.settings_button}>
             <svg width={24} height={24}>
               <use href={svg + `#settings_icon`}></use>
@@ -58,6 +60,7 @@ function Header() {
                   <use href={svg + `#log_out_icon`}></use>
                 </svg>
               </button> */}
+
               <LogoutBtn />
             </>
           )}
