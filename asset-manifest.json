@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/PowerPulse/static/css/main.86d91539.css",
+    "main.css": "/PowerPulse/static/css/main.e16352ec.css",
     "main.js": "/PowerPulse/static/js/main.95721e0c.js",
     "static/css/760.9cb7ad94.chunk.css": "/PowerPulse/static/css/760.9cb7ad94.chunk.css",
     "static/js/760.55a23813.chunk.js": "/PowerPulse/static/js/760.55a23813.chunk.js",
@@ -37,7 +37,7 @@
     "static/media/symbol-exer.svg": "/PowerPulse/static/media/symbol-exer.6f3484e1d5e9ad1c396894d5c2ce2b57.svg",
     "index.html": "/PowerPulse/index.html",
     "static/media/Line.svg": "/PowerPulse/static/media/Line.56c98a07893009bfdfbb2f9613a038d4.svg",
-    "main.86d91539.css.map": "/PowerPulse/static/css/main.86d91539.css.map",
+    "main.e16352ec.css.map": "/PowerPulse/static/css/main.e16352ec.css.map",
     "main.95721e0c.js.map": "/PowerPulse/static/js/main.95721e0c.js.map",
     "760.9cb7ad94.chunk.css.map": "/PowerPulse/static/css/760.9cb7ad94.chunk.css.map",
     "760.55a23813.chunk.js.map": "/PowerPulse/static/js/760.55a23813.chunk.js.map",
@@ -59,7 +59,7 @@
     "7.685abd00.chunk.js.map": "/PowerPulse/static/js/7.685abd00.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.86d91539.css",
+    "static/css/main.e16352ec.css",
     "static/js/main.95721e0c.js"
   ]
 }
