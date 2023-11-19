@@ -70,8 +70,9 @@ export const refreshUser = createAsyncThunk(
     }
 
     try {
-      const res = await axios.post('/users/refresh', {refreshToken: refreshToken});
+      const res = await axios.post('/users/refresh', refreshToken);
       console.log('refreshed');
+      console.log('res.data from refreshUSer: ', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -82,7 +83,14 @@ export const refreshUser = createAsyncThunk(
 export const updateUserParams = createAsyncThunk(
   'auth/params',
   async (params, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to get user');
+    }
+
     try {
+      setAuthHeader(persistedToken);
       const res = await axios.patch('/users/update', params);
       return res.data;
     } catch (error) {
@@ -121,6 +129,7 @@ export const getUserParams = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const res = await axios.get('/users/current');
+      console.log(res.data.user);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -132,13 +141,19 @@ export const updateAvatar = createAsyncThunk(
   'auth/avatar',
   async (formData, thunkAPI) => {
     try {
-      const res = await axios.post('/users/avatar/upload', formData,{
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue('Unable to get user');
+      }
+      setAuthHeader(persistedToken);
+
+      const res = await axios.post('/users/avatar/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-
       });
-      toast.success('Avatar successfully added')
+      toast.success('Avatar successfully added');
       return res.data;
     } catch (error) {
       toast.error('Error, failed to load avatar');
