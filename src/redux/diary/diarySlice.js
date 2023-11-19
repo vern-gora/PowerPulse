@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchFoodAndExercises,
-  /*fetchFoodNameById,*/ deleteFood,
+  deleteFood,
+  deleteExercise,
   addProductToDiary,
 } from './operations';
 const initialState = {
@@ -21,6 +22,20 @@ const initialState = {
 const diarySlice = createSlice({
   name: 'diary',
   initialState,
+  reducers: {
+    updateFoodList: (state, action) => {
+      const foodIdToDelete = action.payload;
+      state.data.consumedProduct = state.data.consumedProduct.filter(
+        item => item._id !== foodIdToDelete
+      );
+    },
+    updateExerciseList: (state, action) => {
+      const exerciseIdToDelete = action.payload;
+      state.data.exerciseDone = state.data.exerciseDone.filter(
+        item => item._id !== exerciseIdToDelete
+      );
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(fetchFoodAndExercises.pending, (state, action) => {
@@ -36,16 +51,32 @@ const diarySlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(deleteFood.pending, (state, action) => (state.isLoading = true))
+      .addCase(deleteFood.pending, (state, action) => {
+        state.isLoading = true;
+      })
       .addCase(deleteFood.fulfilled, (state, action) => {
+        console.log(action.payload._id);
         state.isLoading = false;
-        state.error = null;
-        const index = state.data.consumedProduct.findIndex(
-          product => product._id === action.payload._id
+        const deletedId = action.payload._id;
+        state.data.consumedProduct = state.data.consumedProduct.filter(
+          product => product._id !== deletedId
         );
-        state.data.consumedProduct.splice(index, 1);
       })
       .addCase(deleteFood.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteExercise.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteExercise.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const deletedId = action.payload._id;
+        state.data.exerciseDone = state.data.exerciseDone.filter(
+          exersize => exersize._id !== deletedId
+        );
+      })
+      .addCase(deleteExercise.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
@@ -59,5 +90,6 @@ const diarySlice = createSlice({
         state.error = action.payload;
       }),
 });
+export const { updateFoodList } = diarySlice.actions;
 
 export const diaryReducer = diarySlice.reducer;

@@ -2,11 +2,14 @@ import css from './DayProducts.module.css';
 import svg from '../../images/svg/sprite.svg';
 import { deleteFood } from 'redux/diary/operations';
 import { useDispatch } from 'react-redux';
+import { updateFoodList } from 'redux/diary/diarySlice';
 export const DayProductItem = ({ data }) => {
-  const {title,category,calories,amount,recommend, _id} = data;
+  const { title, category, calories, amount, recommend } = data;
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteFood(_id));
-
+  const handleDelete = () => {
+    dispatch(deleteFood(data._id))
+    dispatch(updateFoodList(data._id));
+  };
   return (
     <li className={css.productListItem}>
       <div className={css.productListLarge}>
@@ -40,7 +43,11 @@ export const DayProductItem = ({ data }) => {
             {recommend ? 'Yes' : 'No'}
           </span>
         </div>
-        <button type="button" className={css.deleteProductButton} onClick={handleDelete}>
+        <button
+          type="button"
+          className={css.deleteProductButton}
+          onClick={handleDelete}
+        >
           <svg className={css.deleteProductButtonIcon}>
             <use href={svg + '#trash_icon'}></use>
           </svg>
