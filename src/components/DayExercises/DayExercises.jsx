@@ -106,9 +106,7 @@ DayExercises.propTypes = {
       name: PropTypes.string,
       target: PropTypes.string,
       burnedCalories: PropTypes.number,
-
       _id: PropTypes.string,
-
       time: PropTypes.number,
     })
   ),
