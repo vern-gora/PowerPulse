@@ -114,8 +114,10 @@ export const addUserData = createAsyncThunk(
     try {
       setAuthHeader(storedToken);
       const res = await axios.put('/users/update', params);
+      toast.success('User successfully added');
       return res.data.user;
     } catch (error) {
+      toast.error('User add failed');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

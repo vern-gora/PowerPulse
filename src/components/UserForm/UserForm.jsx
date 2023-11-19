@@ -12,6 +12,7 @@ const UserForm = () => {
   const user = useSelector(selectUser);
   const params = useSelector(selectGoToParams);
 
+
   const bloodOptions = [
     {
       id: '1',
@@ -107,7 +108,11 @@ const UserForm = () => {
   sendData.currentWeight = currentWeight;
   sendData.desiredWeight = desiredWeight;
 
-  dispatch(updateUserParams(sendData))
+  if(params){
+    dispatch(addUserData(sendData))
+  }else{
+    dispatch(updateUserParams(sendData))
+  };
 };
 
   return (
