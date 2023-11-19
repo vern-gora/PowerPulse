@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './RadioOption.module.css';
 
-const RadioOption = ({ id, name, value, label, onChange }) => (
+const RadioOption = ({ id, name, value, label, onChange, checked }) => (
   <div className={css.radio}>
     <input
       className={css.radio_input}
@@ -10,6 +10,7 @@ const RadioOption = ({ id, name, value, label, onChange }) => (
       name={name}
       value={value}
       onChange={onChange}
+      checked={checked}
     />
     <label className={css.radio_label} htmlFor={id}>
       {label}
