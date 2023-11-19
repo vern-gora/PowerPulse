@@ -59,11 +59,15 @@ const DiaryPage = () => {
       <DayExercises doneExercises={exersizesData} />
       <div className={css.reminder}>
         <p className={css.reminderText}>
-          Record all your meals in the calorie diary everyday. This will help
+          Record all your meals in the calorie diary every day. This will help
           you be aware of your nutrition and make informed choices.
         </p>
       </div>
+      <DayExercises doneExercises={doneExercisesData} date={currentDate} />
+      <DayDashboard diary={diaryData} bodyData={bodyData} />
     </section>
   );
 };
+
 export default DiaryPage;
+
