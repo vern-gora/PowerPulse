@@ -28,6 +28,7 @@ body {
   height: 54px;
   font-size: 14px;
   line-height: 18px;
+  margin-top: 20px;
   margin-bottom: 40px;
   color: #efede8a1;
 }
@@ -51,7 +52,8 @@ body {
   }
   .reminder {
     width: 593px;
-    bottom: 0;
+    position: relative;
+    top: 992px;
   }
 }
 @media screen and (min-width: 1440px) {
