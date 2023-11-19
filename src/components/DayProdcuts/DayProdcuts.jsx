@@ -32,7 +32,7 @@ export const DayProducts = () => {
     const date = getCurrentDate();
     dispatch(fetchFoodAndExercises(date));
     setData(productsData);
-  }, [dispatch, productsData]);
+  }, [dispatch]);
 
   return (
     <div className={css.productsContainer}>

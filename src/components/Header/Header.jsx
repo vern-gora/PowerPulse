@@ -3,9 +3,11 @@ import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
 import svg from '../../images/svg/sprite.svg';
 import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
+import { useAuth } from 'hooks/useAuth';
 
 function Header() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,8 +20,6 @@ function Header() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  const isLoggedIn = true;
 
   return (
     <div className={`${css.header} `}>

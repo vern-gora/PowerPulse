@@ -22,7 +22,7 @@ const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 // const PrivateRoute = lazy(() => import('../src/PrivateRoute'));
 
 function App() {
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   return (
     <>
@@ -56,7 +56,6 @@ function App() {
               element={
                 <RestrictedRoute
                   redirectTo="/profile"
-                  condition={() => !isLoggedIn}
                   component={<WelcomePage />}
                 />
               }
@@ -66,7 +65,6 @@ function App() {
               element={
                 <RestrictedRoute
                   redirectTo="/profile"
-                  condition={() => !isLoggedIn}
                   component={<SignUpPage />}
                 />
               }
@@ -76,7 +74,6 @@ function App() {
               element={
                 <RestrictedRoute
                   redirectTo="/diary"
-                  condition={() => !isLoggedIn}
                   component={<SignInPage />}
                 />
               }
@@ -84,51 +81,31 @@ function App() {
             <Route
               path="/profile"
               element={
-                <PrivateRoute
-                  redirectTo="/"
-                  condition={isLoggedIn}
-                  component={<ProfilePage />}
-                />
+                <PrivateRoute redirectTo="/" component={<ProfilePage />} />
               }
             />
             <Route
               path="/diary"
               element={
-                <PrivateRoute
-                  redirectTo="/"
-                  condition={isLoggedIn}
-                  component={<DiaryPage />}
-                />
+                <PrivateRoute redirectTo="/" component={<DiaryPage />} />
               }
             />
             <Route
               path="/products"
               element={
-                <PrivateRoute
-                  redirectTo="/"
-                  condition={isLoggedIn}
-                  component={<ProductsPage />}
-                />
+                <PrivateRoute redirectTo="/" component={<ProductsPage />} />
               }
             />
             <Route
               path="/exercises"
               element={
-                <PrivateRoute
-                  redirectTo="/"
-                  condition={isLoggedIn}
-                  component={<ExercisesPage />}
-                />
+                <PrivateRoute redirectTo="/" component={<ExercisesPage />} />
               }
             />
             <Route
               path="/error"
               element={
-                <RestrictedRoute
-                  redirectTo="/"
-                  condition={isLoggedIn}
-                  component={<ErrorPage />}
-                />
+                <RestrictedRoute redirectTo="/" component={<ErrorPage />} />
               }
             />
             <Route path="/modal" element={<ExerciseModal />} />
