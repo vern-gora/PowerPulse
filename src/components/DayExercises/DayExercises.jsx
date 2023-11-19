@@ -108,7 +108,7 @@ DayExercises.propTypes = {
       burnedCalories: PropTypes.number,
 
       _id: PropTypes.string,
-      burnedCalories: PropTypes.number,
+
       time: PropTypes.number,
     })
   ),

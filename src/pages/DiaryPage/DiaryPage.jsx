@@ -47,7 +47,7 @@ const DiaryPage = () => {
     dispatch(fetchFoodAndExercises('19/11/2023'));
     setPrData([...productsData]);
     setExData([...exersizesData]);
-  }, [dispatch]);
+  }, [dispatch, productsData, exersizesData]);
 console.log(exData);
 console.log(exersizesData);
   /*const exampleExData = [
@@ -140,7 +140,7 @@ console.log(exersizesData);
       </div>
       <DayProducts productsData={[...productsData]} />
       <DayExercises doneExercises={[...exersizesData]} date={getCurrentDate()} />
-      
+
     </section>
   );
 };
