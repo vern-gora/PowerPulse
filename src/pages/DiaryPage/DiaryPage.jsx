@@ -5,7 +5,7 @@ import svg from '../../images/svg/sprite.svg';
 import StyledDatepicker from 'components/Calendar/StyledDatepicker';
 import css from './DiaryPage.module.css';
 import { useDispatch /*useSelector*/ } from 'react-redux';
-import { useState, useEffect } from 'react';
+import {  useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import {
   selectConsumedFood,
@@ -27,8 +27,6 @@ import { fetchFoodAndExercises } from 'redux/diary/operations';
   "password": "JhonWick"
 }*/
 const DiaryPage = () => {
-  const [prData, setPrData] = useState([]);
-  const [exData, setExData] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -47,9 +45,6 @@ const DiaryPage = () => {
   useEffect(() => {
     const date = getCurrentDate();
     dispatch(fetchFoodAndExercises(date));
-    setPrData([...productsData]);
-    setExData([...exersizesData]);
-
   }, [dispatch]);
   const bodyData = {
     dailyRateCalories,
