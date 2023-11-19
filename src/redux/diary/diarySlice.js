@@ -55,7 +55,6 @@ const diarySlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteFood.fulfilled, (state, action) => {
-        console.log(action.payload._id);
         state.isLoading = false;
         const deletedId = action.payload._id;
         state.data.consumedProduct = state.data.consumedProduct.filter(

@@ -120,7 +120,7 @@
 .deleteProductButtonIcon{
   width: 20px;
   height: 20px;
-  fill: #E6533C;
+  stroke: #EF8964; 
 }
 .errorMessage{
   position: relative;
