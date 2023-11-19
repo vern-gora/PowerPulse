@@ -70,7 +70,7 @@ export const refreshUser = createAsyncThunk(
     }
 
     try {
-      const res = await axios.get('/users/refresh', refreshToken);
+      const res = await axios.post('/users/refresh', {refreshToken: refreshToken});
       console.log('refreshed');
       return res.data;
     } catch (error) {
@@ -136,7 +136,7 @@ export const updateAvatar = createAsyncThunk(
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-        
+
       });
       toast.success('Avatar successfully added')
       return res.data;
