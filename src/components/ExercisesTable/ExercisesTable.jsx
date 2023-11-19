@@ -2,26 +2,11 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import style from './ExerciseModal.module.css';
-import axios from 'axios';
 import sprite from '../../images/svg/sprite.svg';
 import WellDone from './WellDone';
-// import { useSelector } from 'react-redux';
 
-axios.defaults.baseURL = 'https://powerpulse-backend.onrender.com';
-
-function ExerciseModal() {
-  const [data /*setData*/] = useState({
-    _id: {
-      $oid: '64f2458d6f67bc34bae4f8b2',
-    },
-    bodyPart: 'shoulders',
-    equipment: 'cable',
-    gifUrl: 'https://ftp.goit.study/img/power-pulse/gifs/0219.gif',
-    name: 'cable shoulder press',
-    target: 'delts',
-    burnedCalories: 289,
-    time: 3,
-  });
+function ExerciseModal({ dataEx, closeFunc }) {
+  const [data /* setData*/] = useState(dataEx);
   const fullTime = data.time * 60;
   const cofPerS = data.burnedCalories / fullTime;
   const [finished, setFinished] = useState(false);
@@ -97,29 +82,7 @@ function ExerciseModal() {
 
     return `${month}/${day}/${year}`;
   }
-  // const setAuthHeader = token => {
-  //   axios.defaults.headers.common.Authorization = `Bearer${token}`;
-  // };
-  // const token =
-  //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTRjZDllYjQ3M2UwNzgwMDcyZWM1M2YiLCJpYXQiOjE2OTk5NzY3ODMsImV4cCI6MTcwMDAwMTk4M30.a_SK3NEZRmx1MhiJzFVjHLeNWyBSK1z3hPlM1L6F53I';
-  // const exerciseId = '64f2458d6f67bc34bae4f8bd';
 
-  // useEffect(() => {
-  //   async function getExersise() {
-  //     try {
-  //       const exercise = await axios.get(`/exercises/current/${exerciseId}`, {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       });
-  //       setData(exercise.data.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-
-  //   getExersise();
-  // }, []);
   const handleButton = () => {
     const exersiceLog = {
       exercise: data._id,
@@ -138,7 +101,7 @@ function ExerciseModal() {
     <div className={style.background}>
       {!finished && (
         <div className={style.modalWindow}>
-          <button className={style.close}>
+          <button onClick={closeFunc} className={style.close}>
             <svg className={style.closeIcon}>
               <use href={sprite + '#icon-cross'}></use>
             </svg>
@@ -222,7 +185,7 @@ function ExerciseModal() {
       )}
       {finished && (
         <WellDone
-          handleClose={handleClose}
+          handleClose={closeFunc}
           calories={burned}
           time={Math.round(burned / cofPerS / 60)}
         />
