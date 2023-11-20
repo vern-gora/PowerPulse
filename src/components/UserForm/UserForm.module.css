@@ -34,9 +34,7 @@
 }
 
 .wrapper_input_field {
-  /* display: inline-flex; */
   display: flex;
-  /* align-items: flex-end; */
   flex-wrap: wrap;
   gap: 14px;
 }
@@ -131,6 +129,12 @@
   .section_title {
     font-size: 14px;
   }
+  .input{
+    width: 341px;
+  }
+  .input_field {
+    width: 164px;
+  }
   .button {
     margin: 40px 0px 64px 0;
     padding: 16px 50px;
@@ -139,13 +143,11 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-top: 32px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .input {
-    width: 341px;
-  }
   .wrapper_radio {
     display: block;
   }
