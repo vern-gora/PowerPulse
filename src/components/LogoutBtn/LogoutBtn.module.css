@@ -2,13 +2,13 @@
   display: flex;
   font-size: 16px;
   align-items: center;
-  margin-left: 16px;
+  margin-left: auto;
   padding: 0;
   justify-content: center;
   color: var(--white-color);
   border: none;
   background-color: transparent;
-  line-height: 1.5; /* 150% */
+  line-height: 1.5;
 }
 
 .logout_icon {
@@ -16,4 +16,13 @@
 }
 
 @media screen and (min-width: 768px) {
+  .log_out_link{
+    margin-left: 525px;
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .log_out_link{
+    margin-left: auto;
+  }
 }
