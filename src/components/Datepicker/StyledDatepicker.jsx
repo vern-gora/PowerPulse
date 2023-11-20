@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import { CalendarGlobalStyles, IconSvg } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
 import sprite from '../../images/svg/sprite.svg';
 import styles from '../UserForm/UserForm.module.css';
 
