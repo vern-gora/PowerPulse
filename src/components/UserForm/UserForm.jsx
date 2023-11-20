@@ -151,49 +151,56 @@ const UserForm = () => {
             </div>
           </div>
           <div className={css.wrapper_input_field}>
-            <div className={css.wrapper_input}>
-              <p className={css.section_title}>Height</p>
-              <input
-                className={css.input_field}
-                type="number"
-                name="height"
-                id="height"
-                placeholder={user.height}
-                value={formik.values.height}
-                onChange={formik.handleChange}
-              />
+            <div className={css.wrapper_input_section}>
+              <div className={css.wrapper_input}>
+                <p className={css.section_title}>Height</p>
+                <input
+                  className={css.input_field}
+                  type="number"
+                  name="height"
+                  id="height"
+                  placeholder={user.height}
+                  value={formik.values.height}
+                  onChange={formik.handleChange}
+                />
+              </div>
+              <div className={css.wrapper_input}>
+                <p className={css.section_title}>Current Weight</p>
+                <input
+                  className={css.input_field}
+                  type="number"
+                  name="currentWeight"
+                  id="currentWeight"
+                  placeholder={user.currentWeight}
+                  value={formik.values.currentWeight}
+                  onChange={formik.handleChange}
+                />
+              </div>
             </div>
-            <div className={css.wrapper_input}>
-              <p className={css.section_title}>Current Weight</p>
-              <input
-                className={css.input_field}
-                type="number"
-                name="currentWeight"
-                id="currentWeight"
-                placeholder={user.currentWeight}
-                value={formik.values.currentWeight}
-                onChange={formik.handleChange}
-              />
-            </div>
-            <div className={css.wrapper_input}>
-              <p className={css.section_title}>Desired Weight</p>
-              <input
-                type="number"
-                className={css.input_field}
-                name="desiredWeight"
-                id="desiredWeight"
-                placeholder={user.desiredWeight}
-                value={formik.values.desiredWeight}
-                onChange={formik.handleChange}
-              />
-              <input
-                type="date"
-                className={css.input_field}
-                name="desiredWeight"
-                id="desiredWeight"
-                placeholder="0"
-                // value={user.desiredWeight}
-              />
+            <div className={css.wrapper_input_section}>
+              <div className={css.wrapper_input}>
+                  <p className={css.section_title}>Desired Weight</p>
+                  <input
+                    type="number"
+                    className={css.input_field}
+                    name="desiredWeight"
+                    id="desiredWeight"
+                    placeholder={user.desiredWeight}
+                    value={formik.values.desiredWeight}
+                    onChange={formik.handleChange}
+                  />
+                  </div>
+              <div className={css.wrapper_input}>
+                <p className={css.section_title}>0</p>
+                  <input
+                    type="date"
+                    className={css.input_field}
+                    name="desiredWeight"
+                    id="desiredWeight"
+                    placeholder="0"
+                    // value={user.desiredWeight}
+                  />
+                </div>
             </div>
           </div>
           <div className={css.wrapper_radio}>
