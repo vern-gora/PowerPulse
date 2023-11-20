@@ -1,28 +1,19 @@
 .log_out_link {
   display: flex;
+  font-size: 16px;
+  align-items: center;
+  margin-left: 16px;
+  padding: 0;
+  justify-content: center;
   color: var(--white-color);
-  margin-top: 40px;
-  position: absolute;
-  right: 0;
+  border: none;
+  background-color: transparent;
+  line-height: 1.5; /* 150% */
 }
 
-.btn {
-  margin-right: 8px;
-}
-.icon_wrap{
-  color: var(--white-color);
-}
-
-.icon {
-  stroke: rgba(230, 83, 60, 1);
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 5px;
+.logout_icon {
+  margin-left: 8px;
 }
 
 @media screen and (min-width: 768px) {
-  .log_out_link {
-    margin-right:90px;
-  }
 }

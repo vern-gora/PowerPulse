@@ -124,6 +124,10 @@ h6 {
   margin: 0;
 }
 
+.active {
+  background: #E6533C;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .container {
     max-width: none;

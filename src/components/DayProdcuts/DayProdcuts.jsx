@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Rings } from 'react-loader-spinner';
 //import { fetchFoodAndExercises } from 'redux/diary/operations';
 import svg from '../../images/svg/sprite.svg';
+
 export const DayProducts = ({ productsData }) => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -32,8 +33,6 @@ export const DayProducts = ({ productsData }) => {
           middleLineColor=""
           lastLineColor=""
         />
-      ) : error ? (
-        <p className={css.errorMessage}>Error</p>
       ) : (
         <>
           <div className={css.productsTopBar}>
@@ -45,13 +44,12 @@ export const DayProducts = ({ productsData }) => {
               </svg>
             </Link>
           </div>
-          {!productsData ||
-            (productsData.length === 0 && (
+          
+          {!productsData && productsData.length === 0 && error !==null && (
               <p className={css.noProductsText}>Not found products</p>
-            ))}
+            )}
 
-          {productsData ||
-            (productsData.length !== 0 && (
+          {productsData && productsData.length !== 0 && (
               <div className={css.productsBottomBar}>
                 <ul className={css.adaptiveTitlesList}>
                   <li className={css.adaptiveTitle}>Title</li>
@@ -60,13 +58,16 @@ export const DayProducts = ({ productsData }) => {
                   <li className={css.adaptiveTitle}>Weight</li>
                   <li className={css.adaptiveTitle}>Recommend</li>
                 </ul>
+                
                 <ul className={css.productsList}>
-                  {productsData.map((item, index) => {
-                    return <DayProductItem data={item} key={index} />;
-                  })}
+                  {
+                  productsData.map((item, index) => {
+                    return (<DayProductItem data={item} key={index} />);
+                  })
+                  }
                 </ul>
               </div>
-            ))}
+            )}
         </>
       )}
     </div>

@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
 import svg from '../../images/svg/sprite.svg';
-import { useDispatch } from 'react-redux';
-import { logOut } from 'redux/auth/operations';
+import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
+import { useAuth } from 'hooks/useAuth';
+import NavigationMenu from 'components/NavigationMenu/Navigationmenu';
 
 function Header() {
-  const dispatch = useDispatch();
-  const isLoggedIn = true;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const { isLoggedIn } = useAuth();
 
-  const handleLogOut = () => {
-    dispatch(logOut());
-    console.log('logOut');
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className={`${css.header} `}>
       <NavLink to="/" className={css.header_logo}>
@@ -25,22 +34,36 @@ function Header() {
       </NavLink>
       {isLoggedIn && (
         <div className={css.ctrl_container}>
-          <button className={css.settings_button}>
+          {windowWidth >= 1440 && <NavigationMenu />}
+          <NavLink to="/profile" className={css.settings_button}>
             <svg width={24} height={24}>
               <use href={svg + `#settings_icon`}></use>
             </svg>
-          </button>
+          </NavLink>
           <div className={css.avatar_icon}>
             <svg width={21} height={21}>
               <use href={svg + `#avatar_icon`}></use>
             </svg>
           </div>
-          <button className={css.burger_menu_button}>
-            <svg width={24} height={24}>
-              <use href={svg + `#burger_menu_icon`}></use>
-            </svg>
-          </button>
-          <button onClick={handleLogOut}>logOut</button>
+          {windowWidth < 1440 && (
+            <button className={css.burger_menu_button}>
+              <svg width={24} height={24}>
+                <use href={svg + `#burger_menu_icon`}></use>
+              </svg>
+            </button>
+          )}
+          {windowWidth >= 1440 && (
+            <>
+              {/* <button className={css.logout_button}>
+                Logout
+                <svg width={20} height={20}>
+                  <use href={svg + `#log_out_icon`}></use>
+                </svg>
+              </button> */}
+
+              <LogoutBtn />
+            </>
+          )}
         </div>
       )}
     </div>

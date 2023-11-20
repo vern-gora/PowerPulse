@@ -37,6 +37,7 @@ export const logIn = createAsyncThunk(
   'auth/login',
   async (formData, thunkAPI) => {
     try {
+      toast.loading('You have successfully logged in');
       const res = await axios.post('/users/login', formData);
       toast.success('You have successfully logged in');
       setAuthHeader(res.data.token);
@@ -70,9 +71,9 @@ export const refreshUser = createAsyncThunk(
     }
 
     try {
-      const res = await axios.get('/users/refresh', refreshToken);
+      const res = await axios.post('/users/refresh', refreshToken);
       console.log('refreshed');
-      return res.data;
+      return res.data.user;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -82,10 +83,19 @@ export const refreshUser = createAsyncThunk(
 export const updateUserParams = createAsyncThunk(
   'auth/params',
   async (params, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to get user');
+    }
+
     try {
+      setAuthHeader(persistedToken);
       const res = await axios.patch('/users/update', params);
-      return res.data;
+      toast.success('User successfully updated');
+      return res.data.user;
     } catch (error) {
+      toast.error('User update failed');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -102,8 +112,10 @@ export const addUserData = createAsyncThunk(
     try {
       setAuthHeader(storedToken);
       const res = await axios.put('/users/update', params);
-      return res.data;
+      toast.success('User successfully added');
+      return res.data.user;
     } catch (error) {
+      toast.error('User add failed');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -121,6 +133,7 @@ export const getUserParams = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const res = await axios.get('/users/current');
+      console.log(res.data.user);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -132,17 +145,23 @@ export const updateAvatar = createAsyncThunk(
   'auth/avatar',
   async (formData, thunkAPI) => {
     try {
-      const res = await axios.post('/users/avatar/upload', formData,{
+      toast.loading('Avatar successfully added');
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue('Unable to get user');
+      }
+      setAuthHeader(persistedToken);
+      const {data} = await axios.post('/users/avatar/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-        
       });
-      toast.success('Avatar successfully added')
-      return res.data;
+      toast.success('Avatar successfully added');
+      return data.user;
     } catch (error) {
       toast.error('Error, failed to load avatar');
-      return thunkAPI.rejectWithValue(console.log(error.message));
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

@@ -1,15 +1,20 @@
 .DayExercises {
-    border: 1px solid #efede8;
+  border: 1px solid #efede833;
     border-radius: 12px;
-    background-color: black; 
+    background: linear-gradient(
+      0deg,
+      rgba(239, 237, 232, 0.053),
+      rgba(239, 237, 232, 0.052)
+    ),
+    linear-gradient(0deg, rgba(239, 237, 232, 0.046), rgba(239, 237, 232, 0.05));
   
-    padding: 16px 0;
+    padding: 16px;
     margin-bottom: 32px;
   
-    position: relative;
-    min-height: 335px;
-    max-width: 824px;
-    overflow: hidden;
+    width: 335px;
+    max-height: 824px;
+    overflow-y: auto;
+    overflow: auto;
   }
   
   .DayExercisesHead {
@@ -18,17 +23,13 @@
     justify-content: space-between;
   }
   .DayExercisesHead h2 {
-    font-family: Roboto;
     font-size: 14px;
-    font-weight: 400;
     line-height: 18px;
-    
-  
     text-align: left;
-    color: #efede8;
+    color: #efede843;
   }
   .DayExercisesHead a {
-    font-family: Roboto;
+    font-family: Roboto sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -37,13 +38,7 @@
     text-align: left;
     color: #e6533c;
   }
-  .DayExercises ::-webkit-scrollbar {
-    width: 6px;
-  }
-  .DayExercises ::-webkit-scrollbar-thumb {
-    background: #efede8;
-    border-radius: 12px;
-  }
+
   .DayExercises span {
     display: flex;
     align-items: center;
@@ -116,7 +111,7 @@
   
   .DayExercises td {
     border-radius: 12px;
-    border: 1px solid #efede8;
+    border: 1px solid #efede833;
     padding-left: 14px;
     padding-right: 14px;
     font-size: 14px;
@@ -126,7 +121,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color:  #efede8;
+    color:  #EFEDE8;
     
   }
   
@@ -169,13 +164,21 @@
     width: 16px;
     height: 16px;
   }
-  
+  .DayExercises .tdDelete{
+    border:none;
+    background-color: transparent;
+  }
+  .DayExercises .tdDelete button {
+    border: none;
+    background-color: transparent;
+  }
   
   
   @media screen and (min-width: 768px) {
     .DayExercises {
       min-height: 0;
       height: 234px;
+      width: 704px;
     }
   
     .DayExercises tbody {
@@ -187,6 +190,37 @@
     .DayExercises td {
       font-size: 16px;
     }
+  .tdName,
+  .thName{
+    width: 128px;
+  }
+  .tdName{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .tdName > div{
+    width: 128px;
+  }
+  .DayExercises table{
+    padding: 0;
+  }
+  .DayExercises tbody{
+    padding: 0;
+  }
+  .DayExercises thead{
+    padding: 0;
+  }
+  .DayExercises .tdDelete{
+    padding: 0;
+  }
+  .thBurnedCalories{
+    width: 78px;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   }
   
   @media screen and (max-width: 768px) {
@@ -325,6 +359,9 @@
   }
 
   @media screen and (min-width: 1440px) {
+    .DayExercises{
+      width: 826px;
+    }
     .DayExercises table {
       padding-left: 8px;
     }
