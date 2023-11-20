@@ -5,13 +5,19 @@ import svg from '../../images/svg/sprite.svg';
 import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 import { useAuth } from 'hooks/useAuth';
 import NavigationMenu from 'components/NavigationMenu/Navigationmenu';
+import Modal from 'components/Modal/Modal';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 
 function Header() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showModal, setShowModal] = useState(false);
   const { isLoggedIn } = useAuth();
   const avatar = useSelector(selectUser);
+
+  const toggleModal = () => {
+    setShowModal(prevState => !prevState);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,15 +50,16 @@ function Header() {
             </svg>
           </NavLink>
           <div className={css.avatar_icon}>
-              {avatar.avatarUrl ? 
-                <img src={avatar.avatarUrl} alt="Avatar" className={css.avatar}/>: 
-                <svg className={css.avatar_icon}>
-                  <use href={svg+ '#avatar_icon'}></use>
-                </svg>
-              }
+            {avatar.avatarUrl ? (
+              <img src={avatar.avatarUrl} alt="Avatar" className={css.avatar} />
+            ) : (
+              <svg className={css.avatar_icon}>
+                <use href={svg + '#avatar_icon'}></use>
+              </svg>
+            )}
           </div>
           {windowWidth < 1440 && (
-            <button className={css.burger_menu_button}>
+            <button className={css.burger_menu_button} onClick={toggleModal}>
               <svg width={24} height={24}>
                 <use href={svg + `#burger_menu_icon`}></use>
               </svg>
@@ -70,6 +77,7 @@ function Header() {
               <LogoutBtn />
             </>
           )}
+          {showModal && <Modal toggleModal={toggleModal} />}
         </div>
       )}
     </div>
