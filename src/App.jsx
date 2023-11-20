@@ -131,6 +131,12 @@ function App() {
                 border: '1px solid #D80027',
               },
             },
+            loading: {
+              duration: 2000,
+              style: {
+                border: '1px solid #3CBF61',
+              },
+            },
           }}
         />
       </Suspense>
