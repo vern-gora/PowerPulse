@@ -38,15 +38,15 @@
   margin-top: auto;
 }
 
-@media screen and (min-width: 375px) and (max-width: 767px) {
+@media screen and (min-width: 375px) {
   .value {
     font-size: 18px;
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1439px) {
+@media screen and (min-width: 768px) {
   .container {
-    width: 209px;
+    width: 214px;
     height: 108px;
     padding: 14px 18px;
     align-items: flex-start;
