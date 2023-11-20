@@ -207,7 +207,7 @@ const UserForm = () => {
               <p className={css.section_title}>Blood</p>
               <div
                 style={{
-                  fontFamily: 'Roboto',
+                  fontFamily: 'Roboto-400',
                   display: 'flex',
                   flexDirection: 'row',
                   marginRight: '20px',
@@ -217,7 +217,7 @@ const UserForm = () => {
                 {bloodOptions.map(option => (
                   <RadioOption
                     style={{
-                      fontFamily: 'Roboto',
+                      fontFamily: 'Roboto-400',
                     }}
                     key={option.id}
                     id={option.id}

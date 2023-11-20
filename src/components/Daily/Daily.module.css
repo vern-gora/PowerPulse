@@ -24,13 +24,15 @@
 
 .text {
   color: rgba(239, 237, 232, 0.8);
-  font-family: 'Roboto-400';
+  font-family: Roboto-400;
+  font-weight: 400;
   font-size: 12px;
   line-height: 16px;
 }
 .value {
   color: var(--white-color);
-  font-family: 'Roboto-700';
+  font-family: Roboto-700;
+  font-weight: 700;
   font-size: 24px;
   line-height: 1.3;
   margin-top: auto;

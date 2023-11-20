@@ -18,7 +18,8 @@
 .radio_label {
   padding-left: 25px;
   cursor: pointer;
-  font-family: 'Roboto-400';
+  font-family: Roboto-400;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.71em;
   letter-spacing: -0.28px;

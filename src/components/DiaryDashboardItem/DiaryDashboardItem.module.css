@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  
+
     border-radius: 12px;
     border: 1px solid rgba(239, 237, 232, 0.2);
     background: rgba(239, 237, 232, 0.05);
@@ -14,7 +14,7 @@
     width: 20px;
     height: 20px;
   }
-  
+
   .diary_item_red {
     background-color: #e6533c;
   }
@@ -32,7 +32,7 @@
   }
   .content {
     color: #efede8;
-    font-family: Roboto;
+    font-family: Roboto-700;
     font-size: 18px;
     font-weight: 700;
     line-height: 1.15;
@@ -49,7 +49,7 @@
   .gren {
     border: 1px solid #3cbf61;
   }
-  
+
   @media screen and (min-width: 768px) {
     .diary_item {
       width: 187px;
