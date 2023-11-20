@@ -22,6 +22,7 @@ const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 // const PrivateRoute = lazy(() => import('../src/PrivateRoute'));
 
 function App() {
+  
   // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   return (
