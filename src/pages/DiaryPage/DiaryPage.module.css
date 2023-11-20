@@ -50,8 +50,16 @@ body {
   }
   .reminder {
     width: 593px;
-    position: relative;
+    position: static;
     top: 992px;
+  }
+  .bottomBar{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .bottomRightBar{
+    display: flex;
+    flex-direction: column;
   }
 }
 @media screen and (min-width: 1440px) {

@@ -10,7 +10,7 @@
   margin-bottom: 10px;
   color: #efede8;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Roboto;
+  font-family: Roboto-400;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -66,7 +66,7 @@ svg {
   text-transform: capitalize;
   color: #efede8;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Roboto;
+  font-family: Roboto-400;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -82,7 +82,7 @@ svg {
 .data-name {
   color: rgba(239, 237, 232, 0.4);
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Roboto;
+  font-family: Roboto-400;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -93,7 +93,7 @@ svg {
   text-transform: capitalize;
   color: #efede8;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Roboto;
+  font-family: Roboto-400;
 
   font-style: normal;
   font-weight: 400;
@@ -115,7 +115,7 @@ svg {
   background: rgba(239, 237, 232, 0.05);
 
   color: var(--white-white, #fff);
-  font-family: Roboto;
+  font-family: Roboto-700;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -124,7 +124,7 @@ svg {
 
 .start-button {
   color: #e6533c;
-  font-family: Roboto;
+  font-family: Roboto-400;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -154,7 +154,7 @@ svg {
 .data-name-middle {
   color: #efede8;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Roboto;
+  font-family: Roboto-400;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
