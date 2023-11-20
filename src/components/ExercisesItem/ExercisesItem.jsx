@@ -2,16 +2,12 @@
 import React, { useState } from 'react';
 import styles from '../ExercisesItem/ExercissesItem.module.css';
 import sprite from '../../images/svg/sprite.svg';
-import { useDispatch } from 'react-redux';
-import { setExercise } from 'redux/exercises/exercisesSlice';
 import ExerciseModal from 'components/ExercisesTable/ExercisesTable';
 
 const ExercisesItem = ({ selectedExercises }) => {
   const [showModal, setShowModal] = useState(false);
   const [exData, setExData] = useState(null);
-  const dispatch = useDispatch();
   const handleChooseExercise = exercise => {
-    // dispatch(setExercise(exercise.id));
     setExData(exercise);
     setShowModal(true);
   };

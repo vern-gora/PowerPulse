@@ -4,7 +4,7 @@ import sprite from '../../images/svg/sprite.svg';
 import thumbUp from '../../images/thumb_up@2x.png';
 import { Link } from 'react-router-dom';
 
-const WellDone = ({ handleClose, time, calories }) => {
+const WellDone = ({ finishFunc, handleClose, time, calories }) => {
   return (
     <div className={style.welDoneWindow}>
       <button

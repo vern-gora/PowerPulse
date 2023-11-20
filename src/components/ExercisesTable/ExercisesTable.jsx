@@ -185,7 +185,8 @@ function ExerciseModal({ dataEx, closeFunc }) {
       )}
       {finished && (
         <WellDone
-          handleClose={closeFunc}
+          handleClose={handleClose}
+          finishFunc={closeFunc}
           calories={burned}
           time={Math.round(burned / cofPerS / 60)}
         />
