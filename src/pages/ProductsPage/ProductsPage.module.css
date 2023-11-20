@@ -89,7 +89,8 @@
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    width: 704px;
+    /* width: 704px; */
+    width: 645px;
     height: auto;
     max-height: 100vh;
 
@@ -99,11 +100,31 @@
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-wrap: wrap;
-    width: 850px;
+    /* width: 850px; */
+    width: 785px;
     gap: 16px;
     height: 487px;
 
     overflow-y: scroll;
+  }
+
+  /* SCROLLBAR */
+  /* width */
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 153px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    border-radius: 12px;
+    background: rgba(239, 237, 232, 0.1);
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #ef8964;
+    border-radius: 12px;
   }
 }
 

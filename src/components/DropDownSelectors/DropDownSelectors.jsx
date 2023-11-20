@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import style from './DropDownSelectors.module.css';
@@ -38,8 +39,7 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
   const onCategorySelect = e => {
     const selectedCategory = e.currentTarget.dataset.category;
 
-    // const searchParam = { category: `${selectedCategory}` };
-    // dispatch(productsOperations.getFilteredProducts(searchParam));
+    console.log(e.currentTarget.value);
 
     onCategoryFilterSelect(selectedCategory);
     setCategoryIsListOpen(false);
@@ -47,6 +47,7 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
 
   const onTypeSelection = e => {
     const type = e.currentTarget.dataset.type;
+
     onTypeSelect(type);
 
     setTypeListOpen(false);
@@ -63,6 +64,7 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
           type="button"
           className={style.dropBtnDown}
           onClick={handleDropDownCategoryList}
+          value="Categories"
         >
           Categories
           <svg className={style.dropDownIcon} width="18" height="18">
@@ -151,3 +153,8 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
 };
 
 export default DropDownSelectors;
+
+DropDownSelectors.propTypes = {
+  onCategoryFilterSelect: PropTypes.func.isRequired,
+  onTypeSelect: PropTypes.func.isRequired,
+};

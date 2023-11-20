@@ -87,7 +87,9 @@ const ProductsPage = () => {
           </div>
         </div>
       </div>
+
       {products.length !== 0 ? (
+        // <CustomScrollbar>
         <ul className={style.cardsWrapper}>
           <ProductsItem
             onOpenModal={onOpenModal}
@@ -97,6 +99,7 @@ const ProductsPage = () => {
           />
         </ul>
       ) : (
+        // </CustomScrollbar>
         <Rings
           height="100"
           width="100"
