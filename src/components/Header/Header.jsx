@@ -5,10 +5,16 @@ import svg from '../../images/svg/sprite.svg';
 import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 import { useAuth } from 'hooks/useAuth';
 import NavigationMenu from 'components/NavigationMenu/Navigationmenu';
+import Modal from 'components/Modal/Modal';
 
 function Header() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showModal, setShowModal] = useState(false);
   const { isLoggedIn } = useAuth();
+
+  const toggleModal = () => {
+    setShowModal(prevState => !prevState);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,7 +52,7 @@ function Header() {
             </svg>
           </div>
           {windowWidth < 1440 && (
-            <button className={css.burger_menu_button}>
+            <button className={css.burger_menu_button} onClick={toggleModal}>
               <svg width={24} height={24}>
                 <use href={svg + `#burger_menu_icon`}></use>
               </svg>
@@ -64,6 +70,7 @@ function Header() {
               <LogoutBtn />
             </>
           )}
+          {showModal && <Modal toggleModal={toggleModal} />}
         </div>
       )}
     </div>
