@@ -11,6 +11,7 @@ import {
 } from 'redux/exercises/operations.js';
 import style from './ExercisesSubcategoriesList.module.css';
 import { setExerciseTitle } from 'redux/exercises/exercisesSlice.js';
+import sprite from '../../images/svg/sprite.svg';
 
 const ExercisesSubcategoriesList = ({ subcategory }) => {
   const dispatch = useDispatch();
@@ -59,13 +60,19 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
   const handleBack = () => {
     setSelectedExercises(null);
     dispatch(setExerciseTitle('Exercise'));
+    
   };
   return (
     <div style={{ position: 'relative' }}>
       {selectedExercises && (
-        <button className={style.backBtn} type="button" onClick={handleBack}>
-          back
-        </button>
+    <button className={style.backBtn} type="button" onClick={handleBack}>
+      <svg className={styles['arrow-svg']}>
+        <use href={sprite + '#icon-back-arrow'}></use>
+      </svg>
+     <div className={styles['icon-back-arrow']}>back</div>
+      
+    </button>
+     
       )}
       {loading ? (
         <div

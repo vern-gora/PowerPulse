@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from '../ExercisesItem/ExercissesItem.module.css';
 import sprite from '../../images/svg/sprite.svg';
 import ExerciseModal from 'components/ExercisesTable/ExercisesTable';
-
+// import handleBack from '../../components/ExercisesSubcategoriesList/ExercisesSubcategoriesList'
 const ExercisesItem = ({ selectedExercises }) => {
   const [showModal, setShowModal] = useState(false);
   const [exData, setExData] = useState(null);

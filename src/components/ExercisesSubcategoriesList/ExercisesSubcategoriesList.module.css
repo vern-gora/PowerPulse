@@ -9,4 +9,19 @@
   position: absolute;
   top: 0;
   z-index: 50;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  top: -250px;
+  margin-left: 10px;
+  z-index: 1;
+}
+.icon-back-arrow{
+  align-items: center;
+}
+
+.back{
+  display: flex;
+  align-items: center;
 }
