@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import ExerciseSubcategoriesList from '../ExercisesSubcategoriesList/ExercisesSubcategoriesList.jsx';
-import styles from "../ExercisesCategories/ExercisesCategories.module.css";
+import styles from '../ExercisesCategories/ExercisesCategories.module.css';
 
 const ExercisesCategories = () => {
-  const [activeSubcategory, setActiveSubcategory] = useState(null);
+  const [activeSubcategory, setActiveSubcategory] = useState('bodyParts');
 
-  const handleSubcategoryClick = (subcategory) => {
+  const handleSubcategoryClick = subcategory => {
     setActiveSubcategory(subcategory);
   };
 
@@ -15,21 +15,27 @@ const ExercisesCategories = () => {
     <div className={styles.bg}>
       <div className={styles.categoryButtons}>
         <button
-          className={`${styles.btnCategories} ${activeSubcategory === 'bodyParts' ? styles.active : ''}`}
+          className={`${styles.btnCategories} ${
+            activeSubcategory === 'bodyParts' ? styles.active : ''
+          }`}
           onClick={() => handleSubcategoryClick('bodyParts')}
         >
           Body Parts
         </button>
 
         <button
-          className={`${styles.btnCategories} ${activeSubcategory === 'muscules' ? styles.active : ''}`}
+          className={`${styles.btnCategories} ${
+            activeSubcategory === 'muscules' ? styles.active : ''
+          }`}
           onClick={() => handleSubcategoryClick('muscules')}
         >
-        Muscles
+          Muscles
         </button>
 
         <button
-          className={`${styles.btnCategories} ${activeSubcategory === 'equipments' ? styles.active : ''}`}
+          className={`${styles.btnCategories} ${
+            activeSubcategory === 'equipments' ? styles.active : ''
+          }`}
           onClick={() => handleSubcategoryClick('equipments')}
         >
           Equipments
@@ -37,7 +43,10 @@ const ExercisesCategories = () => {
       </div>
 
       {activeSubcategory && (
-        <ExerciseSubcategoriesList subcategory={activeSubcategory} onSelectExercise={(exercise) => console.log(exercise)} />
+        <ExerciseSubcategoriesList
+          subcategory={activeSubcategory}
+          onSelectExercise={exercise => console.log(exercise)}
+        />
       )}
     </div>
   );

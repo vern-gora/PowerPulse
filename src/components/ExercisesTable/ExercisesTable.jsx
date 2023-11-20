@@ -93,9 +93,9 @@ function ExerciseModal({ dataEx, closeFunc }) {
     console.log(exersiceLog);
     setFinished(true);
   };
-  // const handleClose = () => {
-  //   setFinished(false);
-  // };
+  const handleClose = () => {
+    setFinished(false);
+  };
 
   return (
     <div className={style.background}>
@@ -114,7 +114,13 @@ function ExerciseModal({ dataEx, closeFunc }) {
                   {data && (
                     <div className={style.timer}>
                       <p className={style.time}>Time</p>
-                      <div style={{ width: '100px', margin: 'auto' }}>
+                      <div
+                        style={{
+                          width: '100px',
+                          height: '100px',
+                          margin: 'auto',
+                        }}
+                      >
                         <CircularProgressbar
                           value={percentage}
                           text={`${String(Math.floor(time / 60)).padStart(
@@ -130,6 +136,7 @@ function ExerciseModal({ dataEx, closeFunc }) {
                             textColor: '#fff',
                             strokeLinecap: 'round',
                           })}
+                          style={{ height: '100px', width: '100px' }}
                         />
                       </div>
                       {play && (
@@ -185,8 +192,10 @@ function ExerciseModal({ dataEx, closeFunc }) {
       )}
       {finished && (
         <WellDone
-          handleClose={closeFunc}
+          handleClose={handleClose}
+          finishFunc={closeFunc}
           calories={burned}
+          exerciseId={data._id}
           time={Math.round(burned / cofPerS / 60)}
         />
       )}
