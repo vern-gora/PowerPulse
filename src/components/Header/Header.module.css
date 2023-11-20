@@ -98,4 +98,7 @@
     padding-left: 96px;
     padding-right: 96px;
   }
+  .avatar_icon{
+    margin-right: 16px;
+  }
 }
