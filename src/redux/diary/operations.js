@@ -34,7 +34,7 @@ export const deleteFood = createAsyncThunk(
   }
 );
 
-export const deleteExercise =createAsyncThunk(
+export const deleteExercise = createAsyncThunk(
   'exersize/deleteExercise',
   async (_id, thunkAPI) => {
     try {
@@ -51,6 +51,19 @@ export const addProductToDiary = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const res = await axios.post('/diary/food', data);
+      return res.data.result;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addExerciseToDiary = createAsyncThunk(
+  'diary/addExerciseToDiary',
+  async (data, thunkAPI) => {
+    console.log('🚀 ~ file: operations.js:64 ~ data:', data);
+    try {
+      const res = await axios.post('/diary/exercise', data);
       return res.data.result;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

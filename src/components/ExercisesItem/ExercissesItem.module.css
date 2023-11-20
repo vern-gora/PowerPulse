@@ -1,5 +1,14 @@
 /* ExercisesItem.module.css */
 
+.exercises-item-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
 .exercises-item {
   width: 335px;
   height: 141px;
@@ -44,7 +53,7 @@
 
 svg {
   width: 24px;
-  height: 24px;
+  height: calc(100%);
   fill: #ffffff;
 }
 

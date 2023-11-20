@@ -15,7 +15,7 @@ const ExercisesItem = ({ selectedExercises }) => {
     setShowModal(false);
   };
   return (
-    <div>
+    <div className={styles['exercises-item-box']}>
       {selectedExercises.map(exercise => (
         <div key={exercise._id} className={styles['exercises-item']}>
           <div className={styles['exercise-top']}>
