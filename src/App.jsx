@@ -134,7 +134,7 @@ function App() {
             loading: {
               duration: 2000,
               style: {
-                border: '1px solid #3CBF61',
+                border: '1px solid #e6533c',
               },
             },
           }}
