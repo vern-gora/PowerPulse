@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import sprite from '../../images/svg/sprite.svg';
 import style from './ProductsItem.module.css';
@@ -109,3 +110,10 @@ const ProductsItem = ({
 };
 
 export default ProductsItem;
+
+ProductsItem.propTypes = {
+  onOpenModal: PropTypes.func.isRequired,
+  categoryFilter: PropTypes.string.isRequired,
+  filterByRecommended: PropTypes.bool.isRequired,
+  filterByBloodType: PropTypes.bool.isRequired,
+};

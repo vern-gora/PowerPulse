@@ -1,12 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import style from './AddProductSuccess.module.css';
 import image from 'images/avocado.png';
 import sprite from '../../images/svg/sprite.svg';
 
-const AddProductSuccess = ({ onCloseModal, consumedCalories }) => {
+const AddProductSuccess = ({
+  onCloseModal,
+  consumedCalories,
+  handleBackdropClick,
+}) => {
   return (
-    <div className={style.overlay}>
+    <div className={style.overlay} onClick={handleBackdropClick}>
       <div className={style.successWrap}>
         <button
           type="button"
@@ -49,3 +54,9 @@ const AddProductSuccess = ({ onCloseModal, consumedCalories }) => {
 };
 
 export default AddProductSuccess;
+
+AddProductSuccess.propTypes = {
+  onCloseModal: PropTypes.func.isRequired,
+  consumedCalories: PropTypes.func.isRequired,
+  handleBackdropClick: PropTypes.func.isRequired,
+};

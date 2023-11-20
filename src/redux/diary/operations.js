@@ -34,7 +34,7 @@ export const deleteFood = createAsyncThunk(
   }
 );
 
-export const deleteExercise =createAsyncThunk(
+export const deleteExercise = createAsyncThunk(
   'exersize/deleteExercise',
   async (_id, thunkAPI) => {
     try {
@@ -51,8 +51,10 @@ export const addProductToDiary = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const res = await axios.post('/diary/food', data);
+      toast.success('Product has been successfully added');
       return res.data.result;
     } catch (error) {
+      toast.error('Something went wrong. Try again later');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

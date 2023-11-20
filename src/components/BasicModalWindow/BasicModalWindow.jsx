@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
@@ -13,6 +14,18 @@ const modalRoot = document.querySelector('#modal-root');
 const BasicModalWindow = ({ onCloseModal }) => {
   const [caloriesNumber, setCaloriesNumber] = useState(0);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        onCloseModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onCloseModal]);
 
   const dispatch = useDispatch();
 
@@ -45,12 +58,23 @@ const BasicModalWindow = ({ onCloseModal }) => {
 
     dispatch(addProductToDiary(data));
 
+    if (!consumedCalories) {
+      setIsSuccess(false);
+      return;
+    }
+
     setIsSuccess(true);
+  };
+
+  const handleBackdropClick = e => {
+    if (e.currentTarget === e.target) {
+      onCloseModal();
+    }
   };
 
   return createPortal(
     !isSuccess ? (
-      <div className={style.overlay}>
+      <div className={style.overlay} onClick={handleBackdropClick}>
         <div className={style.basicModalContainer}>
           <button
             type="button"
@@ -112,6 +136,7 @@ const BasicModalWindow = ({ onCloseModal }) => {
       <AddProductSuccess
         onCloseModal={onCloseModal}
         consumedCalories={consumedCalories}
+        handleBackdropClick={handleBackdropClick}
       />
     ),
     modalRoot
@@ -119,3 +144,7 @@ const BasicModalWindow = ({ onCloseModal }) => {
 };
 
 export default BasicModalWindow;
+
+BasicModalWindow.propTypes = {
+  onCloseModal: PropTypes.func.isRequired,
+};
