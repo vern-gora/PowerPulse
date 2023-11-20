@@ -204,47 +204,37 @@ const UserForm = () => {
             </div>
           </div>
           <div className={css.wrapper_radio}>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginRight: '20px',
-              }}
-            >
-              <p className={css.section_title}>Blood</p>
-              <div
-                style={{
-                  fontFamily: 'Roboto-400',
-                  display: 'flex',
-                  flexDirection: 'row',
-                  marginRight: '20px',
-                  marginBottom: '32px',
-                }}
-              >
-                {bloodOptions.map(option => (
-                  <RadioOption
-                    style={{
-                      fontFamily: 'Roboto-400',
-                    }}
-                    key={option.id}
-                    id={option.id}
-                    name="blood"
-                    checked={formik.values.blood === option.value}
-                    label={option.label}
-                    onChange={() => formik.setFieldValue('blood', option.value)}
-                  />
-                ))}
-                {sexOptions.map(option => (
-                  <RadioOption
-                    key={option.id}
-                    id={option.id}
-                    name="sex"
-                    checked={formik.values.sex === option.value}
-                    label={option.label}
-                    onChange={() => formik.setFieldValue('sex', option.value)}
-                  />
-                ))}
-              </div>
+            <div className={css.wrapper_radio_section}>
+                <div className={css.wrapper_radio_section_container_left}>
+                  <p className={css.section_title}>Blood</p>
+                  <div className={css.wrapper_radio_section_blood}>
+                    {bloodOptions.map(option => (
+                      <RadioOption
+                        style={{
+                          fontFamily: 'Roboto-400',
+                        }}
+                        key={option.id}
+                        id={option.id}
+                        name="blood"
+                        checked={formik.values.blood === option.value}
+                        label={option.label}
+                        onChange={() => formik.setFieldValue('blood', option.value)}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <div className={css.wrapper_radio_section_container_right}>
+                  {sexOptions.map(option => (
+                    <RadioOption
+                      key={option.id}
+                      id={option.id}
+                      name="sex"
+                      checked={formik.values.sex === option.value}
+                      label={option.label}
+                      onChange={() => formik.setFieldValue('sex', option.value)}
+                    />
+                  ))}
+                </div>
             </div>
             <div className={css.wrapper_level}>
               {levelOptions.map(option => (
