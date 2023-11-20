@@ -1,6 +1,7 @@
 .wrappers {
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 .wrapper {
   display: flex;
@@ -28,6 +29,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .wrappers{
+    margin-bottom: 32px;
+  }
   .wrapper {
     width: 440px;
   }

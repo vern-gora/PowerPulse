@@ -34,14 +34,21 @@
 }
 
 .wrapper_input_field {
-  display: inline-flex;
-  align-items: flex-end;
+  /* display: inline-flex; */
+  display: flex;
+  /* align-items: flex-end; */
+  flex-wrap: wrap;
   gap: 14px;
 }
 
-.wrapper_input {
-  position: relative;
+.wrapper_input_section {
+  display: flex;
+  gap: 14px;
 }
+
+/* .wrapper_input {
+  position: relative;
+} */
 .wrapper_input_label {
   position: absolute;
   font-size: 14px;

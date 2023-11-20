@@ -67,7 +67,7 @@ export const updateUserParams = createAsyncThunk(
   'auth/params',
   async (params, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    const persistedToken = state.auth.token || state.auth.refreshToken;
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('Unable to get user');
     }
@@ -85,7 +85,7 @@ export const addUserData = createAsyncThunk(
   'auth/data',
   async (params, thunkAPI) => {
     const state = thunkAPI.getState();
-    const storedToken = state.auth.token;
+    const storedToken = state.auth.token || state.auth.refreshToken;
     if (storedToken === null) {
       return thunkAPI.rejectWithValue();
     }
@@ -103,7 +103,7 @@ export const getUserParams = createAsyncThunk(
   'auth/getparams',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    const persistedToken = state.auth.token || state.auth.refreshToken;
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('Unable to get user');
     }
@@ -122,7 +122,7 @@ export const updateAvatar = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
-      const persistedToken = state.auth.token;
+      const persistedToken = state.auth.token || state.auth.refreshToken;
       if (persistedToken === null) {
         return thunkAPI.rejectWithValue('Unable to get user');
       }
