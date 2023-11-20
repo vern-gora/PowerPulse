@@ -192,7 +192,7 @@ const UserForm = () => {
                 name="desiredWeight"
                 id="desiredWeight"
                 placeholder="0"
-                value={user.desiredWeight}
+                // value={user.desiredWeight}
               />
             </div>
           </div>
@@ -247,9 +247,7 @@ const UserForm = () => {
                   name="levelActivity"
                   checked={formik.values.levelActivity === option.value}
                   label={option.label}
-                  onChange={() =>
-                    formik.setFieldValue('levelActivity', option.value)
-                  }
+                  onChange={() =>formik.setFieldValue('levelActivity', option.value)}
                 />
               ))}
             </div>
