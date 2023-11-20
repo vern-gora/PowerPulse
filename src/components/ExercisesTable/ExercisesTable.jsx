@@ -93,9 +93,9 @@ function ExerciseModal({ dataEx, closeFunc }) {
     console.log(exersiceLog);
     setFinished(true);
   };
-  const handleClose = () => {
-    setFinished(false);
-  };
+  // const handleClose = () => {
+  //   setFinished(false);
+  // };
 
   return (
     <div className={style.background}>
