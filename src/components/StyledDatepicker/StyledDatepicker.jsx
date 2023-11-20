@@ -2,7 +2,6 @@ import DatePicker from 'react-datepicker';
 import { CalendarGlobalStyles, Wrapper } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 import PropTypes from 'prop-types';
-
 const StyledDatepicker = ({ selectedDate, setSelectedDate, isOpen }) => {
   const handleDateChange = date => {
     setSelectedDate(date);
