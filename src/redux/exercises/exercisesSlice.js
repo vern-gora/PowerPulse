@@ -1,17 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  fetchFilters,
+  fetchleBodyPartExercise,
+  fetchleExerciseSelect,
+} from './operations';
 
 const initialState = {
   exercises: [],
-  filter: {},
+  filters: [],
   isLoading: false,
   error: null,
-}
+};
 
 const exercisesSlice = createSlice({
-  name: "exercises",
+  name: 'exercises',
   initialState,
-  reducers: {},
-  // extraReducers: {},
+  // reducers: {},
+  extraReducers: builder => {
+    builder
+      .addCase(fetchFilters.fulfilled, (state, action) => {
+        state.filters = action.payload.data;
+      })
+      .addCase(fetchleBodyPartExercise.fulfilled, (state, action) => {
+        state.exercises = action.payload;
+      });
+  },
 });
 
 export const exercisesReducer = exercisesSlice.reducer;

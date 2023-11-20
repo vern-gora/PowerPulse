@@ -2,64 +2,89 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem.jsx';
-import ExercisesItem from '../ExercisesItem/ExercisesItem.jsx';  // Import ExercisesItem
+import ExercisesItem from '../ExercisesItem/ExercisesItem.jsx'; // Import ExercisesItem
 import styles from '../ExercisesCategories/ExercisesCategories.module.css';
 import { Rings } from 'react-loader-spinner';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchleBodyPartExercise,
+  fetchleExerciseSelect,
+} from 'redux/exercises/operations.js';
 
 const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
+  const dispatch = useDispatch();
   const [exercises, setExercises] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedExercises, setSelectedExercises] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(`https://powerpulse-backend.onrender.com/exercises/${subcategory.toLowerCase()}`, {
-          headers: {
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTUyMWRjNzdiZjRlYzMwYjNjYWQzMWUiLCJpYXQiOjE3MDAyNTM0NjUsImV4cCI6MTcwMDg1ODI2NX0.b1lP8YMZkgLKjx9xr6wW36fv_RLtpakwePByRg0Myb8',
-          },
-        });
-        setExercises(response.data.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const filters = useSelector(state => state.exercises.filters);
+  const selectedExercisesData = useSelector(state => state.exercises);
+  console.log(
+    '🚀 ~ file: ExercisesSubcategoriesList.jsx:19 ~ ExercisesSubcategoriesList ~ selectedExercisesData:',
+    selectedExercisesData
+  );
 
-    fetchData();
+  useEffect(() => {
+    const filteredExercises = filters.filter(
+      item => item.filter === subcategory
+    );
+    if (filteredExercises) {
+      setLoading(false);
+    }
+    if (!filteredExercises) {
+      setLoading(true);
+    }
+    setExercises(filteredExercises);
   }, [subcategory]);
 
-  const handleExerciseSelect = async (exercise) => {
-    const { name } = exercise;
-    try {
-      const response = await axios.get(`https://powerpulse-backend.onrender.com/exercises/${subcategory.toLowerCase()}/${name.toLowerCase()}`, {
-        headers: {
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTUyMWRjNzdiZjRlYzMwYjNjYWQzMWUiLCJpYXQiOjE3MDAyNTM0NjUsImV4cCI6MTcwMDg1ODI2NX0.b1lP8YMZkgLKjx9xr6wW36fv_RLtpakwePByRg0Myb8',
-        },
-      });
-      console.log('Filtered Exercise:', response.data);
+  function transformString(inputString) {
+    // Convert to lowercase and replace spaces with an empty string
+    const transformedString = inputString.toLowerCase();
 
-      const selectedExercisesData = response.data.data;
-      setSelectedExercises(selectedExercisesData);
-    } catch (error) {
-      console.error('Error fetching filtered exercises:', error);
-    }
+    return transformedString;
+  }
+
+  const handleExerciseSelect = async exercise => {
+    const { name } = exercise;
+    const newName = transformString(name);
+    console.log(
+      '🚀 ~ file: ExercisesSubcategoriesList.jsx:50 ~ handleExerciseSelect ~ newName:',
+      newName
+    );
+    dispatch(fetchleBodyPartExercise(newName));
+    setSelectedExercises(selectedExercisesData);
   };
+
+  // console.log(selectedExercisesData);
 
   return (
     <div>
       {loading ? (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-          <Rings height="100" width="100" color="#e6533c" ariaLabel="rings-loading" />
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}
+        >
+          <Rings
+            height="100"
+            width="100"
+            color="#e6533c"
+            ariaLabel="rings-loading"
+          />
         </div>
       ) : (
         <div>
           {!selectedExercises ? (
             <div className={styles.phContainer}>
-              {exercises.map((exercise) => (
-                <ExercisesSubcategoriesItem key={exercise._id} data={exercise} onClick={() => handleExerciseSelect(exercise)} />
+              {exercises.map(exercise => (
+                <ExercisesSubcategoriesItem
+                  key={exercise._id}
+                  data={exercise}
+                  onClick={() => handleExerciseSelect(exercise)}
+                />
               ))}
             </div>
           ) : (

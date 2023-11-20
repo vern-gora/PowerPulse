@@ -1,42 +1,49 @@
 //ExercisesCategories
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ExerciseSubcategoriesList from '../ExercisesSubcategoriesList/ExercisesSubcategoriesList.jsx';
 import styles from '../ExercisesCategories/ExercisesCategories.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchFilters } from 'redux/exercises/operations.js';
 
 const ExercisesCategories = () => {
-  const [activeSubcategory, setActiveSubcategory] = useState('bodyParts');
+  const dispatch = useDispatch();
+  const [activeSubcategory, setActiveSubcategory] = useState('Body parts');
 
   const handleSubcategoryClick = subcategory => {
     setActiveSubcategory(subcategory);
   };
+
+  useEffect(() => {
+    dispatch(fetchFilters());
+  }, []);
 
   return (
     <div className={styles.bg}>
       <div className={styles.categoryButtons}>
         <button
           className={`${styles.btnCategories} ${
-            activeSubcategory === 'bodyParts' ? styles.active : ''
+            activeSubcategory === 'Body parts' ? styles.active : ''
           }`}
-          onClick={() => handleSubcategoryClick('bodyParts')}
+          onClick={() => handleSubcategoryClick('Body parts')}
         >
           Body Parts
         </button>
 
         <button
           className={`${styles.btnCategories} ${
-            activeSubcategory === 'muscules' ? styles.active : ''
+            activeSubcategory === 'Muscles' ? styles.active : ''
           }`}
-          onClick={() => handleSubcategoryClick('muscules')}
+          onClick={() => handleSubcategoryClick('Muscles')}
         >
           Muscles
         </button>
 
         <button
           className={`${styles.btnCategories} ${
-            activeSubcategory === 'equipments' ? styles.active : ''
+            activeSubcategory === 'Equipment' ? styles.active : ''
           }`}
-          onClick={() => handleSubcategoryClick('equipments')}
+          onClick={() => handleSubcategoryClick('Equipment')}
         >
           Equipments
         </button>
