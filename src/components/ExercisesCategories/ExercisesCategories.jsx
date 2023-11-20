@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import ExerciseSubcategoriesList from '../ExercisesSubcategoriesList/ExercisesSubcategoriesList.jsx';
 import styles from '../ExercisesCategories/ExercisesCategories.module.css';
-import { useDispatch, useSelector } from 'react-redux';
 import { fetchFilters } from 'redux/exercises/operations.js';
+import { useDispatch } from 'react-redux';
 
 const ExercisesCategories = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const ExercisesCategories = () => {
 
   useEffect(() => {
     dispatch(fetchFilters());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.bg}>

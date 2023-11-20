@@ -1,28 +1,25 @@
-//ExercisesSubcategoriesList
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem.jsx';
-import ExercisesItem from '../ExercisesItem/ExercisesItem.jsx'; // Import ExercisesItem
+import ExercisesItem from '../ExercisesItem/ExercisesItem.jsx';
 import styles from '../ExercisesCategories/ExercisesCategories.module.css';
 import { Rings } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchleBodyPartExercise,
-  fetchleExerciseSelect,
+  fetchleEquipmentExercise,
+  fetchleMusculesExercise,
 } from 'redux/exercises/operations.js';
+import style from './ExercisesSubcategoriesList.module.css';
+import { setExerciseTitle } from 'redux/exercises/exercisesSlice.js';
 
-const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
+const ExercisesSubcategoriesList = ({ subcategory }) => {
   const dispatch = useDispatch();
   const [exercises, setExercises] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedExercises, setSelectedExercises] = useState(null);
 
   const filters = useSelector(state => state.exercises.filters);
-  const selectedExercisesData = useSelector(state => state.exercises);
-  console.log(
-    '🚀 ~ file: ExercisesSubcategoriesList.jsx:19 ~ ExercisesSubcategoriesList ~ selectedExercisesData:',
-    selectedExercisesData
-  );
+  let selectedExercisesData = useSelector(state => state.exercises.exercises);
 
   useEffect(() => {
     const filteredExercises = filters.filter(
@@ -35,30 +32,41 @@ const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
       setLoading(true);
     }
     setExercises(filteredExercises);
-  }, [subcategory]);
+  }, [subcategory, filters]);
 
   function transformString(inputString) {
-    // Convert to lowercase and replace spaces with an empty string
     const transformedString = inputString.toLowerCase();
-
     return transformedString;
   }
 
-  const handleExerciseSelect = async exercise => {
+  const handleExerciseSelect = async (subcategory, exercise) => {
     const { name } = exercise;
     const newName = transformString(name);
-    console.log(
-      '🚀 ~ file: ExercisesSubcategoriesList.jsx:50 ~ handleExerciseSelect ~ newName:',
-      newName
-    );
-    dispatch(fetchleBodyPartExercise(newName));
+
+    if (subcategory === 'Body parts') {
+      dispatch(fetchleBodyPartExercise(newName));
+    }
+    if (subcategory === 'Muscles') {
+      dispatch(fetchleMusculesExercise(newName));
+    }
+    if (subcategory === 'Equipment') {
+      dispatch(fetchleEquipmentExercise(newName));
+    }
+
+    dispatch(setExerciseTitle(name));
     setSelectedExercises(selectedExercisesData);
   };
-
-  // console.log(selectedExercisesData);
-
+  const handleBack = () => {
+    setSelectedExercises(null);
+    dispatch(setExerciseTitle('Exercise'));
+  };
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
+      {selectedExercises && (
+        <button className={style.backBtn} type="button" onClick={handleBack}>
+          back
+        </button>
+      )}
       {loading ? (
         <div
           style={{
@@ -83,7 +91,7 @@ const ExercisesSubcategoriesList = ({ subcategory, onSelectExercise }) => {
                 <ExercisesSubcategoriesItem
                   key={exercise._id}
                   data={exercise}
-                  onClick={() => handleExerciseSelect(exercise)}
+                  onClick={() => handleExerciseSelect(subcategory, exercise)}
                 />
               ))}
             </div>

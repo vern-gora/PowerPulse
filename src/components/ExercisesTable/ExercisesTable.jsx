@@ -4,8 +4,11 @@ import 'react-circular-progressbar/dist/styles.css';
 import style from './ExerciseModal.module.css';
 import sprite from '../../images/svg/sprite.svg';
 import WellDone from './WellDone';
+import { useDispatch } from 'react-redux';
+import { addExerciseToDiary } from 'redux/diary/operations';
 
 function ExerciseModal({ dataEx, closeFunc }) {
+  const dispatch = useDispatch();
   const [data /* setData*/] = useState(dataEx);
   const fullTime = data.time * 60;
   const cofPerS = data.burnedCalories / fullTime;
@@ -73,26 +76,23 @@ function ExerciseModal({ dataEx, closeFunc }) {
       return 'rgb(230, 83, 61)';
     }
   };
-  function getCurrentDate() {
-    const today = new Date();
-
-    const month = (today.getMonth() + 1).toString().padStart(2, '0');
-    const day = today.getDate().toString().padStart(2, '0');
-    const year = today.getFullYear();
-
-    return `${month}/${day}/${year}`;
-  }
 
   const handleButton = () => {
-    const exersiceLog = {
-      exercise: data._id,
-      date: getCurrentDate(),
+    dispatch(
+      addExerciseToDiary({
+        exerciseId: data._id,
+        time: Math.round(burned / cofPerS),
+        calories: burned,
+      })
+    );
+    console.log({
+      exerciseId: data._id,
       time: Math.round(burned / cofPerS),
       calories: burned,
-    };
-    console.log(exersiceLog);
+    });
     setFinished(true);
   };
+
   const handleClose = () => {
     setFinished(false);
   };
