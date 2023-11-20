@@ -52,6 +52,13 @@
   height: 37px;
   border: 1px solid #e6533c;
   border-radius: 50%;
+  fill: rgba(239, 237, 232, 0.1);
+}
+.avatar{
+  width: 37px;
+  height: 37px;
+  border: 1px solid #e6533c;
+  border-radius: 50%;
 }
 
 .burger_menu_button {
@@ -89,6 +96,10 @@
   .icon_text {
     width: 100px;
     height: 15px;
+  }
+  .avatar{
+    width: 46px;
+    height: 46px;
   }
 }
 
