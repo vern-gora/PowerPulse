@@ -6,6 +6,7 @@ import {
   logOut,
   refreshUser,
   register,
+  updateAvatar,
   updateUserParams,
 } from './operations';
 
@@ -79,7 +80,6 @@ const authSlice = createSlice({
       .addCase(updateUserParams.pending, (state, action) => state)
       .addCase(updateUserParams.fulfilled, (state, action) => {
         state.user = action.payload;
-        // state.token = action.payload.token;
         state.isLoggedIn = true;
         state.goToParams = false;
         state.isRefreshing = false;
@@ -93,21 +93,25 @@ const authSlice = createSlice({
       .addCase(getUserParams.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.isLoggedIn = true;
-        // state.token = action.payload.token;
       })
       .addCase(getUserParams.rejected, (state, action) => state)
 
       .addCase(addUserData.pending, (state, action) => state)
       .addCase(addUserData.fulfilled, (state, action) => {
         state.user = action.payload;
-        // state.token = action.payload.token;
         state.isLoggedIn = true;
         state.goToParams = false;
       })
       .addCase(addUserData.rejected, (state, action) => {
         state.isLoggedIn = true;
         state.goToParams = false;
-      }),
+      })
+      .addCase(updateAvatar.pending, (state, action) => state)
+      .addCase(updateAvatar.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.goToParams = false;
+      })
 });
 
 export const authReducer = authSlice.reducer;

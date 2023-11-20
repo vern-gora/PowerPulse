@@ -44,7 +44,7 @@ const DiaryPage = () => {
   const dailySportMin = useSelector(selectDailyPhysicalActivity);
   useEffect(() => {
     const date = getCurrentDate();
-    dispatch(fetchFoodAndExercises(date));
+    dispatch(fetchFoodAndExercises("19/11/2023"));
   }, [dispatch]);
   const bodyData = {
     dailyRateCalories,

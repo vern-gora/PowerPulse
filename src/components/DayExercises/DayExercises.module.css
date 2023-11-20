@@ -18,7 +18,6 @@
   }
 
   .DayExercisesHead {
-    margin: 0px 16px 0px 16px;
     display: flex;
     justify-content: space-between;
   }
@@ -71,8 +70,6 @@
     display: block;
     margin: 0px;
     position: relative;
-    padding-left: 24px;
-    padding-right: 8px;
     border-spacing: 8px;
     border: none;
   }
@@ -167,12 +164,22 @@
   .DayExercises .tdDelete{
     border:none;
     background-color: transparent;
+    padding: 0px;
   }
   .DayExercises .tdDelete button {
     border: none;
     background-color: transparent;
   }
 
+  .btnAddExercises{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .btnAddExercises svg{
+    margin-left: 8px;
+  }
 
   @media screen and (min-width: 768px) {
     .DayExercises {
