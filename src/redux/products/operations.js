@@ -28,7 +28,7 @@ const fetchProducts = createAsyncThunk(
 const fetchProductsCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, thunkAPI) => {
-   /* const state = thunkAPI.getState();
+    /* const state = thunkAPI.getState();
     const storedToken = state.auth.token;
 
     if (storedToken === null) {
@@ -75,8 +75,10 @@ const getFilteredProducts = createAsyncThunk(
       const res = await axios.get('/products/search', {
         params,
       });
-      return res.data.data;
-    } catch (error) {}
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
