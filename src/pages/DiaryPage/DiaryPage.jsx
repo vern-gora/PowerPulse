@@ -36,14 +36,7 @@ const DiaryPage = () => {
   const user = useSelector(selectUser);
   const  formattedDate = parseISO(user.birthday)
   const initialValues = {
-    name: user.name || 'Name',
-    height: user.height || '0',
-    currentWeight: user.currentWeight || '0',
-    desiredWeight: user.desiredWeight || '0',
     birthday: formattedDate || "2005-01-01",
-    blood: (user.blood ?? '1') || '1',
-    sex: user.sex || 'male',
-    levelActivity: (user.levelActivity ?? '1') || '1',
   };
 
 

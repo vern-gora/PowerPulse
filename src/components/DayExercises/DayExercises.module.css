@@ -185,11 +185,12 @@
     margin-left: 8px;
   }
   .not_found {
-    width: 121px;
-    position: relative;
-    left: 25%;
-    top: 60px;
-    color: #efede8;
+    width: 125px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #efede83a;
+    margin: 0  auto;
+    margin-top: 80px;
   }
   @media screen and (min-width: 768px) {
     .DayExercises {
