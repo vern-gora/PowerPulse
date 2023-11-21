@@ -63,7 +63,6 @@ export const addProductToDiary = createAsyncThunk(
 export const addExerciseToDiary = createAsyncThunk(
   'diary/addExerciseToDiary',
   async (data, thunkAPI) => {
-    console.log('🚀 ~ file: operations.js:64 ~ data:', data);
     try {
       const res = await axios.post('/diary/exercise', data);
       return res.data.result;

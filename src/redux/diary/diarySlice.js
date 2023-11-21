@@ -17,6 +17,7 @@ const initialState = {
   message: '',
   isLoading: false,
   error: null,
+  spliceIndex: null,
 };
 
 const diarySlice = createSlice({
@@ -28,6 +29,9 @@ const diarySlice = createSlice({
       state.data.consumedProduct = state.data.consumedProduct.filter(
         item => item._id !== foodIdToDelete
       );
+    },
+    setSplice: (state, action) => {
+      state.spliceIndex = action.payload;
     },
     updateExerciseList: (state, action) => {
       const exerciseIdToDelete = action.payload;
@@ -89,6 +93,6 @@ const diarySlice = createSlice({
         state.error = action.payload;
       }),
 });
-export const { updateFoodList } = diarySlice.actions;
+export const { updateFoodList, setSplice } = diarySlice.actions;
 
 export const diaryReducer = diarySlice.reducer;

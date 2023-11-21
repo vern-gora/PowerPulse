@@ -2,8 +2,6 @@ body {
   overflow-x: hidden;
 }
 
-
-
 .bg {
   background-color: #040404;
 }
@@ -48,7 +46,7 @@ body {
 }
 
 .btnCategories.active {
-  color: #EFEDE8;
+  color: #efede8;
   font-family: Roboto-400;
   font-size: 14px;
   font-style: normal;
@@ -57,7 +55,7 @@ body {
 }
 
 .btnCategories:not(.active) {
-  color: rgba(239, 237, 232, 0.40);
+  color: rgba(239, 237, 232, 0.4);
   font-family: Roboto-400;
   font-size: 14px;
   font-style: normal;
@@ -76,12 +74,18 @@ body {
   position: relative;
   text-align: center;
   margin: 10px;
+  cursor: pointer;
 }
 
 .img {
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.20);
-  background: linear-gradient(0deg, rgba(4, 4, 4, 0.50) 0%, rgba(4, 4, 4, 0.50) 100%), lightgray -2px -151.969px / 101.493% 247.543% no-repeat;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: linear-gradient(
+      0deg,
+      rgba(4, 4, 4, 0.5) 0%,
+      rgba(4, 4, 4, 0.5) 100%
+    ),
+    lightgray -2px -151.969px / 101.493% 247.543% no-repeat;
   width: 100%;
   max-width: 335px;
   height: auto;
@@ -111,7 +115,7 @@ body {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
-  color: rgba(239, 237, 232, 0.40);
+  color: rgba(239, 237, 232, 0.4);
   margin-top: 15px;
 }
 
@@ -144,7 +148,7 @@ h2 {
   }
 
   .btnCategories.active {
-    color: #EFEDE8;
+    color: #efede8;
     font-family: Roboto-400;
     font-size: 16px;
     font-style: normal;
@@ -153,7 +157,7 @@ h2 {
   }
 
   .btnCategories:not(.active) {
-    color: rgba(239, 237, 232, 0.40);
+    color: rgba(239, 237, 232, 0.4);
     font-family: Roboto-400;
     font-size: 16px;
     font-style: normal;
@@ -162,41 +166,42 @@ h2 {
   }
 }
 
-
-  .title {
-    margin-bottom: 64px;
-  }
-  .img {
-    border-radius: 12px;
-    border: 1px solid rgba(239, 237, 232, 0.20);
-    background: linear-gradient(0deg, rgba(4, 4, 4, 0.50) 0%, rgba(4, 4, 4, 0.50) 100%), lightgray -2px -151.969px / 101.493% 247.543% no-repeat;
-    width: 224px;
-    height: 206px;
-  }
-
+.title {
+  margin-bottom: 64px;
+}
+.img {
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: linear-gradient(
+      0deg,
+      rgba(4, 4, 4, 0.5) 0%,
+      rgba(4, 4, 4, 0.5) 100%
+    ),
+    lightgray -2px -151.969px / 101.493% 247.543% no-repeat;
+  width: 224px;
+  height: 206px;
+}
 
 @media (min-width: 1440px) {
   .phContainer {
     grid-template-columns: repeat(5, 1fr);
     margin: 12px 128px;
   }
-  }
-  .btnCategories.active {
-    color: #EFEDE8;
-    font-family: Roboto-400;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-  }
+}
+.btnCategories.active {
+  color: #efede8;
+  font-family: Roboto-400;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
 
-  .btnCategories:not(.active) {
-    color: rgba(239, 237, 232, 0.40);
-    font-family: Roboto-400;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-  }
-
-
+.btnCategories:not(.active) {
+  color: rgba(239, 237, 232, 0.4);
+  font-family: Roboto-400;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}

@@ -85,10 +85,7 @@ const DiaryPage = () => {
         </div>
         <div className={css.diaryLists}>
           <DayProducts productsData={[...productsData]} />
-          <DayExercises
-            doneExercises={[...exersizesData]}
-            date={getCurrentDate()}
-          />
+          <DayExercises doneExercises={exersizesData} date={getCurrentDate()} />
         </div>
       </div>
     </section>

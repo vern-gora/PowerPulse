@@ -4,9 +4,16 @@ import styles from './DayExercises.module.css';
 import symbolDefs from '../../images/svg/symbol-exer.svg';
 
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteExercise } from 'redux/diary/operations';
+import { setSplice } from 'redux/diary/diarySlice';
 
-const DayExercises = ({ doneExercises, date }) => {
-  const handleDelete = id => {};
+const DayExercises = ({ doneExercises }) => {
+  const dispatch = useDispatch();
+  const handleDelete = (id, index) => {
+    dispatch(deleteExercise(id));
+    dispatch(setSplice(index));
+  };
 
   const addExercisesBtn = () => {
     return (
@@ -21,7 +28,7 @@ const DayExercises = ({ doneExercises, date }) => {
     );
   };
 
-  const listOfExercises = doneExercises.map(obj => {
+  const listOfExercises = doneExercises.map((obj, index) => {
     const num = obj._id;
     return (
       <tr key={num}>
@@ -45,7 +52,7 @@ const DayExercises = ({ doneExercises, date }) => {
         </td>
 
         <td className={styles.tdDelete}>
-          <button onClick={() => handleDelete(obj._id)}>
+          <button onClick={() => handleDelete(obj._id, index)}>
             <svg className={styles.trashIcon} width="20" height="20">
               <use href={symbolDefs + '#trash_icon'}></use>
             </svg>

@@ -23,6 +23,7 @@ const ExercisesItem = ({ selectedExercises }) => {
               <h3 className={styles['workout-title']}>WORKOUT</h3>
             </div>
             <button
+              style={{ cursor: 'pointer' }}
               onClick={() => {
                 handleChooseExercise(exercise);
               }}

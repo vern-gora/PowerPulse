@@ -16,12 +16,17 @@
   top: -250px;
   margin-left: 10px;
   z-index: 1;
+  cursor: pointer;
+  transition: all 250ms linear;
 }
-.icon-back-arrow{
+.backBtn:hover {
+  transform: scale(1.1);
+}
+.icon-back-arrow {
   align-items: center;
 }
 
-.back{
+.back {
   display: flex;
   align-items: center;
 }
