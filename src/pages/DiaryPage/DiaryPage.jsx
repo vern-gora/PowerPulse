@@ -16,7 +16,7 @@ import {
 import { fetchFoodAndExercises } from 'redux/diary/operations';
 import { Formik } from 'formik';
 import {parseISO} from 'date-fns';
-import { selectGoToParams } from 'redux/auth/selectors';
+// import { selectGoToParams } from 'redux/auth/selectors';
 import { selectUser } from 'redux/auth/selectors';
 // import { refreshUser } from 'redux/auth/operations';
 /*import {
@@ -56,8 +56,8 @@ const DiaryPage = () => {
      const date = getCurrentDate();
     dispatch(fetchFoodAndExercises(date));
   }, [dispatch]);
-  const params = useSelector(selectGoToParams);
-  
+  // const params = useSelector(selectGoToParams);
+
   const handleSumbit = values => {
 
 
@@ -103,7 +103,7 @@ const DiaryPage = () => {
         <StyledDatepicker
               selectedDate={getCurrentDate()}
               setSelectedDate={date => {
-                const formattedDate = parseISO(date.toISOString());
+                // const formattedDate = parseISO(date.toISOString());
               }}
             />
             </Formik>
