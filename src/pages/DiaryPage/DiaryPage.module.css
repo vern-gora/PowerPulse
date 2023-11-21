@@ -34,13 +34,19 @@ body {
   color: #efede8a1;
 }
 .reminderIcon{
-  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 0px;
+  display: block;
   fill: var(--beige-color);
   stroke: #fff;
   margin-right: 8px;
 }
 @media screen and (min-width: 375px) {
   .diaryPage {
+    width: 335px;
+  }
+  .reminder{
     width: 335px;
   }
 }

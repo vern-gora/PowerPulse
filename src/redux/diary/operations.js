@@ -26,6 +26,10 @@ export const deleteFood = createAsyncThunk(
   'food/deleteFood',
   async (_id, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const storedToken = state.auth.token;
+
+      setAuthHeader(storedToken);
       const response = await axios.delete(`/diary/food/${_id}`);
       return response.data;
     } catch (e) {
@@ -38,6 +42,10 @@ export const deleteExercise = createAsyncThunk(
   'exersize/deleteExercise',
   async (_id, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const storedToken = state.auth.token;
+
+      setAuthHeader(storedToken);
       const response = await axios.delete(`/diary/exercise/${_id}`);
       return response.data;
     } catch (e) {
@@ -50,6 +58,10 @@ export const addProductToDiary = createAsyncThunk(
   'diary/addProductToDiary',
   async (data, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const storedToken = state.auth.token;
+
+      setAuthHeader(storedToken);
       const res = await axios.post('/diary/food', data);
       toast.success('Product has been successfully added');
       return res.data.result;
@@ -64,6 +76,10 @@ export const addExerciseToDiary = createAsyncThunk(
   'diary/addExerciseToDiary',
   async (data, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const storedToken = state.auth.token;
+
+      setAuthHeader(storedToken);
       const res = await axios.post('/diary/exercise', data);
       return res.data.result;
     } catch (error) {

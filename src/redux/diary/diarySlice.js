@@ -93,6 +93,6 @@ const diarySlice = createSlice({
         state.error = action.payload;
       }),
 });
-export const { updateFoodList, setSplice } = diarySlice.actions;
+export const { updateFoodList, updateExerciseList } = diarySlice.actions;
 
 export const diaryReducer = diarySlice.reducer;
