@@ -11,15 +11,15 @@ const FilterProducts = ({ categoryFilter }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const handleKeyDown = e => {
+    const handleSubmit = e => {
       if (e.code === 'Enter') {
         dispatch(filterProducts(e.target.value));
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleSubmit);
 
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleSubmit);
   }, [dispatch]);
 
   const onFilterChange = e => {
