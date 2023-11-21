@@ -12,7 +12,6 @@ const UserForm = () => {
   const user = useSelector(selectUser);
   const params = useSelector(selectGoToParams);
 
-
   const bloodOptions = [
     {
       id: '1',
@@ -102,18 +101,18 @@ const UserForm = () => {
   });
 
   const handleSumbit = values => {
-  const { name, height, currentWeight, desiredWeight, ...sendData } = values;
-  sendData.birthday = '1990-01-01';
-  sendData.height = height;
-  sendData.currentWeight = currentWeight;
-  sendData.desiredWeight = desiredWeight;
+    const { name, height, currentWeight, desiredWeight, ...sendData } = values;
+    sendData.birthday = '1990-01-01';
+    sendData.height = height;
+    sendData.currentWeight = currentWeight;
+    sendData.desiredWeight = desiredWeight;
 
-  if(params){
-    dispatch(addUserData(sendData))
-  }else{
-    dispatch(updateUserParams(sendData))
+    if (params) {
+      dispatch(addUserData(sendData));
+    } else {
+      dispatch(updateUserParams(sendData));
+    }
   };
-};
 
   return (
     <Formik
@@ -179,62 +178,64 @@ const UserForm = () => {
             </div>
             <div className={css.wrapper_input_section}>
               <div className={css.wrapper_input}>
-                  <p className={css.section_title}>Desired Weight</p>
-                  <input
-                    type="number"
-                    className={css.input_field}
-                    name="desiredWeight"
-                    id="desiredWeight"
-                    placeholder={user.desiredWeight}
-                    value={formik.values.desiredWeight}
-                    onChange={formik.handleChange}
-                  />
-                  </div>
+                <p className={css.section_title}>Desired Weight</p>
+                <input
+                  type="number"
+                  className={css.input_field}
+                  name="desiredWeight"
+                  id="desiredWeight"
+                  placeholder={user.desiredWeight}
+                  value={formik.values.desiredWeight}
+                  onChange={formik.handleChange}
+                />
+              </div>
               <div className={css.wrapper_input}>
                 <p className={css.section_title}>0</p>
-                  <input
-                    type="date"
-                    className={css.input_field}
-                    name="desiredWeight"
-                    id="desiredWeight"
-                    placeholder="0"
-                    // value={user.desiredWeight}
-                  />
-                </div>
+                <input
+                  type="date"
+                  className={css.input_field}
+                  name="desiredWeight"
+                  id="desiredWeight"
+                  placeholder="0"
+                  // value={user.desiredWeight}
+                />
+              </div>
             </div>
           </div>
           <div className={css.wrapper_radio}>
             <div className={css.wrapper_radio_section}>
-                <div className={css.wrapper_radio_section_container_left}>
-                  <p className={css.section_title}>Blood</p>
-                  <div className={css.wrapper_radio_section_blood}>
-                    {bloodOptions.map(option => (
-                      <RadioOption
-                        style={{
-                          fontFamily: 'Roboto-400',
-                        }}
-                        key={option.id}
-                        id={option.id}
-                        name="blood"
-                        checked={formik.values.blood === option.value}
-                        label={option.label}
-                        onChange={() => formik.setFieldValue('blood', option.value)}
-                      />
-                    ))}
-                  </div>
-                </div>
-                <div className={css.wrapper_radio_section_container_right}>
-                  {sexOptions.map(option => (
+              <div className={css.wrapper_radio_section_container_left}>
+                <p className={css.section_title}>Blood</p>
+                <div className={css.wrapper_radio_section_blood}>
+                  {bloodOptions.map(option => (
                     <RadioOption
+                      style={{
+                        fontFamily: 'Roboto-400',
+                      }}
                       key={option.id}
                       id={option.id}
-                      name="sex"
-                      checked={formik.values.sex === option.value}
+                      name="blood"
+                      checked={formik.values.blood === option.value}
                       label={option.label}
-                      onChange={() => formik.setFieldValue('sex', option.value)}
+                      onChange={() =>
+                        formik.setFieldValue('blood', option.value)
+                      }
                     />
                   ))}
                 </div>
+              </div>
+              <div className={css.wrapper_radio_section_container_right}>
+                {sexOptions.map(option => (
+                  <RadioOption
+                    key={option.id}
+                    id={option.id}
+                    name="sex"
+                    checked={formik.values.sex === option.value}
+                    label={option.label}
+                    onChange={() => formik.setFieldValue('sex', option.value)}
+                  />
+                ))}
+              </div>
             </div>
             <div className={css.wrapper_level}>
               {levelOptions.map(option => (
@@ -244,7 +245,9 @@ const UserForm = () => {
                   name="levelActivity"
                   checked={formik.values.levelActivity === option.value}
                   label={option.label}
-                  onChange={() =>formik.setFieldValue('levelActivity', option.value)}
+                  onChange={() =>
+                    formik.setFieldValue('levelActivity', option.value)
+                  }
                 />
               ))}
             </div>
