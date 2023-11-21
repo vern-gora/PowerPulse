@@ -19,7 +19,7 @@
   font-size: 14;
 }
 .input_field {
-  width: 165px;
+  width: 160px;
   padding: 14px;
   align-items: center;
   gap: 10px;
@@ -34,9 +34,7 @@
 }
 
 .wrapper_input_field {
-  /* display: inline-flex; */
   display: flex;
-  /* align-items: flex-end; */
   flex-wrap: wrap;
   gap: 14px;
 }
@@ -61,10 +59,39 @@
 }
 .wrapper_radio {
   display: flex;
-  margin-bottom: 32px;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.wrapper_radio_section {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+  width: 100%;
+}
+.wrapper_radio_section_container_left{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wrapper_radio_section_container_right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 28px;
+  gap: 8px;
+}
+.wrapper_radio_section_blood {
+  font-family: 'Roboto-400';
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
 }
 .wrapper_level {
-  margin-top: 40px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .button {
   display: flex;
@@ -102,6 +129,12 @@
   .section_title {
     font-size: 14px;
   }
+  .input{
+    width: 341px;
+  }
+  .input_field {
+    width: 164px;
+  }
   .button {
     margin: 40px 0px 64px 0;
     padding: 16px 50px;
@@ -110,13 +143,11 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-top: 32px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .input {
-    width: 341px;
-  }
   .wrapper_radio {
     display: block;
   }

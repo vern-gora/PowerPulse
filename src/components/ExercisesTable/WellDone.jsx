@@ -3,21 +3,10 @@ import style from './ExerciseModal.module.css';
 import sprite from '../../images/svg/sprite.svg';
 import thumbUp from '../../images/thumb_up@2x.png';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addExerciseToDiary } from 'redux/diary/operations';
 
-const WellDone = ({ finishFunc, handleClose, exerciseId, time, calories }) => {
-  const dispatch = useDispatch();
+const WellDone = ({ finishFunc, handleClose, time, calories }) => {
   const handleFinishExercise = () => {
     finishFunc();
-
-    dispatch(
-      addExerciseToDiary({
-        exerciseId: exerciseId,
-        time: time * 60,
-        calories: calories,
-      })
-    );
   };
   return (
     <div className={style.welDoneWindow}>

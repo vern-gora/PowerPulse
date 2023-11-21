@@ -5,10 +5,19 @@ import svg from '../../images/svg/sprite.svg';
 import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 import { useAuth } from 'hooks/useAuth';
 import NavigationMenu from 'components/NavigationMenu/Navigationmenu';
+import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
 
 function Header() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showBurgerMenu, setShowBurgerMenu] = useState(false);
   const { isLoggedIn } = useAuth();
+  const avatar = useSelector(selectUser);
+
+  const toggleMenu = () => {
+    setShowBurgerMenu(prevState => !prevState);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,12 +50,16 @@ function Header() {
             </svg>
           </NavLink>
           <div className={css.avatar_icon}>
-            <svg width={21} height={21}>
-              <use href={svg + `#avatar_icon`}></use>
-            </svg>
+            {avatar.avatarUrl ? (
+              <img src={avatar.avatarUrl} alt="Avatar" className={css.avatar} />
+            ) : (
+              <svg className={css.avatar_icon}>
+                <use href={svg + '#avatar_icon'}></use>
+              </svg>
+            )}
           </div>
           {windowWidth < 1440 && (
-            <button className={css.burger_menu_button}>
+            <button className={css.burger_menu_button} onClick={toggleMenu}>
               <svg width={24} height={24}>
                 <use href={svg + `#burger_menu_icon`}></use>
               </svg>
@@ -64,6 +77,7 @@ function Header() {
               <LogoutBtn />
             </>
           )}
+          {showBurgerMenu && <BurgerMenu toggleMenu={toggleMenu} />}
         </div>
       )}
     </div>

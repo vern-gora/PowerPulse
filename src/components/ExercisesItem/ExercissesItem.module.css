@@ -92,7 +92,7 @@ svg {
   color: rgba(239, 237, 232, 0.4);
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Roboto-400;
-  font-size: 12px;
+  font-size: 11px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 150% */
@@ -168,4 +168,27 @@ svg {
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 120% */
+}
+
+
+@media (min-width: 768px) {
+  .exercises-item-box {
+    overflow-y: auto; 
+    max-height: 100vh; 
+    
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 153px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 12px;
+      background: rgba(239, 237, 232, 0.1);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #ef8964;
+      border-radius: 12px;
+    }
+  }
 }
