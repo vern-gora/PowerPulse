@@ -69,7 +69,7 @@ function BurgerMenu({ toggleMenu }) {
           </ul>
         </nav>
         <div className={css.logoutBtn}>
-          <LogoutBtn />
+          <LogoutBtn burger className={css.iconBurger}/>
         </div>
       </div>
     </div>

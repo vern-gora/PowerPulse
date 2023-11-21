@@ -14,6 +14,7 @@ function Header() {
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
   const { isLoggedIn } = useAuth();
   const avatar = useSelector(selectUser);
+ const goToParams = useSelector(state => state.auth.goToParams);
 
   const toggleMenu = () => {
     setShowBurgerMenu(prevState => !prevState);
@@ -43,13 +44,13 @@ function Header() {
       </NavLink>
       {isLoggedIn && (
         <div className={css.ctrl_container}>
-          {windowWidth >= 1440 && <NavigationMenu />}
+          {!goToParams && windowWidth >= 1440 && <NavigationMenu />}
           <NavLink to="/profile" className={css.settings_button}>
             <svg width={24} height={24}>
               <use href={svg + `#settings_icon`}></use>
             </svg>
           </NavLink>
-          <div className={css.avatar_icon}>
+          <div className={css.avatar_wrapper}>
             {avatar.avatarUrl ? (
               <img src={avatar.avatarUrl} alt="Avatar" className={css.avatar} />
             ) : (
@@ -58,7 +59,7 @@ function Header() {
               </svg>
             )}
           </div>
-          {windowWidth < 1440 && (
+          {!goToParams && windowWidth < 1440 && (
             <button className={css.burger_menu_button} onClick={toggleMenu}>
               <svg width={24} height={24}>
                 <use href={svg + `#burger_menu_icon`}></use>
