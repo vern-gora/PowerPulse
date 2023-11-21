@@ -8,33 +8,29 @@ import { selectUser } from 'redux/auth/selectors';
 
 const ProductsItem = ({
   onOpenModal,
-  categoryFilter,
   filterByRecommended,
   filterByBloodType,
 }) => {
   const products = useSelector(productsSelectors.getProducts);
-  const filter = useSelector(productsSelectors.getFilter);
 
   const currentUser = useSelector(selectUser);
-  const userBloodType = currentUser.blood || '1';
-
-  const filteredProducts = products
-    .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
-    .filter(({ category }) =>
-      category.toLowerCase().includes(categoryFilter.toLowerCase())
-    );
+  const userBloodType = currentUser.blood;
 
   const onFilterProducts = () => {
+    if (products.length === 0) {
+      return products;
+    }
+
     if (filterByBloodType && filterByRecommended) {
-      return filteredProducts.filter(
+      return products.filter(
         ({ groupBloodNotAllowed }) => groupBloodNotAllowed[userBloodType]
       );
     } else if (filterByBloodType && !filterByRecommended) {
-      return filteredProducts.filter(
+      return products.filter(
         ({ groupBloodNotAllowed }) => !groupBloodNotAllowed[userBloodType]
       );
     } else {
-      return filteredProducts;
+      return products;
     }
   };
 
@@ -68,7 +64,11 @@ const ProductsItem = ({
                         : style.labelNotRecommended
                     }
                   ></span>
-                  <p className={style.recommendText}>Recommended</p>
+                  <p className={style.recommendText}>
+                    {groupBloodNotAllowed[userBloodType]
+                      ? 'Recommended'
+                      : 'Not recommended'}
+                  </p>
                 </div>
                 <button
                   type="button"
@@ -113,7 +113,6 @@ export default ProductsItem;
 
 ProductsItem.propTypes = {
   onOpenModal: PropTypes.func.isRequired,
-  categoryFilter: PropTypes.string.isRequired,
   filterByRecommended: PropTypes.bool.isRequired,
   filterByBloodType: PropTypes.bool.isRequired,
 };

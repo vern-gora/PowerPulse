@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import style from './DropDownSelectors.module.css';
 import sprite from '../../images/svg/sprite.svg';
 import productsSelectors from 'redux/products/selectors';
-import productsOperations from 'redux/products/operations';
-import { selectUser } from 'redux/auth/selectors';
 
 const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
   const [isCategoryListOpen, setCategoryIsListOpen] = useState(false);
   const [isTypeListOpen, setTypeListOpen] = useState(false);
-
-  const dispatch = useDispatch();
-
-  const currentUser = useSelector(selectUser);
+  const [type, setType] = useState('All');
+  const [categoryRender, setCategoryRender] = useState('Categories');
 
   const categories = useSelector(productsSelectors.getProductsCategories);
 
@@ -39,9 +35,13 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
   const onCategorySelect = e => {
     const selectedCategory = e.currentTarget.dataset.category;
 
-    console.log(e.currentTarget.value);
-
     onCategoryFilterSelect(selectedCategory);
+
+    if (selectedCategory === 'all') {
+      setCategoryRender('Categories');
+    }
+    setCategoryRender(selectedCategory);
+
     setCategoryIsListOpen(false);
   };
 
@@ -49,12 +49,24 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
     const type = e.currentTarget.dataset.type;
 
     onTypeSelect(type);
+    handleType(type);
 
     setTypeListOpen(false);
+  };
 
-    const userBloodType = currentUser.blood;
-    const searchParam = { category: `${userBloodType}` };
-    dispatch(productsOperations.getFilteredProducts(searchParam));
+  const handleType = selectedType => {
+    switch (selectedType) {
+      case 'all':
+        setType('All');
+        break;
+      case 'recommended':
+        setType('Recommended');
+        break;
+      case 'not-recommended':
+        setType('Not recommended');
+        break;
+      default:
+    }
   };
 
   return (
@@ -66,7 +78,7 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
           onClick={handleDropDownCategoryList}
           value="Categories"
         >
-          Categories
+          {categoryRender}
           <svg className={style.dropDownIcon} width="18" height="18">
             <use href={sprite + '#icon-chevron-down'}></use>
           </svg>
@@ -107,7 +119,7 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
           className={style.dropAllBtn}
           onClick={handleDropDownType}
         >
-          All
+          {type}
           <svg className={style.dropDownIcon} width="18" height="18">
             <use href={sprite + '#icon-chevron-down'}></use>
           </svg>
