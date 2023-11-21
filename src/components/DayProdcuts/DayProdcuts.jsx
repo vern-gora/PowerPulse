@@ -2,7 +2,7 @@ import css from './DayProducts.module.css';
 import { Link } from 'react-router-dom';
 import { DayProductItem } from './DayProductItem';
 //import { useDispatch } from 'react-redux';
-import { selectIsLoading, selectError } from 'redux/diary/selectors';
+import { selectIsLoadingProducts, selectError } from 'redux/diary/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 //import { useEffect, useState } from 'react';
 import { Rings } from 'react-loader-spinner';
@@ -10,10 +10,19 @@ import { Rings } from 'react-loader-spinner';
 import svg from '../../images/svg/sprite.svg';
 
 export const DayProducts = ({ productsData }) => {
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoadingProducts);
   const error = useSelector(selectError);
   return (
     <div className={css.productsContainer}>
+      <div className={css.productsTopBar}>
+            <p className={css.productsTitle}>Products</p>
+            <Link to="/products" className={css.Link}>
+              Add product
+              <svg width="16px" height="16px">
+                <use href={svg + '#icon-arrow-right'}></use>
+              </svg>
+            </Link>
+          </div>
       {isLoading ? (
         <Rings
           height="100"
@@ -35,20 +44,11 @@ export const DayProducts = ({ productsData }) => {
         />
       ) : (
         <>
-          <div className={css.productsTopBar}>
-            <p className={css.productsTitle}>Products</p>
-            <Link to="/products" className={css.Link}>
-              Add product
-              <svg width="16px" height="16px">
-                <use href={svg + '#icon-arrow-right'}></use>
-              </svg>
-            </Link>
-          </div>
-          {(!productsData || productsData.length === 0 || error !== null) && (
+          {(!productsData || productsData.length === 0 || error) && (
               <p className={css.noProductsText}>Not found products</p>
             )}
 
-          {productsData && productsData.length !== 0 && (
+          {( productsData.length !== 0) && (
               <div className={css.productsBottomBar}>
                 <ul className={css.adaptiveTitlesList}>
                   <li className={css.adaptiveTitle}>Title</li>

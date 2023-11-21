@@ -43,14 +43,19 @@
 .settings_button:is(:hover, :focus) {
   transform: rotate(45deg);
 }
-.avatar_icon {
+.avatar_wrapper{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 16px;
   width: 37px;
   height: 37px;
   border: 1px solid #e6533c;
+  border-radius: 50%;
+  margin-left: 14px;
+}
+.avatar_icon {
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   fill: rgba(239, 237, 232, 0.1);
 }
@@ -68,6 +73,7 @@
   justify-content: center;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .logout_button {
@@ -97,6 +103,11 @@
     width: 100px;
     height: 15px;
   }
+  .avatar_wrapper{
+    width: 46px;
+    height: 46px;
+    margin-left: 16px;
+  }
   .avatar{
     width: 46px;
     height: 46px;
@@ -109,7 +120,7 @@
     padding-left: 96px;
     padding-right: 96px;
   }
-  .avatar_icon{
+  .avatar_wrapper{
     margin-right: 16px;
   }
 }
