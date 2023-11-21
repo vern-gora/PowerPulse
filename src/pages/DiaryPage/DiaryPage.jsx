@@ -14,9 +14,31 @@ import {
   selectDailyPhysicalActivity,
 } from 'redux/diary/selectors';
 import { fetchFoodAndExercises } from 'redux/diary/operations';
+import { Formik } from 'formik';
+import {parseISO} from 'date-fns';
+// import { selectGoToParams } from 'redux/auth/selectors';
+import { selectUser } from 'redux/auth/selectors';
+// import { refreshUser } from 'redux/auth/operations';
+/*import {
+  selectConsumedFood,
+  selectCurrentData,
+  selectIsLoading,
+  selectError,
+} from 'redux/diary/selectors';*/
 
+/*{
+  "email": "jhon@wick.com",
+  "password": "JhonWick"
+}*/
 const DiaryPage = () => {
   const dispatch = useDispatch();
+
+  const user = useSelector(selectUser);
+  const  formattedDate = parseISO(user.birthday)
+  const initialValues = {
+    birthday: formattedDate || "2005-01-01",
+  };
+
 
   function getCurrentDate() {
     const today = new Date();
@@ -31,9 +53,15 @@ const DiaryPage = () => {
   const dailyRateCalories = useSelector(selectDailyCalorieIntake);
   const dailySportMin = useSelector(selectDailyPhysicalActivity);
   useEffect(() => {
-    const date = getCurrentDate();
+     const date = getCurrentDate();
     dispatch(fetchFoodAndExercises(date));
   }, [dispatch]);
+  // const params = useSelector(selectGoToParams);
+
+  const handleSumbit = values => {
+
+
+  }
   const bodyData = {
     dailyRateCalories,
     dailySportMin,
@@ -68,7 +96,17 @@ const DiaryPage = () => {
     <section className={css.diaryPage}>
       <div className={css.topBar}>
         <h1 className={css.header}>Diary</h1>
-        <StyledDatepicker />
+        <Formik
+        initialValues={initialValues}
+        onSubmit={handleSumbit}
+        >
+        <StyledDatepicker
+              selectedDate={getCurrentDate()}
+              setSelectedDate={date => {
+                // const formattedDate = parseISO(date.toISOString());
+              }}
+            />
+            </Formik>
       </div>
       <div className={css.bottomBar}>
         <div className={css.bottomRightBar}>

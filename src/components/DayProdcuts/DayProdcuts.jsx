@@ -44,8 +44,7 @@ export const DayProducts = ({ productsData }) => {
               </svg>
             </Link>
           </div>
-          
-          {!productsData && productsData.length === 0 && error !==null && (
+          {(!productsData || productsData.length === 0 || error !== null) && (
               <p className={css.noProductsText}>Not found products</p>
             )}
 

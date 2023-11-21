@@ -102,11 +102,12 @@ const UserForm = () => {
   });
 
   const handleSumbit = values => {
-  const { name, height, currentWeight, desiredWeight, ...sendData } = values;
-  sendData.birthday = '1990-01-01';
-  sendData.height = height;
-  sendData.currentWeight = currentWeight;
-  sendData.desiredWeight = desiredWeight;
+    const { name, height, currentWeight, desiredWeight, ...sendData } = values;
+    sendData.name = name;
+    sendData.birthday = '1990-01-01';
+    sendData.height = height;
+    sendData.currentWeight = currentWeight;
+    sendData.desiredWeight = desiredWeight;
 
   if(params){
     dispatch(addUserData(sendData))
@@ -130,11 +131,10 @@ const UserForm = () => {
                 className={css.input}
                 name="name"
                 type="text"
-                placeholder="Name"
-                defaultValue={user.name}
+                placeholder={user.name}
+                value={formik.values.name}
                 style={{ color: 'rgba(239, 237, 232, 0.60)' }}
-                readOnly
-                disabled
+                onChange={formik.handleChange}
               />
             </div>
             <div>

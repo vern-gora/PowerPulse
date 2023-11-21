@@ -22,13 +22,13 @@ const ProfilePage = () => {
               color="var(--orange-main-color)"
               iconId="fluent_food_icon"
               text="Daily calorie intake"
-              value="110 min"
+              value={Math.round(user.bmr) || 0}
             />
             <Daily
               color="var(--orange-main-color)"
               iconId="dumbbell_icon"
               text="Daily norm of sports"
-              value={Math.round(user.bmr) || 0}
+              value="110 min"
             />
           </div>
           <div className={css.wrapper_data}>
