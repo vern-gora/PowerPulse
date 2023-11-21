@@ -12,7 +12,7 @@
   padding: 16px;
   margin-bottom: 40px;
   min-height: 250px;
-  max-height: 834px;
+  max-height: 234px;
   overflow: auto;
 }
 .productsTopBar {
@@ -25,9 +25,10 @@
 .Link {
   display: flex;
   align-items: center;
+  cursor: pointer;
   gap: 8px;
-  fill: #E6533C;
-  color: #E6533C;
+  fill: #e6533c;
+  color: #e6533c;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
@@ -38,7 +39,7 @@
   align-items: center;
   font-size: 14px;
   line-height: 18px;
-  color: #EFEDE8;
+  color: #efede8;
 }
 .productsTitle {
   font-size: 14px;
@@ -50,7 +51,7 @@
   font-size: 14px;
   line-height: 18px;
   color: #efede83a;
-  margin: 0  auto;
+  margin: 0 auto;
   margin-top: 80px;
 }
 .adaptiveTitlesList {
@@ -62,7 +63,7 @@
   margin-top: 22px;
   width: inherit;
 }
-.productData{
+.productData {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -72,12 +73,11 @@
   flex-direction: column;
   gap: 5px;
   margin-bottom: 16px;
-
 }
 .productListLarge > span {
   height: 38px;
- padding-top: 10px;
- padding-left: 8px;
+  padding-top: 10px;
+  padding-left: 8px;
   border: 1px solid #efede84d;
   border-radius: 12px;
   overflow-y: auto;
@@ -110,20 +110,21 @@
 .productListSmall > p {
   color: #ef8964;
 }
-.deleteProductButton{
+.deleteProductButton {
+  cursor: pointer;
   position: relative;
   top: 9px;
-    border: none;
-    background-color: transparent;
-    padding: 0;
+  border: none;
+  background-color: transparent;
+  padding: 0;
 }
-.deleteProductButtonIcon{
+.deleteProductButtonIcon {
   width: 20px;
   height: 20px;
-  stroke: #EF8964; 
+  stroke: #ef8964;
   fill: none;
 }
-.errorMessage{
+.errorMessage {
   position: relative;
   top: 50%;
   font-size: 14px;
@@ -132,19 +133,20 @@
   margin: 0 auto;
 }
 @media screen and (min-width: 375px) {
-  .productsContainer{
-  width: 336px;
-}
-.productListLarge{
-  width: 297px;
-}
-.productListSmall > span{
-  width: 81px;
-}
+  .productsContainer {
+    width: 336px;
+  }
+  .productListLarge {
+    width: 297px;
+  }
+  .productListSmall > span {
+    width: 81px;
+  }
 }
 @media screen and (min-width: 768px) {
-  .productsContainer{
+  .productsContainer {
     width: 704px;
+    height: 234px;
     margin-bottom: 32px;
   }
   .productsBottomBar {
@@ -203,7 +205,7 @@
     display: flex;
     flex-direction: row;
   }
-  .deleteProductButton{
+  .deleteProductButton {
     position: static;
   }
 }
@@ -218,7 +220,7 @@
   .productListLarge:nth-child(2) {
     width: 166px;
   }
-  .productListSmall>span{
+  .productListSmall > span {
     width: 105px;
   }
   .adaptiveTitle:nth-child(1) {
@@ -233,7 +235,7 @@
   .adaptiveTitle:nth-child(4) {
     margin-right: 75px;
   }
-  .productsBottomBar{
+  .productsBottomBar {
     padding-left: 16px;
   }
 }

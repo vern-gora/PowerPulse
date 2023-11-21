@@ -6,8 +6,9 @@ import { deleteExercise } from 'redux/diary/operations';
 import { updateExerciseList } from 'redux/diary/diarySlice';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
-
+import { Rings } from 'react-loader-spinner';
+import { selectIsLoadingExercises, selectError } from 'redux/diary/selectors';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 const DayExercises = ({ doneExercises, date }) => {
   const dispatch = useDispatch();
   const handleDelete = id => {
@@ -30,6 +31,7 @@ const DayExercises = ({ doneExercises, date }) => {
 
   const listOfExercises = doneExercises.map(obj => {
     const num = obj._id;
+
     return (
       <tr key={num}>
         <td className={styles.tdBodyPart}>
@@ -52,7 +54,7 @@ const DayExercises = ({ doneExercises, date }) => {
         </td>
 
         <td className={styles.tdDelete}>
-          <button onClick={handleDelete(obj._id)}>
+          <button onClick={() => handleDelete(num)}>
             <svg className={styles.trashIcon} width="20" height="20">
               <use href={symbolDefs + '#trash_icon'}></use>
             </svg>
@@ -61,43 +63,65 @@ const DayExercises = ({ doneExercises, date }) => {
       </tr>
     );
   });
-
+  const isLoading = useSelector(selectIsLoadingExercises);
+  const error = useSelector(selectError);
   return (
     <>
-      {listOfExercises.length > 0 ? (
-        <div className={styles.DayExercises}>
-          <div className={styles.DayExercisesHead}>
-            <h2>Exercises</h2>
-            {addExercisesBtn()}
-          </div>
-          <div className={styles.DayExercisesTable}>
-            <table>
-              <thead>
-                <tr>
-                  <th className={styles.thBodyPart}>Body Part</th>
-                  <th className={styles.thEquipment}>Equipment</th>
-                  <th className={styles.thName}>Name</th>
-                  <th className={styles.thTarget}>Target</th>
-                  <th className={styles.thBurnedCalories}>Burned Calories</th>
-                  <th className={styles.thTime}>Time</th>
-                  <th className={styles.thDelete}></th>
-                </tr>
-              </thead>
-              <tbody>{listOfExercises}</tbody>
-            </table>
-          </div>
+      <div className={styles.DayExercises}>
+        <div className={styles.DayExercisesHead}>
+          <h2>Exercises</h2>
+          {addExercisesBtn()}
         </div>
-      ) : (
-        <div className={styles.DayExercises}>
-          <div className={styles.DayExercisesHead}>
-            <h2>Exercises</h2>
-            {addExercisesBtn()}
-          </div>
-          <div className={styles.DayExercisesTable}>
-            <p className={styles.not_found}>Not found exercises</p>
-          </div>
-        </div>
-      )}
+        {isLoading ? (
+          <Rings
+            height="100"
+            width="100"
+            color="#e6533c"
+            ariaLabel="rings-loading"
+            wrapperStyle={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%',
+              height: '100vh',
+            }}
+            wrapperClass=""
+            visible={true}
+            firstLineColor=""
+            middleLineColor=""
+            lastLineColor=""
+          />
+        ) : (
+          <>
+          {console.log(listOfExercises)}
+            {(error || listOfExercises.length === 0) && (
+                <div className={styles.DayExercisesTable}>
+                  <p className={styles.not_found}>Not found exercises</p>
+                </div>
+            )}
+            {( listOfExercises.length !== 0) && (
+              <div className={styles.DayExercisesTable}>
+                <table>
+                  <thead>
+                    <tr>
+                      <th className={styles.thBodyPart}>Body Part</th>
+                      <th className={styles.thEquipment}>Equipment</th>
+                      <th className={styles.thName}>Name</th>
+                      <th className={styles.thTarget}>Target</th>
+                      <th className={styles.thBurnedCalories}>
+                        Burned Calories
+                      </th>
+                      <th className={styles.thTime}>Time</th>
+                      <th className={styles.thDelete}></th>
+                    </tr>
+                  </thead>
+                  <tbody>{listOfExercises}</tbody>
+                </table>
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </>
   );
 };
