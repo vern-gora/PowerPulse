@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './DayExercises.module.css';
 import symbolDefs from '../../images/svg/symbol-exer.svg';
-import { deleteExercise } from 'redux/diary/operations';
 import { updateExerciseList } from 'redux/diary/diarySlice';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { deleteExercise } from 'redux/diary/operations';
 import { useDispatch } from 'react-redux';
 
