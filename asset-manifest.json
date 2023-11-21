@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PowerPulse/static/css/main.88b10113.css",
-    "main.js": "/PowerPulse/static/js/main.0d6b06e0.js",
+    "main.css": "/PowerPulse/static/css/main.cc55ec10.css",
+    "main.js": "/PowerPulse/static/js/main.36c2135a.js",
     "static/css/760.9cb7ad94.chunk.css": "/PowerPulse/static/css/760.9cb7ad94.chunk.css",
     "static/js/760.55a23813.chunk.js": "/PowerPulse/static/js/760.55a23813.chunk.js",
     "static/css/546.5d53bb49.chunk.css": "/PowerPulse/static/css/546.5d53bb49.chunk.css",
@@ -14,8 +14,8 @@
     "static/js/147.207a5f00.chunk.js": "/PowerPulse/static/js/147.207a5f00.chunk.js",
     "static/css/667.99e5fce7.chunk.css": "/PowerPulse/static/css/667.99e5fce7.chunk.css",
     "static/js/667.edf4ec58.chunk.js": "/PowerPulse/static/js/667.edf4ec58.chunk.js",
-    "static/css/436.b7b15a56.chunk.css": "/PowerPulse/static/css/436.b7b15a56.chunk.css",
-    "static/js/436.5394c932.chunk.js": "/PowerPulse/static/js/436.5394c932.chunk.js",
+    "static/css/436.783a45ad.chunk.css": "/PowerPulse/static/css/436.783a45ad.chunk.css",
+    "static/js/436.f34eb132.chunk.js": "/PowerPulse/static/js/436.f34eb132.chunk.js",
     "static/css/190.58ec8d7e.chunk.css": "/PowerPulse/static/css/190.58ec8d7e.chunk.css",
     "static/js/190.96ea71dc.chunk.js": "/PowerPulse/static/js/190.96ea71dc.chunk.js",
     "static/js/705.cf26fac2.chunk.js": "/PowerPulse/static/js/705.cf26fac2.chunk.js",
@@ -28,6 +28,7 @@
     "static/media/hero-mobile@2x.png": "/PowerPulse/static/media/hero-mobile@2x.e2163731e9e3165ed16f.png",
     "static/media/hero-desktop.png": "/PowerPulse/static/media/hero-desktop.6b0b3385c064ff08d445.png",
     "static/media/hero-tablet.png": "/PowerPulse/static/media/hero-tablet.53c220deaf1b143dc0cd.png",
+    "static/media/exercises-desktop.png": "/PowerPulse/static/media/exercises-desktop.a9b781483000556093cf.png",
     "static/media/products-desktop.png": "/PowerPulse/static/media/products-desktop.b44cbf17412f26d36216.png",
     "static/media/Roboto-Medium.ttf": "/PowerPulse/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/PowerPulse/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
@@ -40,8 +41,8 @@
     "static/media/symbol-exer.svg": "/PowerPulse/static/media/symbol-exer.6f3484e1d5e9ad1c396894d5c2ce2b57.svg",
     "index.html": "/PowerPulse/index.html",
     "static/media/Line.svg": "/PowerPulse/static/media/Line.56c98a07893009bfdfbb2f9613a038d4.svg",
-    "main.88b10113.css.map": "/PowerPulse/static/css/main.88b10113.css.map",
-    "main.0d6b06e0.js.map": "/PowerPulse/static/js/main.0d6b06e0.js.map",
+    "main.cc55ec10.css.map": "/PowerPulse/static/css/main.cc55ec10.css.map",
+    "main.36c2135a.js.map": "/PowerPulse/static/js/main.36c2135a.js.map",
     "760.9cb7ad94.chunk.css.map": "/PowerPulse/static/css/760.9cb7ad94.chunk.css.map",
     "760.55a23813.chunk.js.map": "/PowerPulse/static/js/760.55a23813.chunk.js.map",
     "546.5d53bb49.chunk.css.map": "/PowerPulse/static/css/546.5d53bb49.chunk.css.map",
@@ -54,8 +55,8 @@
     "147.207a5f00.chunk.js.map": "/PowerPulse/static/js/147.207a5f00.chunk.js.map",
     "667.99e5fce7.chunk.css.map": "/PowerPulse/static/css/667.99e5fce7.chunk.css.map",
     "667.edf4ec58.chunk.js.map": "/PowerPulse/static/js/667.edf4ec58.chunk.js.map",
-    "436.b7b15a56.chunk.css.map": "/PowerPulse/static/css/436.b7b15a56.chunk.css.map",
-    "436.5394c932.chunk.js.map": "/PowerPulse/static/js/436.5394c932.chunk.js.map",
+    "436.783a45ad.chunk.css.map": "/PowerPulse/static/css/436.783a45ad.chunk.css.map",
+    "436.f34eb132.chunk.js.map": "/PowerPulse/static/js/436.f34eb132.chunk.js.map",
     "190.58ec8d7e.chunk.css.map": "/PowerPulse/static/css/190.58ec8d7e.chunk.css.map",
     "190.96ea71dc.chunk.js.map": "/PowerPulse/static/js/190.96ea71dc.chunk.js.map",
     "705.cf26fac2.chunk.js.map": "/PowerPulse/static/js/705.cf26fac2.chunk.js.map",
@@ -64,7 +65,7 @@
     "44.443c45e5.chunk.js.map": "/PowerPulse/static/js/44.443c45e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.88b10113.css",
-    "static/js/main.0d6b06e0.js"
+    "static/css/main.cc55ec10.css",
+    "static/js/main.36c2135a.js"
   ]
 }
