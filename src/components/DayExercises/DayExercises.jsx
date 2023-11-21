@@ -2,11 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './DayExercises.module.css';
 import symbolDefs from '../../images/svg/symbol-exer.svg';
-
+import { deleteExercise } from 'redux/diary/operations';
+import { updateExerciseList } from 'redux/diary/diarySlice';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 
 const DayExercises = ({ doneExercises, date }) => {
-  const handleDelete = id => {};
+  const dispatch = useDispatch();
+  const handleDelete = id => {
+    dispatch(deleteExercise(id));
+    dispatch(updateExerciseList(id));
+  };
 
   const addExercisesBtn = () => {
     return (
@@ -45,7 +52,7 @@ const DayExercises = ({ doneExercises, date }) => {
         </td>
 
         <td className={styles.tdDelete}>
-          <button onClick={() => handleDelete(obj._id)}>
+          <button onClick={handleDelete(obj._id)}>
             <svg className={styles.trashIcon} width="20" height="20">
               <use href={symbolDefs + '#trash_icon'}></use>
             </svg>

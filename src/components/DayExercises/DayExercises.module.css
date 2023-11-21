@@ -12,7 +12,8 @@
     margin-bottom: 32px;
 
     width: 335px;
-    max-height: 824px;
+    min-height: 250px;
+    max-height: 834px;
     overflow-y: auto;
     overflow: auto;
   }
@@ -175,19 +176,31 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    color:#e6533c;
   }
-  
+  .DayExercisesTable .not_found{
+    display: block;
+  }
   .btnAddExercises svg{
     margin-left: 8px;
   }
-
+  .not_found {
+    width: 125px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #efede83a;
+    margin: 0  auto;
+    margin-top: 80px;
+  }
   @media screen and (min-width: 768px) {
     .DayExercises {
       min-height: 0;
       height: 234px;
       width: 704px;
     }
-
+    .not_found{
+      left: 40%;
+    }
     .DayExercises tbody {
       height: 146px;
     }
@@ -348,13 +361,7 @@
     }
   }
 
-  .not_found {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: #efede8;
-  }
+ 
 
   .linkExercises {
     transition: color var(--transition-duration) var(--transition-cubic);
