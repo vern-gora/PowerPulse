@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import style from './FilterProducts.module.css';
 import sprite from '../../images/svg/sprite.svg';
@@ -9,6 +9,18 @@ const FilterProducts = ({ categoryFilter }) => {
   const [isFilterEmpty, setIsFilterEmpty] = useState(true);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Enter') {
+        dispatch(filterProducts(e.target.value));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [dispatch]);
 
   const onFilterChange = e => {
     if (e.currentTarget.value === '') {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
@@ -11,6 +11,19 @@ const DropDownSelectors = ({ onCategoryFilterSelect, onTypeSelect }) => {
   const [isTypeListOpen, setTypeListOpen] = useState(false);
   const [type, setType] = useState('All');
   const [categoryRender, setCategoryRender] = useState('Categories');
+
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        setCategoryIsListOpen(false);
+        setTypeListOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [setTypeListOpen, setCategoryIsListOpen]);
 
   const categories = useSelector(productsSelectors.getProductsCategories);
 
