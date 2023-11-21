@@ -6,7 +6,7 @@ const setAuthHeader = token => {
 };
 
 export const fetchFoodAndExercises = createAsyncThunk(
-  'food/fetchFood',
+  'food&exercises/fetchFood&Exercises',
   async (date, thunkAPI) => {
     try {
       const state = thunkAPI.getState();

@@ -4,7 +4,9 @@ export const selectDoneExercise = state => state.diary.data.exerciseDone;
 
 export const selectCurrentData = state => state.diary.currentData;
 
-export const selectIsLoading = state => state.diary.isLoading;
+export const selectIsLoadingProducts = state => state.diary.isLoadingProducts;
+
+export const selectIsLoadingExercises = state => state.diary.isLoadingExercise;
 
 export const selectError = state => state.diary.error;
 
