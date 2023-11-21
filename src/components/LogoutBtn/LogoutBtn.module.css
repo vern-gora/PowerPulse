@@ -9,11 +9,25 @@
   border: none;
   background-color: transparent;
   line-height: 1.5;
+  cursor: pointer;
+}
+.log_out_link:hover{
+  scale: 1.1;
 }
 
 .logout_icon {
   margin-left: 8px;
+  stroke: var(--orange-main-color);
+  width: 20px;
+  height: 20px;
+  fill: transparent;
 }
+.iconBurger{
+  stroke: white
+}
+/* .iconBurger{
+  stroke: white;
+} */
 
 /* @media screen and (min-width: 768px) {
   .log_out_link{

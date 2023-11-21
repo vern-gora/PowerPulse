@@ -5,7 +5,7 @@
   margin-bottom: 16px;
   margin-top: 40px;
   position: relative;
-  color: #efede8;
+  color: var(--white-color);
 
   @media screen and (min-width: 375px) {
     width: 335px;
@@ -46,7 +46,7 @@
   top: 14px;
   right: 24px;
 
-  color: #efede8;
+  color: var(--white-color);
   background-color: transparent;
 
   cursor: pointer;
@@ -70,16 +70,17 @@
   /* width: 335px; */
   height: auto;
 
-  color: #efede8;
+  font-family: Roboto-400;
+  color: var(--white-color);
   font-size: 14px;
   line-height: 1.29;
 
-  background-color: #040404;
+  background-color: var(--black-color);
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
 
   &::placeholder {
-    color: #efede8;
+    color: var(--white-color);
     font-size: 14px;
     opacity: 1;
     line-height: 1.29;
@@ -87,7 +88,7 @@
 
   &:hover,
   &:focus {
-    border: 1px solid #e6533c;
+    border: 1px solid var(--orange-main-color);
   }
 
   @media screen and (min-width: 375px) {
@@ -100,6 +101,7 @@
     margin-right: 16;
 
     width: 236px;
+    font-family: Roboto-400;
     font-size: 16px;
 
     &::placeholder {
@@ -125,7 +127,7 @@
   top: 14px;
   right: 48px;
 
-  color: #e6533c;
+  color: var(--orange-main-color);
   background-color: transparent;
 
   cursor: pointer;

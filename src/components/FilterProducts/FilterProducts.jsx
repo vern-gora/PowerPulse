@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import style from './FilterProducts.module.css';
 import sprite from '../../images/svg/sprite.svg';
-// import productsSelectors from 'redux/products/selectors';
 import { filterProducts, clearFilter } from 'redux/products/productsSlice';
-// import productsOperations from 'redux/products/operations';
+import productsOperations from 'redux/products/operations';
 
-const FilterProducts = () => {
+const FilterProducts = ({ categoryFilter }) => {
   const [isFilterEmpty, setIsFilterEmpty] = useState(true);
 
   const dispatch = useDispatch();
-  // const filter = useSelector(productsSelectors.getFilter);
+
+  useEffect(() => {
+    const handleSubmit = e => {
+      if (e.code === 'Enter') {
+        dispatch(filterProducts(e.target.value));
+      }
+    };
+
+    window.addEventListener('keydown', handleSubmit);
+
+    return () => window.removeEventListener('keydown', handleSubmit);
+  }, [dispatch]);
 
   const onFilterChange = e => {
     if (e.currentTarget.value === '') {
@@ -22,11 +32,6 @@ const FilterProducts = () => {
 
   const onFocusChange = e => {
     dispatch(filterProducts(e.currentTarget.value));
-
-    // const searchParam = {
-    //   category: `${filter}`,
-    // };
-    // dispatch(productsOperations.getFilteredProducts(searchParam));
   };
 
   const handleFilter = e => {
@@ -34,6 +39,15 @@ const FilterProducts = () => {
 
     setIsFilterEmpty(true);
     dispatch(clearFilter());
+
+    if (categoryFilter) {
+      const searchParams = {
+        category: categoryFilter,
+      };
+      dispatch(productsOperations.getFilteredProducts(searchParams));
+      return;
+    }
+    dispatch(productsOperations.fetchProducts());
   };
 
   return (

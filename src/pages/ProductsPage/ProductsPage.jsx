@@ -13,21 +13,44 @@ import productsSelectors from 'redux/products/selectors';
 import { getUserParams } from 'redux/auth/operations';
 
 const ProductsPage = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [showModal, setShowModal] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState('');
   const [filterByRecommended, setFilterByRecommended] = useState(false);
   const [filterByBloodType, setFilterByBloodType] = useState(false);
 
   const dispatch = useDispatch();
-  const products = useSelector(productsSelectors.getProducts);
+  const isLoading = useSelector(productsSelectors.getIsLoading);
+  const filter = useSelector(productsSelectors.getFilter);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(getUserParams());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(productsOperations.fetchProducts());
-  }, [dispatch]);
+    const searchParams = {
+      search: filter,
+      category: categoryFilter,
+    };
+
+    if (Object.values(searchParams).join('') === '') {
+      dispatch(productsOperations.fetchProducts());
+      return;
+    }
+    dispatch(productsOperations.getFilteredProducts(searchParams));
+  }, [dispatch, filter, categoryFilter]);
 
   useEffect(() => {
     dispatch(productsOperations.fetchProductsCategories());
@@ -56,8 +79,6 @@ const ProductsPage = () => {
 
   const onTypeSelect = type => {
     switch (type) {
-      // case 'all':
-      //   break;
       case 'recommended':
         setFilterByRecommended(true);
         setFilterByBloodType(true);
@@ -74,11 +95,11 @@ const ProductsPage = () => {
 
   return (
     <div className={style.prodContainer}>
-      <p className={style.filtersTitle}>Filters</p>
+      {windowWidth >= 1440 && <p className={style.filtersTitle}>Filters</p>}
       <div className={style.desktopCntrlWrap}>
         <TitlePage style={style.productsTitle} title="Products" />
         <div className={style.filtersCtrls}>
-          <FilterProducts />
+          <FilterProducts categoryFilter={categoryFilter} />
           <div className={style.dropDownContainer}>
             <DropDownSelectors
               onCategoryFilterSelect={onCategoryFilterSelect}
@@ -88,18 +109,21 @@ const ProductsPage = () => {
         </div>
       </div>
 
-      {products.length !== 0 ? (
-        // <CustomScrollbar>
-        <ul className={style.cardsWrapper}>
+      {!isLoading ? (
+        <ul
+          className={
+            categoryFilter.length === 0
+              ? style.cardsWrapper
+              : style.cardsWrapperFiltered
+          }
+        >
           <ProductsItem
             onOpenModal={onOpenModal}
-            categoryFilter={categoryFilter}
             filterByRecommended={filterByRecommended}
             filterByBloodType={filterByBloodType}
           />
         </ul>
       ) : (
-        // </CustomScrollbar>
         <Rings
           height="100"
           width="100"

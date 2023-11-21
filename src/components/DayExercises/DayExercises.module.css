@@ -63,7 +63,7 @@
 
 
   .trashIcon{
-
+    fill: none;
     stroke: #EF8964;
   }
 
@@ -153,6 +153,7 @@
 
   }
   .btnAddExersisec {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -168,6 +169,7 @@
     padding: 0px;
   }
   .DayExercises .tdDelete button {
+    cursor: pointer;
     border: none;
     background-color: transparent;
   }

@@ -40,9 +40,10 @@ export const productsSlice = createSlice({
         state.productList = action.payload;
       })
       .addCase(productsOperations.fetchProducts.rejected, handleRejected)
-      .addCase(productsOperations.fetchProductsCategories.pending, state => {
-        state.isLoading = true;
-      })
+      .addCase(
+        productsOperations.fetchProductsCategories.pending,
+        state => state
+      )
       .addCase(
         productsOperations.fetchProductsCategories.fulfilled,
         (state, action) => {
@@ -55,11 +56,9 @@ export const productsSlice = createSlice({
         productsOperations.fetchProductsCategories.rejected,
         handleRejected
       )
-      .addCase(productsOperations.getProductById.pending, state => {
-        state.isLoading = true;
-      })
+      .addCase(productsOperations.getProductById.pending, state => state)
       .addCase(productsOperations.getProductById.fulfilled, (state, action) => {
-        state.isLoading = true;
+        state.isLoading = false;
         state.error = null;
         state.currentProduct = action.payload;
       })
@@ -73,10 +72,20 @@ export const productsSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = null;
-          state.filteredProducts = action.payload;
+          // state.productList = action.payload.data;
+          action.payload.data
+            ? (state.productList = action.payload.data)
+            : (state.productList = []);
         }
       )
-      .addCase(productsOperations.getFilteredProducts.rejected, handleRejected);
+      .addCase(
+        productsOperations.getFilteredProducts.rejected,
+        (state, action) => {
+          state.productList = [];
+          state.isLoading = false;
+          state.error = action.payload;
+        }
+      );
   },
 });
 
