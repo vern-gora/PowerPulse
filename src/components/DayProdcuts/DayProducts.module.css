@@ -121,6 +121,7 @@
   width: 20px;
   height: 20px;
   stroke: #EF8964; 
+  fill: none;
 }
 .errorMessage{
   position: relative;
