@@ -174,7 +174,7 @@ svg {
 @media (min-width: 768px) {
   .exercises-item-box {
     overflow-y: auto; 
-    max-height: 100vh; 
+    max-height: 100vh;
     
     &::-webkit-scrollbar {
       width: 8px;
@@ -192,3 +192,19 @@ svg {
     }
   }
 }
+
+
+@media screen and (min-width: 1440px) {
+  .exercises-photo{
+   background-image: url(../../images/desktop_images/exercises-desktop.png);
+   background-repeat: no-repeat;
+   background-position: right top;
+   background-size: auto auto;
+  }
+  .exercises-item-box{
+    max-width: 950px;
+    margin-right: 100px;
+    padding-left:200px;
+    max-height: 640px;
+  }
+ }

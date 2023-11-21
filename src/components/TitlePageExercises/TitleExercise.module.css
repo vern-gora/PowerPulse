@@ -5,12 +5,12 @@
     font-style: normal;
     font-weight: 700;
     line-height: 28px; /* 116.667% */
-    margin-top: 100px;
+    margin-top: 76px;
     margin-left: 20px;
     text-transform: capitalize;
   }
 
-  .container {
+  .containerTitle{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -20,11 +20,15 @@
 
   /* При ширине экрана от 768px выравниваем элементы по горизонтали */
   @media (min-width: 768px) {
-    .container {
-      justify-content: space-between;
-      margin: 0 32px;
-    }
     .title{
-        margin-left: 0;
+        margin-left: 10%;
+        
     }
+}
+
+@media (min-width: 1440px) {
+  .title{
+      margin-left: 10%;
+      
+  }
 }

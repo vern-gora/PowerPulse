@@ -32,7 +32,7 @@ export const fetchleBodyPartExercise = createAsyncThunk(
 
       setAuthHeader(storedToken);
       const response = await axios.get(`/exercises/bodyParts/${name}`);
-      console.log('🚀 ~ file: operations.js:36 ~ response:', response);
+     
       return response.data;
     } catch (e) {
       toast.error('Some error occured. Please try again later');
