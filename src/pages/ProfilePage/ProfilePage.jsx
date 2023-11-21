@@ -15,7 +15,7 @@ const ProfilePage = () => {
     <div className={css.container}>
       <h2 className={css.title}>Profile Settings</h2>
       <div className={css.wrapper_content}>
-        <div>
+        <div className={css.wrapper_data}>
           <UserCard />
           <div className={css.wrapper}>
             <Daily
@@ -31,8 +31,10 @@ const ProfilePage = () => {
               value={Math.round(user.bmr) || 0}
             />
           </div>
-          <ExclamationMark />
-          <LogoutBtn />
+          <div className={css.wrapper_data}>
+            <ExclamationMark />
+            <LogoutBtn />
+          </div>
         </div>
         <div className={css.wrapper_form}>
           <UserForm />

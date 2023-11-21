@@ -23,6 +23,10 @@
     line-height: 44px;
     margin-top: 72px;
   }
+  .wrapper_data {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
