@@ -16,6 +16,7 @@
   top: -250px;
   margin-left: 10px;
   z-index: 1;
+  cursor: pointer;
 }
 .icon-back-arrow{
   align-items: center;
