@@ -18,6 +18,7 @@ function Header() {
 
   const toggleMenu = () => {
     setShowBurgerMenu(prevState => !prevState);
+    document.body.classList.toggle('no-scroll')
   };
 
   useEffect(() => {

@@ -71,6 +71,11 @@ html {
   overflow: hidden;
 }
 
+.no-scroll {
+  /* overflow: hidden; */
+  position: fixed;
+}
+
 .modal-backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
