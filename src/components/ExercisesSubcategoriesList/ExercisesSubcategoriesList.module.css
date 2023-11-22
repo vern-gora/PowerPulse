@@ -51,7 +51,16 @@
   height: 14px;
   border-radius: 50%;
   border: 1px solid rgba(230, 83, 60, 1);
-  background-color: rgba(230, 83, 60, 1)
+  background-color: rgba(239, 237, 232, 0.1)
+}
+
+.paginationIcon {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(230, 83, 60, 1);
+  border-radius: 50%;
+  position: relative;
+  right: 4px
 }
 
 @media (min-width: 768px) {

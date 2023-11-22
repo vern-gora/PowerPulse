@@ -130,7 +130,7 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
               onClick={() => changePage({ selected: index })}
               className={pageNumber === index ? style.activeButton : style.paginationButton}
             >
-              {index + 1}
+              {pageNumber === index && <p className={style.paginationIcon}></p>}
             </button>
           ))}
         </div>
