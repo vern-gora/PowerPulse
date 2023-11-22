@@ -62,7 +62,6 @@ svg {
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
-  margin-top: 33px;
 }
 
 .cardRunningIcon {
@@ -175,9 +174,9 @@ svg {
 
 @media (min-width: 768px) {
   .exercises-item-box {
-    overflow-y: auto; 
+    overflow-y: auto;
     max-height: 100vh;
-    
+
     &::-webkit-scrollbar {
       width: 8px;
       height: 153px;
