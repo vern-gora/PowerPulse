@@ -14,8 +14,9 @@
   align-items: center;
   gap: 8px;
   top: -250px;
-  margin-left: 10px;
   z-index: 1;
+  cursor: pointer;
+  padding: 0;
 }
 .icon-back-arrow{
   align-items: center;
