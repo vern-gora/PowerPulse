@@ -81,12 +81,7 @@ body {
 .img {
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
-  background: linear-gradient(
-      0deg,
-      rgba(4, 4, 4, 0.5) 0%,
-      rgba(4, 4, 4, 0.5) 100%
-    ),
-    lightgray -2px -151.969px / 101.493% 247.543% no-repeat;
+  background: linear-gradient(0deg, rgba(4, 4, 4, 0.50) 0%, rgba(4, 4, 4, 0.50) 100%), lightgray 50% / cover no-repeat;
   width: 100%;
   max-width: 335px;
   height: auto;
@@ -198,6 +193,7 @@ h2 {
     lightgray -2px -151.969px / 101.493% 247.543% no-repeat;
   width: 224px;
   height: 206px;
+  opacity: 0.5;
 }
 
 @media (min-width: 1440px) {
