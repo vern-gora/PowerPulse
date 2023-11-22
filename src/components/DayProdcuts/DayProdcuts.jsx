@@ -1,12 +1,9 @@
 import css from './DayProducts.module.css';
 import { Link } from 'react-router-dom';
 import { DayProductItem } from './DayProductItem';
-//import { useDispatch } from 'react-redux';
 import { selectIsLoadingProducts, selectError } from 'redux/diary/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-//import { useEffect, useState } from 'react';
 import { Rings } from 'react-loader-spinner';
-//import { fetchFoodAndExercises } from 'redux/diary/operations';
 import svg from '../../images/svg/sprite.svg';
 
 export const DayProducts = ({ productsData }) => {
@@ -15,14 +12,14 @@ export const DayProducts = ({ productsData }) => {
   return (
     <div className={css.productsContainer}>
       <div className={css.productsTopBar}>
-            <p className={css.productsTitle}>Products</p>
-            <Link to="/products" className={css.Link}>
-              Add product
-              <svg width="16px" height="16px">
-                <use href={svg + '#icon-arrow-right'}></use>
-              </svg>
-            </Link>
-          </div>
+        <p className={css.productsTitle}>Products</p>
+        <Link to="/products" className={css.Link}>
+          Add product
+          <svg width="16px" height="16px">
+            <use href={svg + '#icon-arrow-right'}></use>
+          </svg>
+        </Link>
+      </div>
       {isLoading ? (
         <Rings
           height="100"
@@ -45,28 +42,26 @@ export const DayProducts = ({ productsData }) => {
       ) : (
         <>
           {(!productsData || productsData.length === 0 || error) && (
-              <p className={css.noProductsText}>Not found products</p>
-            )}
+            <p className={css.noProductsText}>Not found products</p>
+          )}
 
-          {( productsData.length !== 0) && (
-              <div className={css.productsBottomBar}>
-                <ul className={css.adaptiveTitlesList}>
-                  <li className={css.adaptiveTitle}>Title</li>
-                  <li className={css.adaptiveTitle}>Category</li>
-                  <li className={css.adaptiveTitle}>Calories</li>
-                  <li className={css.adaptiveTitle}>Weight</li>
-                  <li className={css.adaptiveTitle}>Recommend</li>
-                </ul>
-                
-                <ul className={css.productsList}>
-                  {
-                  productsData.map((item, index) => {
-                    return (<DayProductItem data={item} key={index} />);
-                  })
-                  }
-                </ul>
-              </div>
-            )}
+          {productsData.length !== 0 && (
+            <div className={css.productsBottomBar}>
+              <ul className={css.adaptiveTitlesList}>
+                <li className={css.adaptiveTitle}>Title</li>
+                <li className={css.adaptiveTitle}>Category</li>
+                <li className={css.adaptiveTitle}>Calories</li>
+                <li className={css.adaptiveTitle}>Weight</li>
+                <li className={css.adaptiveTitle}>Recommend</li>
+              </ul>
+
+              <ul className={css.productsList}>
+                {productsData.map((item, index) => {
+                  return <DayProductItem data={item} key={index} />;
+                })}
+              </ul>
+            </div>
+          )}
         </>
       )}
     </div>

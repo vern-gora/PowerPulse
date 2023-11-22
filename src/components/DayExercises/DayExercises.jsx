@@ -94,7 +94,6 @@ const DayExercises = ({ doneExercises, date }) => {
           />
         ) : (
           <>
-            {console.log(listOfExercises)}
             {(error || listOfExercises.length === 0) && (
               <div className={styles.DayExercisesTable}>
                 <p className={styles.not_found}>Not found exercises</p>
