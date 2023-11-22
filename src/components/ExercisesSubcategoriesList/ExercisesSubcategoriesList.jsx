@@ -18,6 +18,7 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
   const [exercises, setExercises] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedExercises, setSelectedExercises] = useState(null);
+  const [pageNumber, setPageNumber] = useState(0);
 
   const filters = useSelector(state => state.exercises.filters);
   let selectedExercisesData = useSelector(state => state.exercises.exercises);
@@ -57,22 +58,34 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
     dispatch(setExerciseTitle(name));
     setSelectedExercises(selectedExercisesData);
   };
+
   const handleBack = () => {
     setSelectedExercises(null);
     dispatch(setExerciseTitle('Exercise'));
-    
   };
+
+  const exercisesPerPage = 10;
+  const pagesVisited = pageNumber * exercisesPerPage;
+  const displayExercises = exercises.slice(
+    pagesVisited,
+    pagesVisited + exercisesPerPage
+  );
+
+  const pageCount = Math.ceil(exercises.length / exercisesPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
   return (
     <div style={{ position: 'relative' }}>
       {selectedExercises && (
-    <button className={style.backBtn} type="button" onClick={handleBack}>
-      <svg className={styles['arrow-svg']}>
-        <use href={sprite + '#icon-back-arrow'}></use>
-      </svg>
-     <div className={styles['icon-back-arrow']}>back</div>
-      
-    </button>
-     
+        <button className={style.backBtn} type="button" onClick={handleBack}>
+          <svg className={styles['arrow-svg']}>
+            <use href={sprite + '#icon-back-arrow'}></use>
+          </svg>
+          <div className={styles['icon-back-arrow']}>back</div>
+        </button>
       )}
       {loading ? (
         <div
@@ -83,18 +96,13 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
             height: '100vh',
           }}
         >
-          <Rings
-            height="100"
-            width="100"
-            color="#e6533c"
-            ariaLabel="rings-loading"
-          />
+          <Rings height="100" width="100" color="#e6533c" ariaLabel="rings-loading" />
         </div>
       ) : (
         <div>
           {!selectedExercises ? (
             <div className={styles.phContainer}>
-              {exercises.map(exercise => (
+              {displayExercises.map(exercise => (
                 <ExercisesSubcategoriesItem
                   key={exercise._id}
                   data={exercise}
@@ -107,8 +115,25 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
           )}
         </div>
       )}
+      <div className="pagination">
+        <button
+          onClick={() => changePage({ selected: pageNumber - 1 })}
+          disabled={pageNumber === 0}
+          className={pageNumber === 0 ? 'disabledButton' : 'previousButton'}
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => changePage({ selected: pageNumber + 1 })}
+          disabled={pageNumber === pageCount - 1}
+          className={pageNumber === pageCount - 1 ? 'disabledButton' : 'nextButton'}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
 
 export default ExercisesSubcategoriesList;
+
