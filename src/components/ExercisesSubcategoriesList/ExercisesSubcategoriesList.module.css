@@ -38,7 +38,7 @@
   gap: 8px;
 }
 
-.disabledButton {
+.paginationButton {
   border: unset;
   width: 14px;
   height: 14px;
@@ -46,7 +46,7 @@
   border-radius: 50%;
 }
 
-.nextButton {
+.activeButton {
   width: 14px;
   height: 14px;
   border-radius: 50%;

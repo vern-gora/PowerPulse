@@ -121,22 +121,21 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
           )}
         </div>
       )}
+      {pageCount > 1 && ( 
       <div className={style.pagination}>
         <div className={style.pagination_bar}>
-          <button
-            onClick={() => changePage({ selected: pageNumber - 1 })}
-            disabled={pageNumber === 0}
-            className={pageNumber === 0 ? style.disabledButton : style.nextButton}
-          >
-          </button>
-          <button
-            onClick={() => changePage({ selected: pageNumber + 1 })}
-            disabled={pageNumber === pageCount - 1}
-            className={pageNumber === pageCount - 1 ? style.disabledButton : style.nextButton}
-          >
-          </button>
+          {[...Array(pageCount)].map((_, index) => (
+            <button
+              key={index}
+              onClick={() => changePage({ selected: index })}
+              className={pageNumber === index ? style.activeButton : style.paginationButton}
+            >
+              {index + 1}
+            </button>
+          ))}
         </div>
       </div>
+    )}
    </div>
    );
  };
