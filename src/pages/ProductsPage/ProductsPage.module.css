@@ -1,3 +1,29 @@
+.prodContainer {
+  padding: 40px 20px;
+  height: 100vh;
+
+  font-size: 14px;
+  color: var(--white-color);
+  background-color: var(--black-color);
+
+  @media screen and (min-width: 768px) {
+    padding: 48px 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 68px 96px;
+
+    background-image: url(../../images/desktop_images/products-desktop.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: contain;
+
+    @media (min-resolution: 192dpi) {
+      background-image: url(../../images/desktop_images/products-desktop@2x.png);
+    }
+  }
+}
+
 .dropDownContainer {
   position: relative;
   display: flex;
@@ -32,7 +58,7 @@
   /* width: 118px; */
   height: auto;
 
-  color: #efede8;
+  color: var(--white-color);
   font-size: 14px;
   line-height: 1.29;
   font-weight: 400;
@@ -40,7 +66,7 @@
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
 
-  background-color: #040404;
+  background-color: var(--black-color);
 
   @media screen and (min-width: 375px) {
     width: 146px;
@@ -49,29 +75,6 @@
   @media screen and (min-width: 1440px) {
     width: 204px;
     font-size: 16px;
-  }
-}
-
-.prodContainer {
-  padding: 40px 20px;
-  font-size: 14px;
-  color: #efede8;
-  background-color: #040404;
-
-  @media screen and (min-width: 768px) {
-    padding: 48px 32px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding: 68px 96px;
-
-    /* background: linear-gradient(89deg, #040404 1.1%, rgba(4, 4, 4, 0) 70.79%),
-      url(../../images/desktop_images/products-desktop.png),
-      lightgray -372.891px -2.705px / 133.568% 100.375% no-repeat; */
-    background-image: url(../../images/desktop_images/products-desktop.png);
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: auto auto;
   }
 }
 
@@ -89,41 +92,72 @@
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    /* width: 704px; */
     width: 645px;
     height: auto;
     max-height: 100vh;
-
-    overflow-y: scroll;
+    overflow: auto;
+    /* overflow-y: scroll; */
   }
 
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-wrap: wrap;
-    /* width: 850px; */
     width: 785px;
     gap: 16px;
     height: 487px;
-
-    overflow-y: scroll;
+    max-height: 100vh;
+    /* overflow-y: scroll; */
+    overflow: auto;
   }
 
   /* SCROLLBAR */
-  /* width */
   &::-webkit-scrollbar {
     width: 8px;
     height: 153px;
   }
-
-  /* Track */
   &::-webkit-scrollbar-track {
     border-radius: 12px;
     background: rgba(239, 237, 232, 0.1);
   }
-
-  /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: #ef8964;
+    background: var(--orange-secondary-color);
+    border-radius: 12px;
+  }
+}
+
+.cardsWrapperFiltered {
+  gap: 16px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 645px;
+    height: auto;
+    max-height: 100vh;
+    overflow: auto;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 785px;
+    gap: 16px;
+    height: auto;
+    max-height: 100vh;
+    overflow: auto;
+  }
+
+  /* SCROLLBAR */
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 153px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 12px;
+    background: rgba(239, 237, 232, 0.1);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--orange-secondary-color);
     border-radius: 12px;
   }
 }
@@ -136,14 +170,15 @@
   padding: 14px;
   height: auto;
 
-  color: #efede8;
+  font-family: Roboto-400;
+  color: var(--white-color);
   font-size: 14px;
   line-height: 1.29;
   font-weight: 400;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
 
-  background-color: #040404;
+  background-color: var(--black-color);
 
   @media screen and (min-width: 375px) {
     width: 146px;
@@ -157,13 +192,10 @@
 }
 
 .filtersTitle {
-  @media screen and (max-width: 1439px) {
-    display: none;
-  }
-
   @media screen and (min-width: 1440px) {
     margin-bottom: 8px;
     margin-right: 2px;
+    font-family: Roboto-400;
     color: rgba(239, 237, 232, 0.5);
     font-size: 14px;
     text-align: right;

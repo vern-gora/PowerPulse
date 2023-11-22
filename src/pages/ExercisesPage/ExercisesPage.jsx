@@ -5,7 +5,7 @@ import ExercisesCategories from 'components/ExercisesCategories/ExercisesCategor
 
 const ExercisesPage = () => {
   return (
-    <div className='container'>
+    <div className='exercise-container'>
       <TitleExercise />
       <ExercisesCategories/>
     </div>

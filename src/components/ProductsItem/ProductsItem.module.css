@@ -51,13 +51,14 @@
   padding: 0;
 
   position: relative;
+  font-family: Roboto-400;
   font-size: 14px;
   align-items: center;
 
   width: 49px;
   height: 18px;
 
-  color: #e6533c;
+  color: var(--orange-main-color);
   text-align: left;
   line-height: 1.29;
 
@@ -96,12 +97,12 @@
   width: 14px;
   height: 14px;
 
-  background-color: #e9101d;
+  background-color: var(--variant-error-color);
   border-radius: 10px;
 }
 
 .recommendText {
-  color: #419b09;
+  color: EFEDE8;
 }
 
 .singleCardTitle {
@@ -110,6 +111,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 
+  font-family: Roboto-400;
   font-size: 20px;
   line-height: 1.2;
   font-weight: 400;
@@ -135,6 +137,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 
+  font-family: Roboto-400;
   font-size: 12px;
   line-height: 1.5;
 
@@ -162,8 +165,9 @@
 }
 
 .highlightedText {
+  font-family: Roboto-400;
   font-size: 14px;
-  color: #e6533c;
+  color: var(--orange-main-color);
   line-height: 1.29;
 
   @media screen and (min-width: 768px) {
@@ -174,6 +178,7 @@
 
 .notFoundText {
   margin-bottom: 16px;
+  font-family: Roboto-400;
   font-size: 14px;
   color: rgba(239, 237, 232, 0.3);
   line-height: 1.29;
@@ -195,5 +200,9 @@
     &:not(:nth-last-child(-n + 2)) {
       margin-bottom: 16px;
     }
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 149px;
   }
 }

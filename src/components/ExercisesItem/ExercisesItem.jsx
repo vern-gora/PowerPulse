@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from '../ExercisesItem/ExercissesItem.module.css';
 import sprite from '../../images/svg/sprite.svg';
 import ExerciseModal from 'components/ExercisesTable/ExercisesTable';
-// import handleBack from '../../components/ExercisesSubcategoriesList/ExercisesSubcategoriesList'
+
 const ExercisesItem = ({ selectedExercises }) => {
   const [showModal, setShowModal] = useState(false);
   const [exData, setExData] = useState(null);
@@ -15,7 +15,8 @@ const ExercisesItem = ({ selectedExercises }) => {
     setShowModal(false);
   };
   return (
-    <div className={styles['exercises-item-box']}>
+    <div className={styles['exercises-photo']}>
+ <div className={styles['exercises-item-box']}>
       {selectedExercises.map(exercise => (
         <div key={exercise._id} className={styles['exercises-item']}>
           <div className={styles['exercise-top']}>
@@ -65,6 +66,8 @@ const ExercisesItem = ({ selectedExercises }) => {
         <ExerciseModal dataEx={exData} closeFunc={handleCloseModal} />
       )}
     </div>
+    </div>
+   
   );
 };
 

@@ -57,6 +57,6 @@ export default AddProductSuccess;
 
 AddProductSuccess.propTypes = {
   onCloseModal: PropTypes.func.isRequired,
-  consumedCalories: PropTypes.func.isRequired,
+  consumedCalories: PropTypes.number.isRequired,
   handleBackdropClick: PropTypes.func.isRequired,
 };
