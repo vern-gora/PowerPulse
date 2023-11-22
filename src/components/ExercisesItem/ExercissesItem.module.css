@@ -138,12 +138,14 @@ svg {
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
+  cursor: pointer;
 }
 
 .arrow-svg {
   width: 24px;
   height: 24px;
   fill: #e6533c;
+  cursor: pointer;
 }
 
 .workout-container {
