@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PowerPulse/static/css/main.cc55ec10.css",
-    "main.js": "/PowerPulse/static/js/main.5ea8c720.js",
+    "main.css": "/PowerPulse/static/css/main.fdc4410d.css",
+    "main.js": "/PowerPulse/static/js/main.9067045a.js",
     "static/css/760.9cb7ad94.chunk.css": "/PowerPulse/static/css/760.9cb7ad94.chunk.css",
     "static/js/760.55a23813.chunk.js": "/PowerPulse/static/js/760.55a23813.chunk.js",
     "static/css/546.5d53bb49.chunk.css": "/PowerPulse/static/css/546.5d53bb49.chunk.css",
@@ -9,13 +9,13 @@
     "static/css/623.d43b8237.chunk.css": "/PowerPulse/static/css/623.d43b8237.chunk.css",
     "static/js/623.ac6ca510.chunk.js": "/PowerPulse/static/js/623.ac6ca510.chunk.js",
     "static/css/508.198eac74.chunk.css": "/PowerPulse/static/css/508.198eac74.chunk.css",
-    "static/js/508.3bbe14df.chunk.js": "/PowerPulse/static/js/508.3bbe14df.chunk.js",
+    "static/js/508.476d9f33.chunk.js": "/PowerPulse/static/js/508.476d9f33.chunk.js",
     "static/css/147.04d0e9ff.chunk.css": "/PowerPulse/static/css/147.04d0e9ff.chunk.css",
     "static/js/147.207a5f00.chunk.js": "/PowerPulse/static/js/147.207a5f00.chunk.js",
     "static/css/667.99e5fce7.chunk.css": "/PowerPulse/static/css/667.99e5fce7.chunk.css",
     "static/js/667.edf4ec58.chunk.js": "/PowerPulse/static/js/667.edf4ec58.chunk.js",
-    "static/css/436.a5907cab.chunk.css": "/PowerPulse/static/css/436.a5907cab.chunk.css",
-    "static/js/436.f34eb132.chunk.js": "/PowerPulse/static/js/436.f34eb132.chunk.js",
+    "static/css/436.31a66a0e.chunk.css": "/PowerPulse/static/css/436.31a66a0e.chunk.css",
+    "static/js/436.285ab436.chunk.js": "/PowerPulse/static/js/436.285ab436.chunk.js",
     "static/css/190.58ec8d7e.chunk.css": "/PowerPulse/static/css/190.58ec8d7e.chunk.css",
     "static/js/190.96ea71dc.chunk.js": "/PowerPulse/static/js/190.96ea71dc.chunk.js",
     "static/js/705.cf26fac2.chunk.js": "/PowerPulse/static/js/705.cf26fac2.chunk.js",
@@ -41,8 +41,8 @@
     "static/media/symbol-exer.svg": "/PowerPulse/static/media/symbol-exer.6f3484e1d5e9ad1c396894d5c2ce2b57.svg",
     "index.html": "/PowerPulse/index.html",
     "static/media/Line.svg": "/PowerPulse/static/media/Line.56c98a07893009bfdfbb2f9613a038d4.svg",
-    "main.cc55ec10.css.map": "/PowerPulse/static/css/main.cc55ec10.css.map",
-    "main.5ea8c720.js.map": "/PowerPulse/static/js/main.5ea8c720.js.map",
+    "main.fdc4410d.css.map": "/PowerPulse/static/css/main.fdc4410d.css.map",
+    "main.9067045a.js.map": "/PowerPulse/static/js/main.9067045a.js.map",
     "760.9cb7ad94.chunk.css.map": "/PowerPulse/static/css/760.9cb7ad94.chunk.css.map",
     "760.55a23813.chunk.js.map": "/PowerPulse/static/js/760.55a23813.chunk.js.map",
     "546.5d53bb49.chunk.css.map": "/PowerPulse/static/css/546.5d53bb49.chunk.css.map",
@@ -50,13 +50,13 @@
     "623.d43b8237.chunk.css.map": "/PowerPulse/static/css/623.d43b8237.chunk.css.map",
     "623.ac6ca510.chunk.js.map": "/PowerPulse/static/js/623.ac6ca510.chunk.js.map",
     "508.198eac74.chunk.css.map": "/PowerPulse/static/css/508.198eac74.chunk.css.map",
-    "508.3bbe14df.chunk.js.map": "/PowerPulse/static/js/508.3bbe14df.chunk.js.map",
+    "508.476d9f33.chunk.js.map": "/PowerPulse/static/js/508.476d9f33.chunk.js.map",
     "147.04d0e9ff.chunk.css.map": "/PowerPulse/static/css/147.04d0e9ff.chunk.css.map",
     "147.207a5f00.chunk.js.map": "/PowerPulse/static/js/147.207a5f00.chunk.js.map",
     "667.99e5fce7.chunk.css.map": "/PowerPulse/static/css/667.99e5fce7.chunk.css.map",
     "667.edf4ec58.chunk.js.map": "/PowerPulse/static/js/667.edf4ec58.chunk.js.map",
-    "436.a5907cab.chunk.css.map": "/PowerPulse/static/css/436.a5907cab.chunk.css.map",
-    "436.f34eb132.chunk.js.map": "/PowerPulse/static/js/436.f34eb132.chunk.js.map",
+    "436.31a66a0e.chunk.css.map": "/PowerPulse/static/css/436.31a66a0e.chunk.css.map",
+    "436.285ab436.chunk.js.map": "/PowerPulse/static/js/436.285ab436.chunk.js.map",
     "190.58ec8d7e.chunk.css.map": "/PowerPulse/static/css/190.58ec8d7e.chunk.css.map",
     "190.96ea71dc.chunk.js.map": "/PowerPulse/static/js/190.96ea71dc.chunk.js.map",
     "705.cf26fac2.chunk.js.map": "/PowerPulse/static/js/705.cf26fac2.chunk.js.map",
@@ -65,7 +65,7 @@
     "44.443c45e5.chunk.js.map": "/PowerPulse/static/js/44.443c45e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cc55ec10.css",
-    "static/js/main.5ea8c720.js"
+    "static/css/main.fdc4410d.css",
+    "static/js/main.9067045a.js"
   ]
 }
