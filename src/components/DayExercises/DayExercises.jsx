@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './DayExercises.module.css';
 import symbolDefs from '../../images/svg/symbol-exer.svg';
-import { deleteExercise } from 'redux/diary/operations';
 import { updateExerciseList } from 'redux/diary/diarySlice';
 import { Link } from 'react-router-dom';
+import { deleteExercise } from 'redux/diary/operations';
 import { useDispatch } from 'react-redux';
 import { Rings } from 'react-loader-spinner';
 import { selectIsLoadingExercises, selectError } from 'redux/diary/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 const DayExercises = ({ doneExercises, date }) => {
   const dispatch = useDispatch();
+
   const handleDelete = id => {
     dispatch(deleteExercise(id));
     dispatch(updateExerciseList(id));
@@ -29,7 +30,7 @@ const DayExercises = ({ doneExercises, date }) => {
     );
   };
 
-  const listOfExercises = doneExercises.map(obj => {
+  const listOfExercises = doneExercises.map((obj, index) => {
     const num = obj._id;
 
     return (
@@ -93,13 +94,12 @@ const DayExercises = ({ doneExercises, date }) => {
           />
         ) : (
           <>
-          {console.log(listOfExercises)}
             {(error || listOfExercises.length === 0) && (
-                <div className={styles.DayExercisesTable}>
-                  <p className={styles.not_found}>Not found exercises</p>
-                </div>
+              <div className={styles.DayExercisesTable}>
+                <p className={styles.not_found}>Not found exercises</p>
+              </div>
             )}
-            {( listOfExercises.length !== 0) && (
+            {listOfExercises.length !== 0 && (
               <div className={styles.DayExercisesTable}>
                 <table>
                   <thead>

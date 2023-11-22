@@ -85,11 +85,6 @@ function ExerciseModal({ dataEx, closeFunc }) {
         calories: burned,
       })
     );
-    console.log({
-      exerciseId: data._id,
-      time: Math.round(burned / cofPerS),
-      calories: burned,
-    });
     setFinished(true);
   };
 

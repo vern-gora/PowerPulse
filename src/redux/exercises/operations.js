@@ -32,7 +32,6 @@ export const fetchleBodyPartExercise = createAsyncThunk(
 
       setAuthHeader(storedToken);
       const response = await axios.get(`/exercises/bodyParts/${name}`);
-     
       return response.data;
     } catch (e) {
       toast.error('Some error occured. Please try again later');
@@ -66,7 +65,6 @@ export const fetchleEquipmentExercise = createAsyncThunk(
 
       setAuthHeader(storedToken);
       const response = await axios.get(`/exercises/equipment/${name}`);
-      console.log('🚀 ~ file: operations.js:36 ~ response:', response);
       return response.data;
     } catch (e) {
       toast.error('Some error occured. Please try again later');

@@ -106,6 +106,8 @@
   background-color: #e6533c;
   border: none;
   border-radius: 6px;
+  transition: all 250ms linear;
+  cursor: pointer;
 }
 .play,
 .pause {
@@ -130,6 +132,8 @@
   border-radius: 12px;
   color: white;
   background: var(--orange, #e6533c);
+  transition: all 250ms linear;
+  cursor: pointer;
 }
 .time {
   color: rgba(239, 237, 232, 0.4);
@@ -151,6 +155,17 @@
   right: 16px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  transition: all 250ms linear;
+}
+.close:hover {
+  transform: scale(1.2);
+}
+.btn:hover,
+.addExercise:hover,
+.btnDone:hover {
+  transform: scale(1.1);
+  background: var(--orange-1, #ef8964);
 }
 .closeIcon {
   width: 24px;
@@ -215,6 +230,8 @@
   border-radius: 12px;
   background: #e6533c;
   color: white;
+  cursor: pointer;
+  transition: all 250ms linear;
 }
 .link {
   display: flex;

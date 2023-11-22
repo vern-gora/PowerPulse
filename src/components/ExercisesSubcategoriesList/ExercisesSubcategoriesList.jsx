@@ -60,19 +60,16 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
   const handleBack = () => {
     setSelectedExercises(null);
     dispatch(setExerciseTitle('Exercise'));
-    
   };
   return (
     <div style={{ position: 'relative' }}>
       {selectedExercises && (
-    <button className={style.backBtn} type="button" onClick={handleBack}>
-      <svg className={styles['arrow-svg']}>
-        <use href={sprite + '#icon-back-arrow'}></use>
-      </svg>
-     <div className={styles['icon-back-arrow']}>back</div>
-      
-    </button>
-     
+        <button className={style.backBtn} type="button" onClick={handleBack}>
+          <svg className={styles['arrow-svg']}>
+            <use href={sprite + '#icon-back-arrow'}></use>
+          </svg>
+          <div className={styles['icon-back-arrow']}>back</div>
+        </button>
       )}
       {loading ? (
         <div

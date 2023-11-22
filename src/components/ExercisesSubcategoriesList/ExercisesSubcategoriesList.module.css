@@ -17,19 +17,24 @@
   z-index: 1;
   cursor: pointer;
   padding: 0;
+  cursor: pointer;
+  transition: all 250ms linear;
 }
-.icon-back-arrow{
+.backBtn:hover {
+  transform: scale(1.1);
+}
+.icon-back-arrow {
   align-items: center;
 }
 
-.back{
+.back {
   display: flex;
   align-items: center;
 }
 
 @media (min-width: 768px) {
-  .backBtn{
+  .backBtn {
     top: -200px;
     margin-left: 10%;
-  } 
+  }
 }
