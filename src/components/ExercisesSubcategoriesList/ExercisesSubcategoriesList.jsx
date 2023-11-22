@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem.jsx';
 import ExercisesItem from '../ExercisesItem/ExercisesItem.jsx';
 import styles from '../ExercisesCategories/ExercisesCategories.module.css';
@@ -19,11 +19,19 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
   const [loading, setLoading] = useState(true);
   const [selectedExercises, setSelectedExercises] = useState(null);
   const [pageNumber, setPageNumber] = useState(0);
+  const itemsPerPage = useRef(10);
 
   const filters = useSelector(state => state.exercises.filters);
   let selectedExercisesData = useSelector(state => state.exercises.exercises);
 
   useEffect(() => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 768) {
+      itemsPerPage.current = 9;
+    } else if (screenWidth <= 480) {
+      itemsPerPage.current = 10;
+    }
+
     const filteredExercises = filters.filter(
       item => item.filter === subcategory
     );
@@ -37,8 +45,7 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
   }, [subcategory, filters]);
 
   function transformString(inputString) {
-    const transformedString = inputString.toLowerCase();
-    return transformedString;
+    return inputString.toLowerCase();
   }
 
   const handleExerciseSelect = async (subcategory, exercise) => {
@@ -64,14 +71,13 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
     dispatch(setExerciseTitle('Exercise'));
   };
 
-  const exercisesPerPage = 10;
-  const pagesVisited = pageNumber * exercisesPerPage;
+  const pagesVisited = pageNumber * itemsPerPage.current;
   const displayExercises = exercises.slice(
     pagesVisited,
-    pagesVisited + exercisesPerPage
+    pagesVisited + itemsPerPage.current
   );
 
-  const pageCount = Math.ceil(exercises.length / exercisesPerPage);
+  const pageCount = Math.ceil(exercises.length / itemsPerPage.current);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -131,9 +137,8 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
           Next
         </button>
       </div>
-    </div>
-  );
-};
+   </div>
+   );
+ };
 
-export default ExercisesSubcategoriesList;
-
+ export default ExercisesSubcategoriesList;
