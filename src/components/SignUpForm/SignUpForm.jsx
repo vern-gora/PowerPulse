@@ -10,7 +10,7 @@ import { useState } from "react";
 const SignUpForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
-    
+
     const SignupSchema = Yup.object().shape({
         name: Yup.string()
           .min(2)
@@ -26,7 +26,7 @@ const SignUpForm = () => {
           .max(50,'Long password')
           .required('Required'),
       });
-      
+
 
     return(
         <div className={style.wrapper}>
@@ -52,8 +52,9 @@ const SignUpForm = () => {
                                     name='name'
                                     placeholder='Name'
                                     required
+                                    autocomplete = "off"
                                     className={`
-                                    ${style.input} ${errors.name && touched.name ? style.error : ''} 
+                                    ${style.input} ${errors.name && touched.name ? style.error : ''}
                                     ${touched.name && !errors.name ? style.success : ''}`}
                                 />
                             </label>
@@ -63,8 +64,9 @@ const SignUpForm = () => {
                                     name='email'
                                     placeholder='Email'
                                     required
+                                    autocomplete = "off"
                                     className={`
-                                    ${style.input} ${errors.email && touched.email ? style.error : ''} 
+                                    ${style.input} ${errors.email && touched.email ? style.error : ''}
                                     ${touched.email && !errors.email ? style.success : ''}`}
                                 />
                                 {errors.email && touched.email && (
@@ -92,7 +94,7 @@ const SignUpForm = () => {
                                     minLength={7}
                                     required
                                     className={`
-                                    ${style.input} ${errors.password && touched.password ? style.error : ''} 
+                                    ${style.input} ${errors.password && touched.password ? style.error : ''}
                                     ${touched.password && !errors.password ? style.success : ''}`}
                                 />
                                 {errors.password && touched.password && (
