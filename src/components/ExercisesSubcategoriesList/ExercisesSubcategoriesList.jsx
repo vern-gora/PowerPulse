@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem.jsx';
 import ExercisesItem from '../ExercisesItem/ExercisesItem.jsx';
 import styles from '../ExercisesCategories/ExercisesCategories.module.css';
@@ -18,11 +18,20 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
   const [exercises, setExercises] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedExercises, setSelectedExercises] = useState(null);
+  const [pageNumber, setPageNumber] = useState(0);
+  const itemsPerPage = useRef(10);
 
   const filters = useSelector(state => state.exercises.filters);
   let selectedExercisesData = useSelector(state => state.exercises.exercises);
 
   useEffect(() => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 768) {
+      itemsPerPage.current = 9;
+    } else if (screenWidth <= 480) {
+      itemsPerPage.current = 10;
+    }
+
     const filteredExercises = filters.filter(
       item => item.filter === subcategory
     );
@@ -36,8 +45,7 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
   }, [subcategory, filters]);
 
   function transformString(inputString) {
-    const transformedString = inputString.toLowerCase();
-    return transformedString;
+    return inputString.toLowerCase();
   }
 
   const handleExerciseSelect = async (subcategory, exercise) => {
@@ -57,10 +65,24 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
     dispatch(setExerciseTitle(name));
     setSelectedExercises(selectedExercisesData);
   };
+
   const handleBack = () => {
     setSelectedExercises(null);
     dispatch(setExerciseTitle('Exercise'));
   };
+
+  const pagesVisited = pageNumber * itemsPerPage.current;
+  const displayExercises = exercises.slice(
+    pagesVisited,
+    pagesVisited + itemsPerPage.current
+  );
+
+  const pageCount = Math.ceil(exercises.length / itemsPerPage.current);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
   return (
     <div style={{ position: 'relative' }}>
       {selectedExercises && (
@@ -80,18 +102,13 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
             height: '100vh',
           }}
         >
-          <Rings
-            height="100"
-            width="100"
-            color="#e6533c"
-            ariaLabel="rings-loading"
-          />
+          <Rings height="100" width="100" color="#e6533c" ariaLabel="rings-loading" />
         </div>
       ) : (
         <div>
           {!selectedExercises ? (
             <div className={styles.phContainer}>
-              {exercises.map(exercise => (
+              {displayExercises.map(exercise => (
                 <ExercisesSubcategoriesItem
                   key={exercise._id}
                   data={exercise}
@@ -104,8 +121,23 @@ const ExercisesSubcategoriesList = ({ subcategory }) => {
           )}
         </div>
       )}
-    </div>
-  );
-};
+      {pageCount > 1 && ( 
+      <div className={style.pagination}>
+        <div className={style.pagination_bar}>
+          {[...Array(pageCount)].map((_, index) => (
+            <button
+              key={index}
+              onClick={() => changePage({ selected: index })}
+              className={pageNumber === index ? style.activeButton : style.paginationButton}
+            >
+              {pageNumber === index && <p className={style.paginationIcon}></p>}
+            </button>
+          ))}
+        </div>
+      </div>
+    )}
+   </div>
+   );
+ };
 
-export default ExercisesSubcategoriesList;
+ export default ExercisesSubcategoriesList;
