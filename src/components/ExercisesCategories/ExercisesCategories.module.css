@@ -87,13 +87,14 @@ body {
   max-width: 335px;
   height: auto;
   cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .img:hover{
-  border-radius: 30px;
   border: 2px solid #ef8964;
+
   /* animation: jump 5s ease; */
-  
+
 }
 
 /* @keyframes jump {
@@ -201,7 +202,7 @@ h2 {
     margin-left: 50%;
     margin-right: 50%;
   }
-  
+
   }
 
 
@@ -222,4 +223,3 @@ h2 {
     font-weight: 400;
     line-height: 24px;
   }
- 
