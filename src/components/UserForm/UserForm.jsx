@@ -131,6 +131,7 @@ const UserForm = () => {
                 className={css.input}
                 name="name"
                 type="text"
+                autocomplete = "off"
                 placeholder={user.name}
                 value={formik.values.name}
                 style={{ color: 'rgba(239, 237, 232, 0.60)' }}

@@ -77,7 +77,6 @@ export const addProductToDiary = createAsyncThunk(
 export const addExerciseToDiary = createAsyncThunk(
   'diary/addExerciseToDiary',
   async (data, thunkAPI) => {
-    console.log('🚀 ~ file: operations.js:64 ~ data:', data);
     try {
       const state = thunkAPI.getState();
       const storedToken = state.auth.token;

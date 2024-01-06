@@ -51,7 +51,7 @@ html {
 }
 
 .container {
-  outline: solid 1px red;
+  /* outline: solid 1px red; */
   max-width: 375px;
   margin: 0 auto;
   padding-left: 20px;
@@ -69,6 +69,11 @@ html {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.no-scroll {
+  /* overflow: hidden; */
+  position: fixed;
 }
 
 .modal-backdrop.is-hidden {

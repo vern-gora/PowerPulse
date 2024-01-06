@@ -28,7 +28,7 @@ const SignInForm = () => {
             <div className={style.formContainer}>
                 <h1 className={style.title}>Sign In</h1>
                 <p className={style.titleDescription}>Welcome! Please enter your credentials to login to the platform:</p>
-                <Formik 
+                <Formik
                     initialValues={{
                         email: '',
                         password: '',
@@ -41,13 +41,14 @@ const SignInForm = () => {
                     {({ errors, touched }) => (
                         <Form className={style.form}>
                             <label>
-                                <Field 
-                                type="email" 
-                                required 
-                                placeholder="Email" 
-                                name="email" 
+                                <Field
+                                type="email"
+                                required
+                                placeholder="Email"
+                                name="email"
+                                autocomplete = "off"
                                 className={`
-                                    ${style.input} ${errors.email && touched.email ? style.error : ''} 
+                                    ${style.input} ${errors.email && touched.email ? style.error : ''}
                                     ${touched.email && !errors.email ? style.success : ''}`}
                                 />
                                 {errors.email && touched.email && (
@@ -68,15 +69,16 @@ const SignInForm = () => {
                                 )}
                             </label>
                             <label>
-                                <Field 
+                                <Field
                                 type={showPassword ? 'text' : 'password'}
-                                required 
-                                placeholder="Password" 
-                                name="password" 
-                                minLength={7} 
+                                required
+                                autocomplete = "off"
+                                placeholder="Password"
+                                name="password"
+                                minLength={7}
                                 className={`
-                                    ${style.input} ${errors.password && touched.password ? style.error : ''} 
-                                    ${touched.password && !errors.password ? style.success : ''}`} 
+                                    ${style.input} ${errors.password && touched.password ? style.error : ''}
+                                    ${touched.password && !errors.password ? style.success : ''}`}
                                 />
                                 {errors.password && touched.password && (
                                     <div className={style.messageInput}>

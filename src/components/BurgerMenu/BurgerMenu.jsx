@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import { createPortal } from 'react-dom';
 import css from './BurgerMenu.module.css';
@@ -10,41 +10,60 @@ import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 // const BurgerMenuRoot = document.querySelector('#modal-root');
 
 function BurgerMenu({ toggleMenu }) {
-  // const overlayRef = React.useRef();
+  // // const overlayRef = React.useRef();
 
-  const onKeyDown = useCallback(
-    e => {
-      if (e.code === 'Escape') {
-        toggleMenu();
-      }
-    },
-    [toggleMenu]
-  );
-
-  // const overlayClick = useCallback(
+  // const onKeyDown = useCallback(
   //   e => {
-  //     if (e.target === overlayRef.current) {
+  //     if (e.code === 'Escape') {
   //       toggleMenu();
   //     }
   //   },
   //   [toggleMenu]
   // );
 
-  useEffect(() => {
-    window.addEventListener('keydown', onKeyDown);
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [onKeyDown]);
+  // // const overlayClick = useCallback(
+  // //   e => {
+  // //     if (e.target === overlayRef.current) {
+  // //       toggleMenu();
+  // //     }
+  // //   },
+  // //   [toggleMenu]
+  // // );
 
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      BurgerMenu();
+  // useEffect(() => {
+  //   window.addEventListener('keydown', onKeyDown);
+  //   return () => {
+  //     window.removeEventListener('keydown', onKeyDown);
+  //   };
+  // }, [onKeyDown]);
+
+  // const handleBackdropClick = (e) => {
+  //   if (e.target === e.currentTarget) {
+  //     BurgerMenu();
+  //   }
+  // };
+
+  const hadleBackdropClick = e => {
+    if (e.currentTarget === e.target) {
+      toggleMenu();
     }
   };
 
+  useEffect(() => {
+    const handlePressOnESC = e => {
+      if (e.code === 'Escape') {
+        toggleMenu();
+      }
+    };
+
+    window.addEventListener('keydown', handlePressOnESC);
+    return () => {
+      window.removeEventListener('keydown', handlePressOnESC);
+    };
+  }, [toggleMenu]);
+
   return (
-    <div className={css.backdrop} onClick={handleBackdropClick}>
+    <div className={css.backdrop} onClick={hadleBackdropClick}>
       <div className={css.burgerMenu}>
         <svg className={css.closeIcon} onClick={() => toggleMenu()}>
           <use href={sprite + '#close_icon'}></use>

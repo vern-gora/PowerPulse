@@ -6,7 +6,7 @@ const ExercisesPage = () => {
   const title = useSelector(state => state.exercises.title);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.containerTitle}>
       <h1 className={styles.title}>{title}</h1>
     </div>
   );

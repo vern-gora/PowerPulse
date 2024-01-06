@@ -19,6 +19,7 @@ const initialState = {
   isLoadingProducts: false,
   isLoadingExercise:false,
   error: null,
+  spliceIndex: null,
 };
 
 const diarySlice = createSlice({
@@ -30,6 +31,9 @@ const diarySlice = createSlice({
       state.data.consumedProduct = state.data.consumedProduct.filter(
         item => item._id !== foodIdToDelete
       );
+    },
+    setSplice: (state, action) => {
+      state.spliceIndex = action.payload;
     },
     updateExerciseList: (state, action) => {
       const exerciseIdToDelete = action.payload;
